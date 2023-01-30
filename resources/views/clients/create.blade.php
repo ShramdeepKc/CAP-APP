@@ -39,9 +39,9 @@
         </div>
  
         <label for="app_id"> App used :</label>
- 
+  <select name="app_id" id="app_id">
   @foreach ($app as $apps)
-          <input  name="app_id[]" id="app_id"   type="checkbox" value="{{$apps->id}}">{{$apps->name_en}}</input>
+          <option value="{{$apps->id}}">{{$apps->name_en}}</option>
           @endforeach
   </select>
 

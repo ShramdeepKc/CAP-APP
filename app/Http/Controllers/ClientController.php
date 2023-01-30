@@ -15,7 +15,12 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('clients.index');
+        $client = Client::latest()->paginate(5);
+        $app = App::all();
+        // dd($client);
+        return view('clients.index',compact('client','app'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
+
     }
 
     /**
@@ -38,18 +43,16 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        // $request->validate([
-        //     'code'=>'required',
-        //     'name_en' => 'required',
-        //     'name_np'=>'required',
-        //     'status' => 'required',
-        //     'app_id'=>'required',
-        // ]);
-        $input = $request->all();
-        // $app_id = $input['app_id'];
-        // $input['app_id'] = implode(',',$app_id);
+        $request->validate([
+            'code'=>'required',
+            'name_en' => 'required',
+            'name_np'=>'required',
+            'status' => 'required',
+            'app_id'=>'required',
+        ]);
+        
     
-     Client::create($input);
+     Client::create($request->all());
      
         return redirect()->route('clients.index')
                         ->with('success','Client List created successfully.');
@@ -74,7 +77,8 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        $app = App::all();
+        return view('clients.edit',compact('client','app'));
     }
 
     /**
@@ -86,7 +90,19 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $request->validate([
+            'code'=>'required',
+            'name_en' => 'required',
+            'name_np'=>'required',
+            'status' => 'required',
+            'app_id'=>'required',
+            
+        ]);
+    
+        $client->update($request->all());
+    
+        return redirect()->route('clients.index')   
+                        ->with('success','Product updated successfully');
     }
 
     /**
@@ -97,6 +113,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients.index')
+        ->with('success','Client deleted successfully');    
     }
 }

@@ -27,15 +27,8 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('clients.index')}}">Clients List</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link " href="{{route('apps.index')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Apps
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{route('apps.create')}}">Create App List</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{route('apps.index')}}">List All Apps</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('apps.index')}}">Apps List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About Us</a>
