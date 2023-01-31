@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\UrlController;
+
+// use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('apps',AppController::class);
-Route::resource('clients',ClientController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+Route::resource('apps',AppController::class)->middleware(['auth']);
+// Route::resource('clients',ClientController::class)->middleware(['auth']);
+Route::resource('urls',UrlController::class);
+require __DIR__.'/auth.php';

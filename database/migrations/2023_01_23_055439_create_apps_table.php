@@ -19,7 +19,7 @@ class CreateAppsTable extends Migration
             $table->string('name_en');
             $table->string('name_np');
             $table->string('status');
-            $table->string('app_url');
+        
             $table->timestamps();
         });
     }

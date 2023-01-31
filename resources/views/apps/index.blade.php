@@ -27,7 +27,7 @@
             <th>English Name</th>
             <th>Nepali Name</th>
             <th>Status</th>
-            <th>APP-URL</th>
+           
 
             <th width="200px">Action</th>
         </tr>
@@ -38,7 +38,7 @@
             <td>{{ $apps->name_en }}</td>
             <td>{{ $apps->name_np }}</td>
             <td>{{ $apps->status }}</td>
-            <td> <a href="{{ $apps->app_url}}"> {{$apps->name_en}} </a>   </td>
+           
             <td>
             <form action="{{ route('apps.destroy',$apps->id) }}" method="POST">
             <a class="btn btn-primary" href="{{ route('apps.edit',$apps->id) }}">Edit</a>

@@ -11,9 +11,5 @@ class Client extends Model
     protected $fillable = [
         'code', 'name_en','name_np','status','app_id',
     ];
-    public function app(){
-        return $this->belongsTo(App::class,'app_id','id');
-    }
- 
 
 }

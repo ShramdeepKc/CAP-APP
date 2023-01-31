@@ -37,12 +37,8 @@
                 <input type="text" name="status" class="form-control" placeholder="Status">
             </div>
         </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-            <div class="form-group">
-                <strong>APP URL  :</strong>
-                <input type="url" name="app_url" class="form-control" placeholder="App Url">
-            </div>
-        </div>
+  
+       
 
          <div class="col-xs-5 col-sm-5 col-md-5 text-center">
                 <button type="submit" class="btn btn-primary">Create</button>

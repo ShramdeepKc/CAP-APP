@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
+use App\Models\Url;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -16,6 +17,7 @@ class AppController extends Controller
     {
         $app = App::latest()->paginate(5);
         // dd($app);
+     
         return view('apps.index',compact('app'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -27,6 +29,7 @@ class AppController extends Controller
      */
     public function create()
     {
+       
         return view('apps.create');
     }
 
@@ -43,7 +46,6 @@ class AppController extends Controller
             'name_en' => 'required',
             'name_np'=>'required',
             'status' => 'required',
-            'app_url'=>'required',
         ]);
     
      App::create($request->all());
@@ -88,7 +90,6 @@ class AppController extends Controller
             'name_en' => 'required',
             'name_np'=>'required',
             'status' => 'required',
-            'app_url'=>'required',
             
         ]);
     

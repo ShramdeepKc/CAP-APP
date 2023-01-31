@@ -9,6 +9,7 @@ class App extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'code', 'name_en','name_np','status','app_url',
+        'code', 'name_en','name_np','status'
     ];
+   
 }
