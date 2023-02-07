@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UrlController;
+use App\Http\Controllers\WelcomeController;
+use Illuminate\Console\Application;
 
 // use App\Http\Controllers\ClientController;
 
@@ -17,14 +21,16 @@ use App\Http\Controllers\UrlController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::resource('/', [WelcomeController::class, 'index']);
+// Route::get('/dashboard', function () {
+//     return view('aaplications');
+// })->middleware(['auth'])->name('dashboard');
 Route::resource('apps',AppController::class)->middleware(['auth']);
 // Route::resource('clients',ClientController::class)->middleware(['auth']);
-Route::resource('urls',UrlController::class);
+Route::resource('urls',UrlController::class)->middleware(['auth']);
+// Route::resource('/', DashboardController::class);
+Route::resource('applications',ApplicationController::class)->middleware(['auth']);
+// Route::resource('/',WelcomeController::class);
+Route::resource('/', WelcomeController::class);
+
 require __DIR__.'/auth.php';

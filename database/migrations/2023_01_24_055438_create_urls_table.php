@@ -18,6 +18,7 @@ class CreateUrlsTable extends Migration
             $table->string('code');
             $table->foreignId('app_id')->nullable()->constrained('apps')->onUpdate('cascade')->onDelete('cascade');
             $table->string('app_url');
+            $table->string('image');
             $table->timestamps();
         });
     }

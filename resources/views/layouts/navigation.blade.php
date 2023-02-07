@@ -16,7 +16,12 @@
                         {{ __('All Apps') }}
                     </x-nav-link>
                 </div>
-               
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('applications.index')" :active="request()->routeIs('applications.index')">
+                        {{ __('Clients App') }}
+                    </x-nav-link>
+                </div>
+                
                 
             </div>
 

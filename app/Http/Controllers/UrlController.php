@@ -45,10 +45,20 @@ class UrlController extends Controller
             'code'=>'required',
             'app_id'=>'required',
             'app_url' => 'required',
-           
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
         ]);
+        $input = $request->all();
+  
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalName(); 
+            //dd($image);
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
     
-     URL::create($request->all());
+        Url::create($input);
      
         return redirect()->route('urls.index')
                         ->with('success','App List created successfully.');
@@ -93,8 +103,20 @@ class UrlController extends Controller
             
             
         ]);
+        $input = $request->all();
+  
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+          
+        $url->update($input);
     
-        $url->update($request->all());
+        
     
         return redirect()->route('urls.index')
                         ->with('success','URL updated successfully');
