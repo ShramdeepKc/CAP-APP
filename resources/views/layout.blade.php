@@ -15,7 +15,7 @@
     
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Client Portal App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,11 +24,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link scrollto active" href="{{route('dashboard')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link scrollto active" href="{{route('applications.index')}}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link scrollto" href="#">Clients List</a>
-      </li>
+     
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
       </li>
@@ -36,13 +34,50 @@
         <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link scrollto" href="#">Contact</a>
+        <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
       </li>
-   
+    
+      
+
+    
+
+
+
+
+
     </ul>
   </div>
+</nav>   
+      <div class="mx-auto">
+        <form method="POST" action="{{ route('logout') }}">
+          <div class="col-md-10 text-right">
+            @csrf
+            <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-outline-dark">LOG OUT</button>
+            
+            <!-- <a href="route('logout')"
+            onclick="event.preventDefault();
+            this.closest('form').submit();">
+            {{ __('Log Out') }}
+          </a> -->
+        </form>
+      </div>
+   
 
-  </nav>
+
+      
+    <script>
+      function myFunction() {
+        if(!confirm("Are You Sure to logout"))
+        event.preventDefault();
+      }
+      </script>
+    
+  
+  </ul>
+</div>
+
+
+  
 
 
 
@@ -51,22 +86,7 @@
 
 
     <div  class="bg-image">
-  <style> 
-body {
-  background-image: url("/images/mount.avif"), url("mount.avif");
-   height: auto;
-   background-size: cover;
- background-repeat: no-repeat;
-  background-color: #cccccc;
- 
- 
-}
 
-
-
-
-
-</style>
     </div>
 
   <!-- <img src="/images/bgimage.webp" alt="Bg Image" /> -->

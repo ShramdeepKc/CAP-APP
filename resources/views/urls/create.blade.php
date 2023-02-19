@@ -21,6 +21,16 @@
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
+            <strong> Clients:</strong>
+      <select name="client_id" id="client_id">
+      @foreach ($app_client as $clients)
+              <option value="{{$clients->id}}">{{$clients->name_en}}</option>
+              @endforeach
+      </select>
+             </div>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-5">
+             <div class="form-group">
             <strong> App Name:</strong>
       <select name="app_id" id="app_id">
       @foreach ($app as $apps)
@@ -35,6 +45,10 @@
                 <input type="text" name="app_url" class="form-control" placeholder="App Url" required >
             </div>
         </div>
+        <div class="form-group">
+    <strong>Description : </strong>
+    <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+  </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <strong>Image:</strong>

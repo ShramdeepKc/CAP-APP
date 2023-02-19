@@ -21,8 +21,18 @@
              </div>
          </div>
          <div class="form-group">
-          <label for="app">Apps:</label>
-          <select id="app" class="form-control" name="app_id" value="apps">
+         <strong>Clients:</strong>
+         <select name="client_id" id="client_id">
+      @foreach ($app_client as $clients)
+              <option value="{{$clients->id}}"  {{$clients->id==$url->client_id ? 'selected':''}} >{{$clients->name_en}}</option>
+              @endforeach
+      </select>
+
+         </div>
+
+         <div class="form-group">
+          <strong>Apps:</strong>
+          <select id="app" name="app_id" value="apps">
           @foreach ($app as $apps)
           <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_en}}</option>
           @endforeach
@@ -31,6 +41,12 @@
             <div class="form-group">
                 <strong>App URL(English)  :</strong>
                 <input type="text"  name="app_url" class="form-control" value="{{ $url->app_url }}" placeholder="Code">
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5">
+            <div class="form-group">
+                <strong>Description  :</strong>
+                <textarea type="description"  name="description" class="form-control" >{{$url->description }}</textarea>
             </div>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">

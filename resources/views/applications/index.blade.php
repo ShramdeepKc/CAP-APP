@@ -1,4 +1,7 @@
 
+@extends('layout')
+   
+   @section('content')
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,54 +17,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--css-->
  
-    <h2 class="text-center">sample center heading</h2><br><br>
+    <h2 class="text-center">Client Name</h2><br><br>
 
-    <div class="mx-auto">
-      <form method="POST" action="{{ route('logout') }}">
-            <div class="col-md-12  text-left">
-                    @csrf
-                    <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-light">LOG OUT</button>
-
-                    <!-- <a href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </a> -->
-                </form>
-          </div>
-        </div>
 
 
 
     </head>
   <body>
-
-
-    <div  class="bg-image">
-  <style> 
-body {
-  background-image: url("/images/mount.avif"), url("mount.avif");
-   height: auto;
-   background-size: cover;
- background-repeat: no-repeat;
-  background-color: #cccccc;
- 
- 
-}
-
-
-
-
-
-</style>
-    </div>
+    </div> 
 
 <div class="row mx-md-n5 ">
 @foreach($url as $urls)
 
    
          <div class=" mx-auto ">
-              <a href="{{ $urls->app_url }}" target="_blank"  style = "float:left" > <img class="img" src="/image/{{ $urls->image }}" width="80px"></a>
+              <a href="{{ $urls->app_url }}" target="_blank"   > <img class="img" src="/image/{{ $urls->image }}" width="80px"></a>
               <h6 class="text-center">{{ $urls->app->name_en }}</h6> 
           </div>                 
  
@@ -82,6 +52,16 @@ body {
   margin-right: auto;
 
 }
+
+body {
+  background-image: url("/images/bg.png"), url("bg.png");
+  /* background-color: #cccccc; */
+  background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
 </style>
 
     <!-- Optional JavaScript -->
@@ -95,6 +75,6 @@ body {
 
   </body>
 
-
+@endsection
   
 

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\App;
 use App\Models\Url;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class UrlController extends Controller
 {
@@ -16,8 +17,29 @@ class UrlController extends Controller
      */
     public function index()
     {
-        $url = Url::latest()->paginate(5);
-        // dd($app);
+    //    $url = DB::table('public.app_client as t1')
+    //    ->leftJoin('cap.urls as t2','t1.id','=','t2.client_id')
+    //    ->leftJoin('cap.apps as t3','t2.app_id','=','t3.id')
+    //    ->get();
+       
+    //    dd($url);
+        
+       
+
+
+        // $url = Url::join('public.app_client','urls.client_id','=' ,'public.app_client.id')
+        //             ->get();
+
+
+        $url = Url::Join('public.app_client','urls.client_id','=','public.app_client.id')
+                ->select('public.app_client.name_en','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image')
+               
+                ->get();
+        // dd($url);
+
+
+        // $url = Url::latest()->paginate(5);
+       
         return view('urls.index',compact('url'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -29,8 +51,14 @@ class UrlController extends Controller
      */
     public function create()
     {
-        $app = App::get();
-        return view('urls.create',compact('app'));
+
+        $app_client  = DB::table('public.app_client')
+        ->select('id','name_en')
+        ->where('status' ,'=','true')
+        ->get(); 
+        // dd($app_client);   
+        $app = App::all();
+        return view('urls.create',compact('app','app_client'));
     }
 
     /**
@@ -41,14 +69,17 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'code'=>'required',
+            'client_id'=>'required',
             'app_id'=>'required',
             'app_url' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
         $input = $request->all();
+       
   
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
@@ -84,7 +115,11 @@ class UrlController extends Controller
     public function edit(Url $url)
     {
         $app=App::get();
-        return view('urls.edit',compact('url','app'));
+        $app_client = DB::table('public.app_client')
+        ->select('id','name_en')
+        ->where('status' ,'=','true')
+         ->get(); 
+        return view('urls.edit',compact('url','app','app_client'));
     }
 
     /**
@@ -98,8 +133,10 @@ class UrlController extends Controller
     {
         $request->validate([
             'code'=>'required',
+            'client_id'=>'required',
             'app_id'=>'required',
             'app_url' => 'required',
+            'description' => 'required',
             
             
         ]);
