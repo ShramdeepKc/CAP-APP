@@ -4,14 +4,18 @@
 
   
 <div class="row">
+@can('Can Create')
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Create App</h2>
             </div>
+          
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('apps.create') }}"> Create New App</a>
             </div>
+
         </div>
+        @endcan
     </div>
    
     @if ($message = Session::get('success'))
@@ -40,12 +44,15 @@
             <td>{{ $apps->status }}</td>
            
             <td>
+                @can('Can Edit')
             <form action="{{ route('apps.destroy',$apps->id) }}" method="POST">
             <a class="btn btn-primary" href="{{ route('apps.edit',$apps->id) }}">Edit</a>
             @csrf
                     @method('DELETE')
-
+                @endcan
+                @can('Can Delete')
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
+                    @endcan
                 </form>
             </td>
         </tr>

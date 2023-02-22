@@ -35,15 +35,22 @@
       </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
+        @can('Can View')
       </li>
-    
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{route('roles.index')}}">Roles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{route('permission.index')}}">Permission</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
+      </li>
+  
+   @endcan
+   
       
-
-    
-
-
-
-
+     
 
     </ul>
   </div>

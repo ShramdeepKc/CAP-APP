@@ -50,13 +50,16 @@
             
             
             <td>
+              
                 <form action="{{ route('urls.destroy',$urls->id) }}" method="POST">
                     <a class="btn btn-primary" href="{{ route('urls.edit',$urls->id) }}" >Edit</a>
                     @csrf
                     @method('DELETE')
-                    
+                 
+                    @can('Can Delete')
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
                 </form>
+                @endcan
             </td>
         </tr>
         
