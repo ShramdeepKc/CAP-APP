@@ -4,7 +4,7 @@
 
   
 <div class="row">
-@can('Can Create')
+@can('Can Edit')
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Create App</h2>

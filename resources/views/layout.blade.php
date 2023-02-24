@@ -35,7 +35,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
-        @can('Can View')
+    @can('Can View')
       </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('roles.index')}}">Roles</a>
@@ -46,8 +46,15 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
       </li>
-  
-   @endcan
+      <li class="nav-item">
+        <div class="pull-right">
+            <a class="nav-link scrollto" >
+              {{ $user = auth()->user()->name; }} <span class="caret"></span>
+            </a>
+        </div>
+        </li>
+  @endcan
+ 
    
       
      
