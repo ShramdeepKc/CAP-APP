@@ -15,8 +15,8 @@ class Url extends Model
     public function app(){
         return $this->belongsTo(App::class,'app_id','id');
     }
-    // public function client(){
-    //     return $this->belongsTo('public.app_::class,'client_id','id');
+    // public function users(){
+    //     return $this->belongsTo(User::class,'client_id','id');
     // }
 
 

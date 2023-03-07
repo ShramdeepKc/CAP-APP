@@ -12,6 +12,17 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+
+            <div>
+            <strong> Clients:</strong>
+      <select name="client_id" id="clients">
+      @foreach ($client as $clients)
+              <option value="{{$clients->id}}">{{$clients->name_en}}</option>
+              @endforeach
+      </select>
+            </div>
+
+
             <!-- Name -->
             <div>
                 <x-label for="name" :value="__('Name')" />

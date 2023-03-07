@@ -12,10 +12,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--css-->
-    
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: lightskyblue;">
   <a class="navbar-brand" href="#">Client Portal App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
-    @can('Can View')
+
       </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('roles.index')}}">Roles</a>
@@ -46,35 +46,40 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
       </li>
-      <li class="nav-item">
-        <div class="pull-right">
-            <a class="nav-link scrollto" >
-              {{ $user = auth()->user()->name; }} <span class="caret"></span>
-            </a>
-        </div>
-        </li>
-  @endcan
- 
-   
-      
      
-
+      
+      
+    
+      
+      
+      
+      
+      
+      
     </ul>
   </div>
+  
+  <div class="pull-right">
+      <a class="nav-link scrollto" >
+       <h5> {{ $user = auth()->user()->name; }}</h5> <span class="caret"></span>
+      
+  </div>
+  <div class="mx-auto">
+ 
+    <form method="POST" action="{{ route('logout') }}">
+      <div class="col-md-4">
+        @csrf
+        <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-outline-dark" >LOGOUT</button>
+        
+        <!-- <a href="route('logout')"
+        onclick="event.preventDefault();
+        this.closest('form').submit();">
+        {{ __('Log Out') }}
+      </a> -->
+    </form>
+
+  </div>
 </nav>   
-      <div class="mx-auto">
-        <form method="POST" action="{{ route('logout') }}">
-          <div class="col-md-10 text-right">
-            @csrf
-            <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-outline-dark">LOG OUT</button>
-            
-            <!-- <a href="route('logout')"
-            onclick="event.preventDefault();
-            this.closest('form').submit();">
-            {{ __('Log Out') }}
-          </a> -->
-        </form>
-      </div>
    
 
 
@@ -88,7 +93,7 @@
     
   
   </ul>
-</div>
+</div> 
 
 
   
@@ -117,5 +122,17 @@
  
 
   </body>
+  <style>
+  body {
+  background-image: url("/images/bg.png"), url("bg.png");
+  /* background-color: #cccccc; */
+  background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+</style>
   
 </html>

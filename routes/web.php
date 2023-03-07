@@ -9,6 +9,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Console\Application;
 
@@ -34,6 +35,7 @@ Route::resource('apps',AppController::class)->middleware(['auth']);
 Route::resource('urls',UrlController::class)->middleware(['auth']);
 // Route::resource('/', DashboardController::class);
 Route::resource('applications',ApplicationController::class)->middleware(['auth']);
+Route::resource('clients',ClientController::class)->middleware(['auth']);
 // Route::resource('/',WelcomeController::class);
 Route::resource('/', WelcomeController::class);
 

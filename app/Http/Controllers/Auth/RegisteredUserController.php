@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,12 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $client = DB::table('public.app_client')
+        ->select('id','name_en')
+        ->where('status' ,'=','true')
+        ->get(); 
+        
+        return view('auth.register',compact('client'));
     }
 
     /**
@@ -33,17 +39,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
+            'client_id'=>['required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+     
 
         $user = User::create([
+            'client_id' => $request->client_id,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        // dd($user);
 
         event(new Registered($user));
 

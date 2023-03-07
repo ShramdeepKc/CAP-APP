@@ -19,6 +19,7 @@
     padding: 0.2em;
     font-size: 1em;
     background: #262626;
+    text-decoration: none;
 
 border-radius: 30px;
 border: 1px solid rgba(255, 255, 255, 0.5);
@@ -28,6 +29,8 @@ height: 2.5em;
 }
 
 .nav-btn:hover{
+   
+    transition: background-color 0.3s;
     color: black;
     background: #eaeaea;
     border: 1px solid #FB8500;

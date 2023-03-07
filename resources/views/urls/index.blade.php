@@ -42,9 +42,9 @@
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $urls->code }}</td>
-            <td>{{ $urls->name_en}}</td>
-            <td>{{$urls->app->name_en}}</td>
-            <td><a href="{{$urls->app_url}}" target="_blank">{{$urls->app->name_en}}</a></td>
+            <td>{{ $urls->clientName}}</td>
+            <td>{{$urls->appName}}</td>
+            <td><a href="{{$urls->app_url}}" target="_blank">{{$urls->appName}}</a></td>
             <td>{{$urls -> description}}</td>
             <td><img src="/image/{{ $urls->image }}" width="100px"></td>
             
@@ -53,10 +53,11 @@
               
                 <form action="{{ route('urls.destroy',$urls->id) }}" method="POST">
                     <a class="btn btn-primary" href="{{ route('urls.edit',$urls->id) }}" >Edit</a>
+                  
                     @csrf
                     @method('DELETE')
                  
-                    @can('Can Delete')
+                    @can('delete')
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
                 </form>
                 @endcan

@@ -7,9 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     public function index(){
         $users = User::all();
         return view('users.index',compact('users'))
@@ -18,9 +20,13 @@ class UserController extends Controller
     public function show(User $user)
     {
         $roles = Role::all();
+        $client =  DB::table('public.app_client')
+                     ->where('status' ,'=','true')
+                    ->get();
+                    // dd($client);
         $permissions = Permission::all();
 
-        return view('users.role', compact('user', 'roles', 'permissions'));
+        return view('users.role', compact('user', 'roles', 'permissions','client'));
     }
 
     public function assignRole(Request $request, User $user)

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -14,7 +16,14 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        $url = Url::get();
+
+        $client_id = Auth::user()->client_id;
+        $url = DB::table('urls')
+        ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
+        ->leftJoin('apps as app','urls.app_id','=','app.id')
+        ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
+            ->where('urls.client_id', '=', $client_id)
+            ->get();
         return view('applications.index',compact('url'))
         ->with('i', (request()->input('page', 1) - 1) * 5);;
     }

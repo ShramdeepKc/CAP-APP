@@ -21,7 +21,7 @@
         <button class="nav-btn">
         @if (Route::has('login'))
                   @auth
-               <a href="{{ url('applications') }}" >Dashboard</a>
+               <a href="{{ url('applications') }}"  >Dashboard</a>
              @else
                  <a href="{{ route('login') }}" >Log in</a>
                 

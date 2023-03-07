@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
+use App\Models\Client;
 use App\Models\Url;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
@@ -29,20 +32,31 @@ class UrlController extends Controller
 
         // $url = Url::join('public.app_client','urls.client_id','=' ,'public.app_client.id')
         //             ->get();
+        
+        $client_id = Auth::user()->client_id;
+            // $url = Url::join('public.app_client','urls.client_id','=' ,'public.app_client.id')
+        //             ->get();
+      
+        // $url = Url::leftJoin('public.app_client','urls.client_id','=','public.app_client.id')
+        //     ->join('users', 'urls.client_id', '=', 'users.id')
+        //     ->where('users.id', '=', $client_id)
+        //      ->select('public.app_client.name_en','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image')
+        //      ->get();
+            // dd($url);
 
+        $url = DB::table('urls')
+        ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
+        ->leftJoin('apps as app','urls.app_id','=','app.id')
+        ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
+            ->where('urls.client_id', '=', $client_id)
+            ->get();
+            //   dd($url);
 
-        $url = Url::Join('public.app_client','urls.client_id','=','public.app_client.id')
-                ->select('public.app_client.name_en','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image')
-               
-                ->get();
-        // dd($url);
-
-
-        // $url = Url::latest()->paginate(5);
        
         return view('urls.index',compact('url'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+        }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -133,7 +147,9 @@ class UrlController extends Controller
     {
         $request->validate([
             'code'=>'required',
+            
             'client_id'=>'required',
+           
             'app_id'=>'required',
             'app_url' => 'required',
             'description' => 'required',
