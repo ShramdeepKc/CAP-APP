@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Url;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -15,7 +15,12 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-       $url =Url::all();
+       $url =DB::table('urls')
+       ->leftJoin('apps as app','urls.app_id','=','app.id')
+       ->select('urls.*','app.name_en as appName')
+       ->distinct('app_id')
+       ->get();
+    //    dd($url);
         return view('welcome',compact('url'));
     }
 

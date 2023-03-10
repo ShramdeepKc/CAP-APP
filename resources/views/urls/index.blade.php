@@ -8,9 +8,11 @@
             <div class="pull-left">
                 <h2>Create Url </h2>
             </div>
+         
             <div class="pull-center">
                 <a class="btn btn-success" href="{{ route('urls.create') }}"> Create New URL</a>
             </div>
+           
         </div>
 
    
@@ -57,10 +59,11 @@
                     @csrf
                     @method('DELETE')
                  
-                    @can('delete')
+                    @can('view')
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
+                    @endcan
                 </form>
-                @endcan
+              
             </td>
         </tr>
         

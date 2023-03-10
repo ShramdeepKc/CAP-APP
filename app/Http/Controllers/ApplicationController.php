@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Url;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Models\App;
+use App\Models\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApplicationController extends Controller
 {
@@ -16,16 +16,25 @@ class ApplicationController extends Controller
      */
     public function index()
     {
+        $applications = DB::table('applications')
+        ->leftJoin('public.app_client as ac','applications.client_id','=','ac.id')
+        // ->leftJoin('apps as app','applications.app_id','=','app.id')
+        //  ->leftJoin('apps as app','applications.app_id','=', DB::raw('CAST(applications.app_id AS character varying)'))
 
-        $client_id = Auth::user()->client_id;
-        $url = DB::table('urls')
-        ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
-        ->leftJoin('apps as app','urls.app_id','=','app.id')
-        ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
-            ->where('urls.client_id', '=', $client_id)
-            ->get();
-        return view('applications.index',compact('url'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);;
+        ->select('ac.name_en as clientName','applications.*')
+        ->get();
+      
+    //    dd($applications);
+    // $ids = [1, 2, 3];
+    // $names = array_map(function ($id) {
+    //     return DB::table('apps')->where('id', $id)->value('name_en');
+    // }, $ids);
+    
+    // print_r($names);
+    // dd($applications);
+        
+        return view('applications.index',compact('applications'))
+        ->with('i');
     }
 
     /**
@@ -35,7 +44,13 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        $app_client  = DB::table('public.app_client')
+        ->select('id','name_en')
+        ->where('status' ,'=','true')
+        ->get(); 
+        // dd($app_client);   
+        $app = App::all();
+        return view('applications.create',compact('app_client','app'));
     }
 
     /**
@@ -46,16 +61,24 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $app_id = $input['app_id'];
+        $input['app_id'] = implode(",",$app_id); 
+    
+        Application::create($input);
+        // dd($input);
+    
+        return redirect()->route('applications.index')
+                        ->with('success','Applications assigned successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Application $application)
     {
         //
     }
@@ -63,34 +86,53 @@ class ApplicationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Application $application)
     {
-        //
+        $app=App::get();
+        // $application = Application::all();
+        // dd($application);
+        $selectedAppIds = explode(',', $application->app_id);
+        $app_client = DB::table('public.app_client')
+        ->select('id','name_en')
+        ->where('status' ,'=','true')
+         ->get();   
+        return view('applications.edit',compact('application','app_client','app','selectedAppIds'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Application $application)
     {
-        //
+        $input = $request->all();
+
+        $app_id = $input['app_id'];
+        $input['app_id'] = implode(",",$app_id);
+       $application->update($input);
+        // dd($application);
+    
+        return redirect()->route('applications.index')
+                        ->with('success','Product updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Application $application)
     {
-        //
+        $application->delete();
+    
+        return redirect()->route('applications.index')
+                        ->with('success','Product deleted successfully');
     }
 }

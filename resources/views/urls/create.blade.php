@@ -19,10 +19,10 @@
                  
              </div>
             </div>
-      
             <div class="col-xs-5 col-sm-5 col-md-5">
-             <div class="form-group">
-            <strong> Clients:</strong>
+                <div class="form-group">
+                    <strong> Clients:</strong>
+   
       <select name="client_id" id="client_id">
       @foreach ($app_client as $clients)
               <option value="{{$clients->id}}">{{$clients->name_en}}</option>
@@ -30,8 +30,8 @@
       </select>
              </div>
             </div>
-         
-           
+       
+        
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
             <strong> App Name:</strong>

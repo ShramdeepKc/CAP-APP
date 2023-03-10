@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\App;
 use App\Models\Client;
+use Spatie\Permission\Traits\HasRoles;
 use App\Models\Url;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class UrlController extends Controller
 {
@@ -17,45 +19,39 @@ class UrlController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
-    //    $url = DB::table('public.app_client as t1')
-    //    ->leftJoin('cap.urls as t2','t1.id','=','t2.client_id')
-    //    ->leftJoin('cap.apps as t3','t2.app_id','=','t3.id')
-    //    ->get();
-       
-    //    dd($url);
-        
-       
-
-
-        // $url = Url::join('public.app_client','urls.client_id','=' ,'public.app_client.id')
-        //             ->get();
         
         $client_id = Auth::user()->client_id;
-            // $url = Url::join('public.app_client','urls.client_id','=' ,'public.app_client.id')
-        //             ->get();
-      
-        // $url = Url::leftJoin('public.app_client','urls.client_id','=','public.app_client.id')
-        //     ->join('users', 'urls.client_id', '=', 'users.id')
-        //     ->where('users.id', '=', $client_id)
-        //      ->select('public.app_client.name_en','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image')
-        //      ->get();
-            // dd($url);
 
-        $url = DB::table('urls')
+       
+        if (auth()->id() == 1){
+            $url = Url::join('public.app_client as ac','urls.client_id','=' ,'ac.id')
+            ->leftJoin('apps as app','urls.app_id','=','app.id')
+            ->select('ac.name_en as clientName','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image','app.name_en as appName')
+            ->get();
+          
+            
+        }
+        else{
+            
+            $url = DB::table('urls')
         ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
         ->leftJoin('apps as app','urls.app_id','=','app.id')
+        // ->leftJoin('applications','urls.app_id','=','applications.id')
         ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
             ->where('urls.client_id', '=', $client_id)
             ->get();
-            //   dd($url);
+             
 
-       
+        }
+    
         return view('urls.index',compact('url'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
-        }
+
+    }
+        
     
 
     /**
@@ -65,14 +61,20 @@ class UrlController extends Controller
      */
     public function create()
     {
+    
 
+      
+        $app = App::all();
         $app_client  = DB::table('public.app_client')
         ->select('id','name_en')
         ->where('status' ,'=','true')
         ->get(); 
-        // dd($app_client);   
-        $app = App::all();
-        return view('urls.create',compact('app','app_client'));
+    
+    
+    // dd($app_client);   
+    
+
+    return view('urls.create',compact('app','app_client'));
     }
 
     /**

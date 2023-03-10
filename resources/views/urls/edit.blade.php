@@ -22,27 +22,40 @@
              </div>
          </div>
          
-      
+     
          <div class="form-group">
              <strong>Clients:</strong>
+            @if(auth()->id() == 1)
              <select name="client_id" id="client_id" >
                  @foreach ($app_client as $clients)
               <option value="{{$clients->id}}"  {{$clients->id==$url->client_id ? 'selected':''}} >{{$clients->name_en}}</option>
               @endforeach
       </select> 
+            
+            @else
+              
+            <select name="client_id" id="client_id" hidden >
+                 @foreach ($app_client as $clients)
+              <option value="{{$clients->id}}"  {{$clients->id==$url->client_id ? 'selected':''}} >{{$clients->name_en}}</option>
+              @endforeach
+      </select> 
+             
+            
       </div>
-
+      @endif
+   
        
         
       
-
+   
          <div class="form-group">
           <strong>Apps:</strong>
-          <select id="app" name="app_id" value="apps">
+          <select id="app" name="app_id" value="apps" >
           @foreach ($app as $apps)
           <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_en}}</option>
           @endforeach
       </select></div>
+    
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App URL(English)  :</strong>

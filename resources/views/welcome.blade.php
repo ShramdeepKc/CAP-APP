@@ -21,9 +21,9 @@
         <button class="nav-btn">
         @if (Route::has('login'))
                   @auth
-               <a href="{{ url('applications') }}"  >Dashboard</a>
+               <a href="{{ url('applications') }}" class="nav-link" style="color: 	#F0E2DF"  >Dashboard</a>
              @else
-                 <a href="{{ route('login') }}" >Log in</a>
+                 <a href="{{ route('login') }}" class="nav-link" style="color: 	#F0E2DF"  >Log in</a>
                 
                      <!-- @if (Route::has('register'))
                  <a href="{{ route('register') }}">Register</a>
@@ -35,8 +35,9 @@
         </button>
       
     </nav>
+    
     <div class="body-content">
-      <h1 class="body-text">Kathmandu MetroPolitan City</h1>
+      
 
       <div class="row row-cols-1 row-cols-md-4">
     @foreach($url as $urls)
@@ -46,7 +47,7 @@
           <div class="card-icon">
           <a href="{{ $urls->app_url }}" target="_blank"  > <img class="img" src="/image/{{ $urls->image }}" width="80px"></a>
           </div>
-          <div class="card-title" >{{ $urls->app->name_en }}</div>
+          <div class="card-title" >{{ $urls->appName }}</div>
           <div class="card-seperation">
             <img src="/images/divSeperation.png" alt="" />
           </div>

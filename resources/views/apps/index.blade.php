@@ -9,11 +9,11 @@
             <div class="pull-left">
                 <h2>Create App</h2>
             </div>
-          
+         
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('apps.create') }}"> Create New App</a>
             </div>
-
+            
         </div>
       
     </div>
@@ -44,7 +44,7 @@
             <td>{{ $apps->status }}</td>
            
             <td>
-              
+             
             <form action="{{ route('apps.destroy',$apps->id) }}" method="POST">
             <a class="btn btn-primary" href="{{ route('apps.edit',$apps->id) }}">Edit</a>
             @csrf
@@ -54,6 +54,7 @@
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
                 
                 </form>
+               
             </td>
         </tr>
      
