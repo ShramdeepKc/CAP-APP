@@ -33,7 +33,7 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
       </li>
-     
+     @can('view')
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
 
@@ -47,7 +47,7 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
       </li>
-     
+     @endcan
      
       
       

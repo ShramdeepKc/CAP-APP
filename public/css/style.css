@@ -94,12 +94,14 @@ padding: 1em;
 .card-title{
     padding-top: 5px;
     font-size: 18px;
+    transition: transform 0.5s;
 }
 
 .card-content:hover{
     transition: background-color 0.5s;
     background-color: #2885F0;
     color: white;
+    transform: scale(1.1);
 
 }
 

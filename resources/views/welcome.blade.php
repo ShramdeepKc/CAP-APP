@@ -42,7 +42,7 @@
       <div class="row row-cols-1 row-cols-md-4">
     @foreach($url as $urls)
     <div class="col mb-3">
-      <div class="cards " >
+      <div class="cards">
         <div class="card-content">
           <div class="card-icon">
           <a href="{{ $urls->app_url }}" target="_blank"  > <img class="img" src="/image/{{ $urls->image }}" width="80px"></a>

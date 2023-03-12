@@ -157,12 +157,41 @@ class UrlController extends Controller
      */
     public function edit(Url $url)
     {
+        $client_id = Auth::user()->client_id;
+
+        if (auth()->id() == 1){
+
         $app=App::get();
         $app_client = DB::table('public.app_client')
         ->select('id','name_en')
         ->where('status' ,'=','true')
          ->get(); 
         return view('urls.edit',compact('url','app','app_client'));
+        }
+        else{
+            $app = App::all();
+            $app_client  = DB::table('public.app_client')
+            ->select('id','name_en')
+            ->where('status' ,'=','true')
+            ->get();
+
+            // $selected_apps = DB::table('apps')
+            // ->leftJoin('applications','apps.id','=','applications.app_id')
+            // ->select('')
+
+
+
+            // dd($app_client);
+            // $selectedAppIds = explode(',', $application->app_id);
+            $selected_apps = Application::where('client_id', $client_id)->first();
+            $selApp = explode(',',$selected_apps->app_id);
+
+            $appList = DB::table('apps')->whereIn('id',$selApp)->get();
+            // dd($selected_apps);
+            return view('urls.edit',compact('app','app_client','selected_apps','appList','url'));
+
+
+        }
     }
 
     /**

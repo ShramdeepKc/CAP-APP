@@ -2,10 +2,10 @@
    
 @section('content')
 
+<div class="container">
 <div class="row">
-    @foreach($url as $urls)
-    <div class="col">
-      <div class="cards " >
+     @foreach($url as $urls)
+      <div class="cards">
         <div class="card-content">
           <div class="card-icon">
           <a href="{{ $urls->app_url }}" target="_blank"  > <img class="img" src="/image/{{ $urls->image }}" width="80px"></a>
@@ -15,12 +15,12 @@
             <img src="/images/divSeperation.png" alt="" />
           </div>
           <div class="card-description">{{$urls->description}}</div>
-      </div>    
+        </div> 
+      </div>
+      @endforeach
     </div>
 </div>
    
-@endforeach
-</div>
 
 
 @endsection
