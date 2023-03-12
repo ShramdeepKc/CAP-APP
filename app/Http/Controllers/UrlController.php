@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
+use App\Models\Application;
 use App\Models\Client;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Url;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use PhpParser\Node\Expr\Cast;
 
 class UrlController extends Controller
 {
@@ -62,19 +64,44 @@ class UrlController extends Controller
     public function create()
     {
     
+        $client_id = Auth::user()->client_id;
 
-      
+        if (auth()->id() == 1){
         $app = App::all();
         $app_client  = DB::table('public.app_client')
         ->select('id','name_en')
+          
         ->where('status' ,'=','true')
         ->get(); 
+        return view('urls.create',compact('app','app_client'));
+        
     
-    
-    // dd($app_client);   
-    
+        }
+        else{
+            $app = App::all();
+            $app_client  = DB::table('public.app_client')
+            ->select('id','name_en')
+            ->where('status' ,'=','true')
+            ->get();
 
-    return view('urls.create',compact('app','app_client'));
+            // $selected_apps = DB::table('apps')
+            // ->leftJoin('applications','apps.id','=','applications.app_id')
+            // ->select('')
+
+
+
+            // dd($app_client);
+            // $selectedAppIds = explode(',', $application->app_id);
+            $selected_apps = Application::where('client_id', $client_id)->first();
+            $selApp = explode(',',$selected_apps->app_id);
+
+            $appList = DB::table('apps')->whereIn('id',$selApp)->get();
+            // dd($selected_apps);
+            return view('urls.create',compact('app','app_client','selected_apps','appList'));
+        }
+      
+  
+
     }
 
     /**

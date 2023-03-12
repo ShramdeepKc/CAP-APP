@@ -1,6 +1,7 @@
+<?php
+ use App\Helpers\AppHelpers;
+?>
 @extends('layout') 
-
-
 @section('content')
 <div class="p-5 text-center bg-light">
     
@@ -19,27 +20,45 @@
                  
              </div>
             </div>
+      
             <div class="col-xs-5 col-sm-5 col-md-5">
-                <div class="form-group">
-                    <strong> Clients:</strong>
-   
+             <div class="form-group">
+            <strong> Clients:</strong>
+            @if(auth()->id() == 1) 
       <select name="client_id" id="client_id">
       @foreach ($app_client as $clients)
               <option value="{{$clients->id}}">{{$clients->name_en}}</option>
               @endforeach
       </select>
+
+      @else
+      <input type="text" name="client_id" value="{{$user = auth()->user()->client_id}}" hidden>{{$user = auth()->user()->name}}</input>
+  
+        @endif
+
              </div>
             </div>
-       
-        
+         
+           
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
             <strong> App Name:</strong>
+            @if(auth()->id() == 1)
       <select name="app_id" id="app_id">
       @foreach ($app as $apps)
               <option value="{{$apps->id}}">{{$apps->name_en}}</option>
               @endforeach
+        
       </select>
+      @else
+      <select name="app_id" id="app_id">
+      @foreach($appList as $apps)
+    <option value="{{ $apps->id }}">  {{ $apps->name_en}}
+           </option>
+@endforeach
+        
+      </select>
+@endif
              </div>
             </div>
         <div class="col-xs-5 col-sm-5 col-md-5">

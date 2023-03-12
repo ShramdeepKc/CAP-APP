@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ClientController;
+
 use App\Http\Controllers\WelcomeController;
+
 use Illuminate\Console\Application;
 
 // use App\Http\Controllers\ClientController;
@@ -30,15 +30,17 @@ use Illuminate\Console\Application;
 // Route::get('/dashboard', function () {
 //     return view('aaplications');
 // })->middleware(['auth'])->name('dashboard');
-Route::resource('apps',AppController::class)->middleware(['auth']);
-// Route::resource('clients',ClientController::class)->middleware(['auth']);
-Route::resource('urls',UrlController::class)->middleware(['auth']);
-// Route::resource('/', DashboardController::class);
-Route::resource('applications',ApplicationController::class)->middleware(['auth']);
-Route::resource('clients',ClientController::class)->middleware(['auth']);
-// Route::resource('/',WelcomeController::class);
-Route::resource('/', WelcomeController::class);
 
+Route::resource('apps',AppController::class)->middleware(['auth']);
+
+Route::resource('urls',UrlController::class)->middleware(['auth']);
+
+
+Route::resource('applications',ApplicationController::class)->middleware(['auth']);
+
+Route::resource('homes',HomeController::class)->middleware('auth');
+Route::resource('/', WelcomeController::class);
+ 
 Route::get('/users',[UserController::class,'index'])->name('users.index');
 // Route::delete('/users',[UserController::class,'destroy'])->name('users.index');
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');

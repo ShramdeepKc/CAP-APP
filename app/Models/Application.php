@@ -15,4 +15,7 @@ class Application extends Model
     // public function app(){
     //     return $this->belongsTo(App::class,'app_id','id');
     // }
+    //    public function app(){
+    //     return $this->belongsTo(App::class,'app_id','id');
+    // }
 }
