@@ -26,10 +26,11 @@
       <li class="nav-item active">
         <a class="nav-link scrollto active" href="{{route('homes.index')}}">Home <span class="sr-only">(current)</span></a>
       </li>
-     
+     @can('view')
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
       </li>
+      @endcan
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
       </li>
