@@ -48,6 +48,9 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{route('map.index')}}">UrlMap</a>
+      </li>
      @endcan
      
       

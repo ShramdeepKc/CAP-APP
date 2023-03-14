@@ -15,9 +15,10 @@
     />
   </head>
   <body>
+    
     <nav class="navbar nav-prop">
       <div class="container-fluid">
-        <h2 class="nav-text">CLIENT <span>PORTAL APP</span></h2>
+        <h2 class="nav-text"><span>{{$clientInfo[0]->mun_vdc}}</span></h2>
         <button class="nav-btn">
         @if (Route::has('login'))
                   @auth
@@ -37,6 +38,10 @@
     </nav>
     
     <div class="body-content">
+  
+   
+  
+
       
 
       <div class="row row-cols-1 row-cols-md-4">

@@ -3,13 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CapUrlMappingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UrlDetailController;
 
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\MapController;
 
 use Illuminate\Console\Application;
 
@@ -51,10 +54,14 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     Route::post('/users/{user}/permissions', [UserController::class, 'givePermission'])->name('users.permissions');
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 
-  
+    Route::resource('map',MapController::class)->middleware(['auth']);    
+
+//   Route::resource('urlmap',CapUrlMappingController::class)->middleware(['auth']);
     Route::resource('roles',RoleController::class)->middleware(['auth']);
     Route::post('/roles/{role}/permission',[RoleController::class,'givePermission'])->name('roles.permission');
     Route::delete('/roles/{role}/permission/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permission.revoke');
     Route::resource('permission',PermissionController::class)->middleware(['auth']);
+    // Route::get('/{url}', [UrlDetailController::class,'showUrlDetails'])->name('welcome');
+    // Route::get('/{url}', [WelcomeController::class,'show']);
 
 require __DIR__.'/auth.php';

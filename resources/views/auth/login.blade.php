@@ -5,6 +5,7 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
+        <h2 class="nav-text"><span>{{$clientInfo[0]->mun_vdc}}</span></h2>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
