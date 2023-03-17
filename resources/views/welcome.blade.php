@@ -18,7 +18,7 @@
     
     <nav class="navbar nav-prop">
       <div class="container-fluid">
-        <h2 class="nav-text"><span>{{$clientInfo[0]->mun_vdc}}</span></h2>
+        <h2 class="nav-text">CLIENT <span>APP PORTAL</span></h2>
         <button class="nav-btn">
         @if (Route::has('login'))
                   @auth
@@ -39,8 +39,10 @@
     
     <div class="body-content">
   
-   
-  
+   <h1 class="text-center"> {{$clientInfo[0]->mun_vdc}}</h1>
+   <h2 class="text-center"> {{$clientInfo[0]->office_type}}</h2>
+   <h3 class="text-center">{{$clientInfo[0]->province}}</h3>
+  <h4 class="text-center">{{$clientInfo[0]->district}}</h4>
 
       
 
