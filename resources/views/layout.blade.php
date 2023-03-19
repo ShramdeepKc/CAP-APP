@@ -74,7 +74,7 @@ use Illuminate\Support\Facades\DB;
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
       </li>
-      @can('view')
+    @can('view')
       <li class="nav-item">
       <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
 
@@ -91,8 +91,8 @@ use Illuminate\Support\Facades\DB;
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('map.index')}}">UrlMap</a>
       </li>
-     
      @endcan
+   
       
       
     
