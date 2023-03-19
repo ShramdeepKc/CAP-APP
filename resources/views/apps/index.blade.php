@@ -9,11 +9,11 @@
             <div class="pull-left">
                 <h2>Create App</h2>
             </div>
-         @can('view')
+         
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('apps.create') }}"> Create New App</a>
             </div>
-        @endcan
+        
             
         </div>
       
