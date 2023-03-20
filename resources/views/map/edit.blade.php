@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">EDIT</button>
+                <button type="submit" class="btn btn-primary">Save</button>
         </div>
         </div>
 

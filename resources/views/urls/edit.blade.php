@@ -70,7 +70,7 @@
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App URL(English)  :</strong>
-                <input type="text"  name="app_url" class="form-control" value="{{ $url->app_url }}" placeholder="Code">
+                <input type="text"  name="app_url" class="form-control" value="{{ $url->app_url }}" placeholder="Code" >
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
@@ -88,7 +88,7 @@
         </div>   
 
         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary">Save</button>
         </div>
        </div>
    </div>

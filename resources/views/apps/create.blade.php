@@ -15,7 +15,7 @@
          <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
                  <strong>Code:</strong>
-                 <input type="text"  name="code" class="form-control" placeholder="Code">
+                 <input type="text"  name="code" class="form-control" placeholder="Code" required>
                  
              </div>
          </div>
@@ -28,13 +28,13 @@
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App Name(Nepali)  :</strong>
-                <input type="text" name="name_np" class="form-control" placeholder="नेपालीमा लेख्नुहोस्">
+                <input type="text" name="name_np" class="form-control" placeholder="नेपालीमा लेख्नुहोस्" required>
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>Status  :</strong>
-                <input type="text" name="status" class="form-control" placeholder="Status">
+                <input type="text" name="status" class="form-control" placeholder="Status" required>
             </div>
         </div>
   

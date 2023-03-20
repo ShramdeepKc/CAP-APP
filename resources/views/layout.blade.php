@@ -14,6 +14,43 @@
     <!--css-->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
+    <style>
+    <?php
+
+use App\Models\Background;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+    $background = Background::all();
+    foreach($background as $b){
+      if( $b->client_id == Auth::user()->client_id){
+        $bg_image = $b->image;
+      }
+    }
+    if(@$bg_image){
+      $bg_image = "/image/".$bg_image;
+    } else {
+      $bg_image = "/images/bg.png";
+    }
+    // ->where('client_id',Auth::user()->client_id)
+    // ->select('image');
+    // dd($background);
+    
+    ?>
+  body {
+   background-image: url({{$bg_image}}); 
+  
+
+  
+  /* background-color: #cccccc; */
+  background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+</style>
 
     <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: lightskyblue;">
   <a class="navbar-brand" href="#">Client Portal App</a>
@@ -26,17 +63,20 @@
       <li class="nav-item active">
         <a class="nav-link scrollto active" href="{{route('homes.index')}}">Home <span class="sr-only">(current)</span></a>
       </li>
-     @can('view')
+     
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
       </li>
-      @endcan
+      
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{route('background.create')}}">BG Image</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
       </li>
-     @can('view')
+    @can('view')
       <li class="nav-item">
-        <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
+      <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
 
       </li>
       <li class="nav-item">
@@ -51,8 +91,11 @@
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('map.index')}}">UrlMap</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="{{ url('/register') }}">Register</a>
+      </li>
      @endcan
-     
+   
       
       
     
@@ -128,17 +171,6 @@
  
 
   </body>
-  <style>
-  body {
-  background-image: url("/images/bg.png"), url("bg.png");
-  /* background-color: #cccccc; */
-  background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
 
-
-}
-</style>
   
 </html>

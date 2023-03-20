@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
-    <h1 class="text-center">{{$clientInfo[0]->mun_vdc}}</h1>
-    <h2 class="text-center">{{$clientInfo[0]->province}}</h2> 
-    <h1 class="text-center">{{$clientInfo[0]->district}}</h1>
+    <h1 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h1>
+    <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
+    <h2 class="text-center">{{@$clientInfo[0]->province}}</h2> 
+    <h1 class="text-center">{{@$clientInfo[0]->district}}</h1>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />

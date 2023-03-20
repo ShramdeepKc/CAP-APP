@@ -13,7 +13,9 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    
   </head>
+
   <body>
     
     <nav class="navbar nav-prop">
@@ -22,7 +24,7 @@
         <button class="nav-btn">
         @if (Route::has('login'))
                   @auth
-               <a href="{{ url('applications') }}" class="nav-link" style="color: 	#F0E2DF"  >Dashboard</a>
+               <a href="{{ route('homes.index') }}" class="nav-link" style="color: 	#F0E2DF"  >Dashboard</a>
              @else
                  <a href="{{ route('login') }}" class="nav-link" style="color: 	#F0E2DF"  >Log in</a>
                 
@@ -39,10 +41,10 @@
     
     <div class="body-content">
   
-   <h1 class="text-center"> {{$clientInfo[0]->mun_vdc}}</h1>
-   <h2 class="text-center"> {{$clientInfo[0]->office_type}}</h2>
-   <h3 class="text-center">{{$clientInfo[0]->province}}</h3>
-  <h4 class="text-center">{{$clientInfo[0]->district}}</h4>
+   <h1 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h1>
+   <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
+   <h3 class="text-center">{{@$clientInfo[0]->province}}</h3>
+  <h4 class="text-center">{{@$clientInfo[0]->district}}</h4>
 
       
 

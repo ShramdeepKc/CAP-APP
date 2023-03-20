@@ -1,24 +1,25 @@
 @extends('layout')
    
 @section('content')
-
+<h2>APP LIST</h2>
   
 <div class="row">
-
+@can('view')
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Create App</h2>
             </div>
-         @can('view')
+         
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('apps.create') }}"> Create New App</a>
             </div>
-        @endcan
+        
             
         </div>
       
     </div>
-   
+   @endcan
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -45,12 +46,13 @@
             <td>{{ $apps->status }}</td>
            
             <td>
+                @can('view')
                 <form action="{{ route('apps.destroy',$apps->id) }}" method="POST">
                     <a class="btn btn-primary" href="{{ route('apps.edit',$apps->id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     
-                    @can('view')
+                   
              
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
                 

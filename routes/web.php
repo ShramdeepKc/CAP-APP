@@ -10,6 +10,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UrlDetailController;
+use App\Http\Controllers\BackgroundController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\MapController;
@@ -55,6 +56,7 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 
     Route::resource('map',MapController::class)->middleware(['auth']);    
+    Route::resource('background',BackgroundController::class)->middleware(['auth']);    
 
 //   Route::resource('urlmap',CapUrlMappingController::class)->middleware(['auth']);
     Route::resource('roles',RoleController::class)->middleware(['auth']);
@@ -63,5 +65,9 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     Route::resource('permission',PermissionController::class)->middleware(['auth']);
     // Route::get('/{url}', [UrlDetailController::class,'showUrlDetails'])->name('welcome');
     // Route::get('/{url}', [WelcomeController::class,'show']);
+    // Route::get('/register', function () {
+    //     return view('auth.register');
+    // });
+ 
 
 require __DIR__.'/auth.php';
