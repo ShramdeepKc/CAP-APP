@@ -65,5 +65,8 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     Route::resource('permission',PermissionController::class)->middleware(['auth']);
     // Route::get('/{url}', [UrlDetailController::class,'showUrlDetails'])->name('welcome');
     // Route::get('/{url}', [WelcomeController::class,'show']);
+    // Route::get('/register', function () {
+    //     return view('auth.register');
+    // });
 
 require __DIR__.'/auth.php';
