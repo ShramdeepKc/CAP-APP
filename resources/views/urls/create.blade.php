@@ -74,7 +74,7 @@
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <strong>Image:</strong>
-                <input type="file" name="image" class="form-control" placeholder=" Upload image">
+                <input type="file" name="image" class="form-control" placeholder=" Upload image" required>
             </div>
         </div>   
 

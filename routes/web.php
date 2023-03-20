@@ -68,5 +68,6 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     // Route::get('/register', function () {
     //     return view('auth.register');
     // });
+ 
 
 require __DIR__.'/auth.php';
