@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h2>App Assign</h2>
+<h2>Bg Image Assign</h2>
    <form action="{{ route('background.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">

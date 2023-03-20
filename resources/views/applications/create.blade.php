@@ -2,7 +2,7 @@
 @extends('layout')
    
    @section('content')
-   <h2>App Assign</h2>
+   
    <form action="{{ route('applications.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">
