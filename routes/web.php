@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ApplicationController;
+
 use App\Http\Controllers\CapUrlMappingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UrlDetailController;
 use App\Http\Controllers\BackgroundController;
+use App\Http\Controllers\RegisteredUserController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\MapController;
@@ -68,6 +70,14 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     // Route::get('/register', function () {
     //     return view('auth.register');
     // });
+//     Route::get('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])
+//             ->middleware('guest')
+//             ->name('register');
+
+// Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
+//             ->middleware('guest');
+// Route::get('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'create']);
+// Route::post('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
  
 
 require __DIR__.'/auth.php';

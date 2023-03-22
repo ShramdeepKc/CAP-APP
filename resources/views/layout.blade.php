@@ -91,9 +91,9 @@ use Illuminate\Support\Facades\DB;
       <li class="nav-item">
         <a class="nav-link scrollto" href="{{route('map.index')}}">UrlMap</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link scrollto" href="{{ url('/register') }}">Register</a>
-      </li>
+     
+      
+
      @endcan
    
       
