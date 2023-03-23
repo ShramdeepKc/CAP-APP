@@ -1,5 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
+        <h1><a href="/">BACK</a></h1>
     <h1 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h1>
     <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
     <h2 class="text-center">{{@$clientInfo[0]->province}}</h2> 
@@ -9,6 +10,9 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
+       
+       
+
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -54,6 +58,7 @@
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
+              
             </div>
         </form>
     </x-auth-card>

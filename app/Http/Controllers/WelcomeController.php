@@ -39,9 +39,8 @@ class WelcomeController extends Controller
             ->leftJoin('apps as app','urls.app_id','=','app.id')
             ->select('urls.*','app.name_en as appName')
             ->where('client_id',$clientId)
-     
-            
-            ->get();
+            ->distinct('app_id')
+             ->get();
         }  else {
             $data['url'] =DB::table('urls')
             ->leftJoin('apps as app','urls.app_id','=','app.id')
