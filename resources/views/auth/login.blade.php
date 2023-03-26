@@ -9,10 +9,10 @@
                     <div class="head-title">
                         <img src="images/new-govt-logo.png" width="80" height="70" class="logo">
                         <div class="mun-title text-black">
-                            <h2 class="text-center">काठमाडौँ नगरपालिका</h2>
-                            <h4 class="text-center">नगर कार्यपालिका कार्यालय</h4>
-                            <h5 class="text-center">प्रदेश १</h5>
-                            <h5 class="text-center">काठमाडौँ</h5>
+                            <h2 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
+                            <h4 class="text-center">{{@$clientInfo[0]->office_type}}</h4>
+                            <h5 class="text-center">{{@$clientInfo[0]->province}}</h5>
+                           
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,12 @@
                             </a>
                             @endif
                         </div>
+                        
                         <button class="login-button"><i class="fa fa-sign-in" aria-hidden="true"></i>
-                            {{ __('Login') }}</button>
+                        {{ __('Login') }}</button>
+                        <div class="login-button">
+                            <a href="/">Back</a>
+                        </div>
                     </div>
 
                     <!-- Email Address -->

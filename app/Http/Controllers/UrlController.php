@@ -208,6 +208,11 @@ class UrlController extends Controller
             $selected_apps = Application::where('client_id', $client_id)->first();
             $selApp = explode(',',$selected_apps->app_id);
 
+            if (empty($selApp)) {
+                session()->flash('errors', 'No apps are assigned to this client.');
+                return redirect()->back();
+            }
+
             $appList = DB::table('apps')->whereIn('id',$selApp)->get();
             // dd($selected_apps);
             return view('urls.edit',compact('app','app_client','selected_apps','appList','url'));

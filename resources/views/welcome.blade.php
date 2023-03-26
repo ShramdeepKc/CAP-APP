@@ -29,10 +29,9 @@
                 <div class="head-title">
                     <img src="images/new-govt-logo.png" width="90" height="80" class="logo">
                     <div class="mun-title text-white">
-                        <h3 class="text-center">काठमाडौँ नगरपालिका</h3>
-                        <h4 class="text-center">नगर कार्यपालिका कार्यालय</h4>
-                        <h5 class="text-center">प्रदेश १</h5>
-                        <h5 class="text-center">काठमाडौँ</h5>
+                    <h3 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
+                    <h3 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
+                    <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
                 <h2 class="nav-text">CLIENT <span>APP PORTAL</span></h2>
