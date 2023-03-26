@@ -30,7 +30,7 @@
               <option value="{{$apps->id}}">{{$apps->name_en}}</option>
               @endforeach
       </select> -->
-      <select class="js-example-basic-multiple"  id="app_id" name="app_id[]" multiple="multiple" >
+      <select class="js-example-basic-multiple"  id="app_id" name="app_id[]" multiple="multiple" required>
       @foreach ($app as $apps)
         <option value="{{$apps->id}}">{{$apps->name_en}}</option>
         @endforeach

@@ -16,7 +16,7 @@
          <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
                  <strong>Code:</strong>
-                 <input type="text"  name="code" class="form-control" placeholder="Code">
+                 <input type="text"  name="code" class="form-control" placeholder="Code" required>
                  
              </div>
             </div>
@@ -25,7 +25,7 @@
              <div class="form-group">
             <strong> Clients:</strong>
             @if(auth()->id() == 1) 
-      <select name="client_id" id="client_id">
+      <select name="client_id" id="client_id" required>
       @foreach ($app_client as $clients)
               <option value="{{$clients->id}}">{{$clients->name_en}}</option>
               @endforeach
@@ -44,14 +44,14 @@
              <div class="form-group">
             <strong> App Name:</strong>
             @if(auth()->id() == 1)
-      <select name="app_id" id="app_id">
+      <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
               <option value="{{$apps->id}}">{{$apps->name_en}}</option>
               @endforeach
         
       </select>
       @else
-      <select name="app_id" id="app_id">
+      <select name="app_id" id="app_id" required>
       @foreach($appList as $apps)
     <option value="{{ $apps->id }}">  {{ $apps->name_en}}
            </option>
@@ -69,7 +69,7 @@
         </div>
         <div class="form-group">
     <strong>Description : </strong>
-    <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+    <textarea class="form-control" id="description" name="description" rows="2" required></textarea>
   </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
