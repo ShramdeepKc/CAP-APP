@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
     <x-auth-card>
-        <h1 ><a href="/">BACK</a></h1>
+        
 
     <h1 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h1>
     <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
@@ -50,6 +50,7 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <h1 class=""><a href="/">BACK</a></h1>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -61,6 +62,7 @@
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
+              
               
             </div>
         </form>
