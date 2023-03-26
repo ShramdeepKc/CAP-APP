@@ -1,5 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
+        <h1>LOGIN</h1>
         <h1><a href="/">BACK</a></h1>
     <h1 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h1>
     <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
