@@ -4,7 +4,7 @@
 <h2>APP LIST</h2>
   
 <div class="row">
-@can('view')
+
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Create App</h2>
@@ -18,7 +18,7 @@
         </div>
       
     </div>
-   @endcan
+
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">

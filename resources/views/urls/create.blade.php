@@ -8,6 +8,8 @@
     <h4 class="mb-1">URL LIST</h4>
  
   </div>
+
+
 <form action="{{ route('urls.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">
@@ -38,7 +40,8 @@
 
              </div>
             </div>
-         
+
+
            
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">

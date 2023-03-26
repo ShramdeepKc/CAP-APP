@@ -13,6 +13,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+   
     
   </head>
 
@@ -44,7 +45,7 @@
    <h1 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h1>
    <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
    <h3 class="text-center">{{@$clientInfo[0]->province}}</h3>
-  <h4 class="text-center">{{@$clientInfo[0]->district}}</h4>
+  
 
       
 
@@ -72,6 +73,7 @@
 @endforeach
 </div>
   </body>
+ 
 </html>
 
 

@@ -7,6 +7,7 @@
     <h4 class="mb-1">APP LIST</h4>
  
   </div>
+
 <form action="{{ route('apps.store') }}" method="POST" >
     @csrf
 <div class="card">

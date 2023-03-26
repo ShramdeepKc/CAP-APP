@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Kalimati';
+    src: url('/fonts/Kalimati Regular.ttf') format('truetype');
+  }
+  .font-family-name {
+    font-family: 'Your Font Name', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+  }
+
 .nav-text{
     color: #FB8500;
     font-size: 2em;
@@ -116,4 +126,14 @@ padding: 1em;
     transition: font-size 0.3s ease-in-out;
 }
   */
+  h1 {
+    font-family: 'Kalimati', sans-serif;
+}
+h2 {
+    font-family: 'Kalimati', sans-serif;
+}
+h3 {
+    font-family: 'Kalimati', sans-serif;
+}
+
   
