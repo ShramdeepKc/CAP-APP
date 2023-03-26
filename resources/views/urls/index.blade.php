@@ -9,7 +9,7 @@
                 <h2>Create Url </h2>
             </div>
          
-            <div class="pull-center">
+            <div class="pull-right mb-3">
                 <a class="btn btn-success" href="{{ route('urls.create') }}"> Create New URL</a>
             </div>
            

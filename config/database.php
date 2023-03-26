@@ -67,7 +67,7 @@ return [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '110.44.113.212'),
-            'port' => env('DB_PORT', '5432'),
+            'port' => env('DB_PORT', '56432'),
             'database' => env('DB_DATABASE','app16_munerp_live_test'),
             'username' => env('DB_USERNAME','tax'),
             'password' => env('DB_PASSWORD','t'),
