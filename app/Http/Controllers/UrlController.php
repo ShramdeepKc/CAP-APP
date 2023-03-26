@@ -66,6 +66,7 @@ class UrlController extends Controller
     
         $client_id = Auth::user()->client_id;
 
+
         if (auth()->id() == 1){
         $app = App::all();
         $app_client  = DB::table('public.app_client')
@@ -78,7 +79,10 @@ class UrlController extends Controller
     
         }
         else{
+          
             $app = App::all();
+
+
             $app_client  = DB::table('public.app_client')
             ->select('id','name_en')
             ->where('status' ,'=','true')
@@ -92,10 +96,28 @@ class UrlController extends Controller
 
             // dd($app_client);
             // $selectedAppIds = explode(',', $application->app_id);
+          
+            
+
             $selected_apps = Application::where('client_id', $client_id)->first();
+
+            if ($selected_apps === null) {
+                return back()->with('error', 'You must have at least one app to create a new one.');
+            }
             $selApp = explode(',',$selected_apps->app_id);
 
-            $appList = DB::table('apps')->whereIn('id',$selApp)->get();
+
+            if (empty($selApp)) {
+                session()->flash('error', 'No apps are assigned to this client.');
+                return redirect()->back();
+            }
+            
+            $appList = DB::table('apps')->whereIn('id',$selApp)           
+            ->get();
+        
+           
+
+
             // dd($selected_apps);
             return view('urls.create',compact('app','app_client','selected_apps','appList'));
         }
