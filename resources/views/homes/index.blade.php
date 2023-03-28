@@ -2,8 +2,14 @@
    
 @section('content')
 
-<div class="container">
-<div class="row">
+<?php
+
+use App\Models\Url;
+use Illuminate\Support\Facades\DB;
+
+ ?>
+ <div class="container">
+<div class="row ">
      @foreach($url as $urls)
       <div class="cards">
         <div class="card-content">
@@ -20,7 +26,4 @@
       @endforeach
     </div>
 </div>
-   
-
-
 @endsection

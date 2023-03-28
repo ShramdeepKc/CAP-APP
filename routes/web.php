@@ -14,7 +14,6 @@ use App\Http\Controllers\BackgroundController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\MapController;
-
 use Illuminate\Console\Application;
 
 // use App\Http\Controllers\ClientController;

@@ -3,12 +3,14 @@
 ?>
 @extends('layout') 
 @section('content')
+
+
 <div class="p-5 text-center bg-light">
     
     <h4 class="mb-1">URL LIST</h4>
- 
+
   </div>
-<form action="{{ route('urls.store') }}" method="POST" enctype="multipart/form-data" >
+<form action="{{ route('urls.store') }}" class="nepali-font" style="font-family: Kalimati;"  method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">
    <div class="card-body row">
@@ -32,7 +34,7 @@
       </select>
 
       @else
-      <input type="text" name="client_id" value="{{$user = auth()->user()->client_id}}" hidden>{{$user = auth()->user()->name}}</input>
+      <input type="text"   name="client_id" value="{{$user = auth()->user()->client_id}}" hidden>{{$user = auth()->user()->name}}</input>
   
         @endif
 
@@ -46,7 +48,7 @@
             @if(auth()->id() == 1)
       <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
-              <option value="{{$apps->id}}">{{$apps->name_en}}</option>
+              <option value="{{$apps->id}}"> {{$apps->name_en}}</option>
               @endforeach
         
       </select>
@@ -69,7 +71,7 @@
         </div>
         <div class="form-group">
     <strong>Description : </strong>
-    <textarea class="form-control" id="description" name="description" rows="2" required></textarea>
+    <textarea class="form-control" id="description" style="font-family: preeti;" name="description" rows="2" required></textarea>
   </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
@@ -85,6 +87,7 @@
    </div>
 </div>
 </form>
+
 
 
 @endsection

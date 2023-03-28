@@ -71,7 +71,7 @@
 
 
 
-{!! $app->links() !!}
+
 
 
 @endsection

@@ -112,14 +112,19 @@ class UrlController extends Controller
                 return redirect()->back();
             }
             
-            $appList = DB::table('apps')->whereIn('id',$selApp)           
-            ->get();
+          
+            $urlapps = DB::table('urls')->where('client_id',$client_id)->pluck('app_id')->toArray(); 
+            
         
-           
+           $remapps = array_diff($selApp,$urlapps);
+           $appList = DB::table('apps')->whereIn('id',$remapps)           
+           ->get();
+       
 
 
-            // dd($selected_apps);
+            // dd($selApp,$urlapps ,$remapps);
             return view('urls.create',compact('app','app_client','selected_apps','appList'));
+        
         }
       
   
@@ -216,6 +221,8 @@ class UrlController extends Controller
             $appList = DB::table('apps')->whereIn('id',$selApp)->get();
             // dd($selected_apps);
             return view('urls.edit',compact('app','app_client','selected_apps','appList','url'));
+
+            
 
 
         }

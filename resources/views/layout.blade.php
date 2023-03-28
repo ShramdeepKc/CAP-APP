@@ -4,7 +4,8 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ajx -->
 
     <!-- Bootstrap CSS -->
@@ -13,6 +14,9 @@
     <!--css-->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
+    <script src="{{asset('js/nepali.js')}}"></script>
+
 
     <style>
     <?php use App\Models\Background;

@@ -21,12 +21,15 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        
         $client = DB::table('public.app_client')
         ->select('id','name_en')
         ->where('status' ,'=','true')
         ->get(); 
         
+      
         return view('auth.register',compact('client'));
+       
     }
 
     /**

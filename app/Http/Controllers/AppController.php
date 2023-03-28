@@ -15,11 +15,11 @@ class AppController extends Controller
      */
     public function index()
     {
-        $app = App::latest()->paginate(5);
+        $app = App::all();
         // dd($app);
      
         return view('apps.index',compact('app'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i');
     }
 
     /**

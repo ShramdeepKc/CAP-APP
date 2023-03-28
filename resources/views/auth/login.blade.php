@@ -45,7 +45,7 @@
                             <div class="Icon"><img class="login-icon" src="images/iconPassword.png" alt="user name">
                             </div>
                             <div class="usernameText"><input type="password" placeholder="Password" id="password"
-                                    name="password" autocomplete="current-password"></div>
+                                    name="password" autocomplete="current-password" ></div>
                         </div>
                         <div class="textField">
                             @if (Route::has('password.request'))
@@ -58,7 +58,7 @@
                         
                         <button class="login-button"><i class="fa fa-sign-in" aria-hidden="true"></i>
                         {{ __('Login') }}</button>
-                        <div class="login-button">
+                        <div class="back-button">
                             <a href="/">Back</a>
                         </div>
                     </div>
