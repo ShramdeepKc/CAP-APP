@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 
-    <script src="{{asset('js/nepali.js')}}"></script>
+    <script src="{{asset('js/convert_unicode.js')}}"></script>
 
 
     <style>
@@ -130,12 +130,7 @@
     </div>
 </body>
 
-<script>
-function myFunction() {
-    if (!confirm("Are You Sure to logout"))
-        event.preventDefault();
-}
-</script>
+
 
 <!-- <img src="/images/bgimage.webp" alt="Bg Image" /> -->
 
@@ -151,5 +146,15 @@ function myFunction() {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+<script>
+function myFunction() {
+    if (!confirm("Are You Sure to logout"))
+        event.preventDefault();
+}
 
+$('.type_nep').on('keyup',function(){
+var code = $(this).val();
+    $(this).val(convert_to_unicode(code));
+})
+</script>
 </html>

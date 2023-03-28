@@ -14,7 +14,7 @@
                         @if(auth()->id() == 1)
                         <select name="client_id" id="client_id">
                             @foreach ($app_client as $clients)
-                            <option value="{{$clients->id}}">{{$clients->name_en}}</option>
+                            <option value="{{$clients->id}}">{{$clients->name_np}}</option>
                             @endforeach
                         </select>
                         @else

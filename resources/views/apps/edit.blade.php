@@ -16,26 +16,26 @@
          <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
                  <strong>Code:</strong>
-                 <input type="text"  name="code" class="form-control" value="{{ $app->code }}" placeholder="Code">
+                 <input type="text"  name="code" class="form-control type_nep" value="{{ $app->code }}" placeholder="Code">
                  
              </div>
          </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App Name(English)  :</strong>
-                <input type="text" name="name_en" class="form-control" value="{{ $app->name_en }}" placeholder="Name" required >
+                <input type="text" name="name_en" class="form-control type_nep" value="{{ $app->name_en }}" placeholder="Name" required >
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App Name(Nepali)  :</strong>
-                <input type="text" name="name_np" class="form-control"  value="{{ $app->name_np }}" placeholder="नेपालीमा लेख्नुहोस्">
+                <input type="text" name="name_np" class="form-control type_nep"  value="{{ $app->name_np }}" placeholder="नेपालीमा लेख्नुहोस्">
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>Status  :</strong>
-                <input type="text" name="status" class="form-control"  value="{{ $app->status }}" placeholder="Status">
+                <input type="text" name="status" class="form-control type_nep"  value="{{ $app->status }}" placeholder="Status">
             </div>
         </div>
 

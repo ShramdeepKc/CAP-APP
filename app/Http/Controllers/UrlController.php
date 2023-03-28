@@ -31,7 +31,7 @@ class UrlController extends Controller
         if (auth()->id() == 1){
             $url = Url::join('public.app_client as ac','urls.client_id','=' ,'ac.id')
             ->leftJoin('apps as app','urls.app_id','=','app.id')
-            ->select('ac.name_en as clientName','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image','app.name_en as appName')
+            ->select('ac.name_np as clientName','urls.id','urls.code','urls.client_id','urls.app_id','urls.app_url','urls.description','urls.image','app.name_en as appName')
             ->get();
           
             
@@ -42,7 +42,7 @@ class UrlController extends Controller
         ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
         ->leftJoin('apps as app','urls.app_id','=','app.id')
         // ->leftJoin('applications','urls.app_id','=','applications.id')
-        ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
+        ->select('urls.*','ac.name_np as clientName','app.name_en as appName')
             ->where('urls.client_id', '=', $client_id)
             ->get();
              
@@ -70,7 +70,7 @@ class UrlController extends Controller
         if (auth()->id() == 1){
         $app = App::all();
         $app_client  = DB::table('public.app_client')
-        ->select('id','name_en')
+        ->select('id','name_np')
           
         ->where('status' ,'=','true')
         ->get(); 
@@ -190,7 +190,7 @@ class UrlController extends Controller
 
         $app=App::get();
         $app_client = DB::table('public.app_client')
-        ->select('id','name_en')
+        ->select('id','name_np')
         ->where('status' ,'=','true')
          ->get(); 
         return view('urls.edit',compact('url','app','app_client'));
@@ -198,7 +198,7 @@ class UrlController extends Controller
         else{
             $app = App::all();
             $app_client  = DB::table('public.app_client')
-            ->select('id','name_en')
+            ->select('id','name_np')
             ->where('status' ,'=','true')
             ->get();
 

@@ -27,7 +27,7 @@
                     <select name="client_id" id="client_id">
                         @foreach ($app_client as $clients)
                         <option value="{{$clients->id}}" {{$clients->id==$url->client_id ? 'selected':''}}>
-                            {{$clients->name_en}}</option>
+                            {{$clients->name_np}}</option>
                         @endforeach
                     </select>
                     @else

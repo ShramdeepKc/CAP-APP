@@ -21,7 +21,7 @@ class ApplicationController extends Controller
         // ->leftJoin('apps as app','applications.app_id','=','app.id')
         //  ->leftJoin('apps as app','applications.app_id','=', DB::raw('CAST(applications.app_id AS character varying)'))
 
-        ->select('ac.name_en as clientName','applications.*')
+        ->select('ac.name_np as clientName','applications.*')
         ->get();
       
     //    dd($applications);
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
     public function create()
     {
         $app_client  = DB::table('public.app_client')
-        ->select('id','name_en')
+        ->select('id','name_en','name_np')
         ->where('status' ,'=','true')
         ->get(); 
         // dd($app_client);   
@@ -96,7 +96,7 @@ class ApplicationController extends Controller
         // dd($application);
         $selectedAppIds = explode(',', $application->app_id);
         $app_client = DB::table('public.app_client')
-        ->select('id','name_en')
+        ->select('id','name_np')
         ->where('status' ,'=','true')
          ->get();   
         return view('applications.edit',compact('application','app_client','app','selectedAppIds'));

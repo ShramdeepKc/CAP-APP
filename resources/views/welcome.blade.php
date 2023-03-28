@@ -34,15 +34,15 @@
                     <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
-                <h2 class="nav-text">CLIENT <span>APP PORTAL</span></h2>
+                <h3 class="nav-text">CLIENT APP</h3>
                 <button class="nav-btn">
                     @if (Route::has('login'))
                     @auth
-                    <a href="{{ route('homes.index') }}" class="nav-link" style="color: 	#F0E2DF">Dashboard</a>
+                    <a href="{{ route('homes.index') }}" class="nav-link" style="color: 	#F0E2DF">ड्यास्बोर्ड</a>
                     @else
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="fa fa-sign-in pr-4" aria-hidden="true"></i><span
-                            class="d-sm-none d-md-inline-block">LOGIN</span></a>
+                            class="d-sm-none d-md-inline-block">लग इन </span></a>
 
                     <!-- @if (Route::has('register'))
                  <a href="{{ route('register') }}">Register</a>

@@ -15,7 +15,7 @@
             <strong> Clients:</strong>
       <select name="client_id" id="client_id" required>
       @foreach ($app_client as $clients)
-              <option value="{{$clients->id}}">{{$clients->name_en}}</option>
+              <option value="{{$clients->id}}">{{$clients->name_np}}</option>
               @endforeach
       </select>
              </div>

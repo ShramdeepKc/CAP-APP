@@ -10,7 +10,8 @@
     <h4 class="mb-1">URL LIST</h4>
 
   </div>
-<form action="{{ route('urls.store') }}" class="nepali-font" style="font-family: Kalimati;"  method="POST" enctype="multipart/form-data" >
+
+<form action="{{ route('urls.store') }}" class="nepali-font"   method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">
    <div class="card-body row">
@@ -18,7 +19,7 @@
          <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
                  <strong>Code:</strong>
-                 <input type="text"  name="code" class="form-control" placeholder="Code" required>
+                 <input type="text"  name="code" class="form-control type_nep" placeholder="Code" required>
                  
              </div>
             </div>
@@ -27,9 +28,9 @@
              <div class="form-group">
             <strong> Clients:</strong>
             @if(auth()->id() == 1) 
-      <select name="client_id" id="client_id" required>
+      <select name="client_id" id="client_id"  class="form-control type_nep"  required>
       @foreach ($app_client as $clients)
-              <option value="{{$clients->id}}" >{{$clients->name_en}}</option>
+              <option value="{{$clients->id}}" >{{$clients->name_np}}</option>
               @endforeach
       </select>
 
@@ -48,7 +49,7 @@
             @if(auth()->id() == 1)
       <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
-              <option value="{{$apps->id}}"> {{$apps->name_en}}</option>
+              <option value="{{$apps->id}}" class="form-control type_nep" > {{$apps->name_en}}</option>
               @endforeach
         
       </select>
@@ -66,17 +67,17 @@
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
                 <strong>App URL(English)  :</strong>
-                <input type="text" name="app_url" class="form-control" placeholder="App Url" required >
+                <input type="text" name="app_url" placeholder="App Url" required >
             </div>
         </div>
         <div class="form-group">
     <strong>Description : </strong>
-    <textarea class="form-control" id="description" style="font-family: preeti;" name="description" rows="2" required></textarea>
+    <textarea class="form-control type_nep" id="description" style="font-family: preeti;" name="description" rows="2" required></textarea>
   </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <strong>Image:</strong>
-                <input type="file" name="image" class="form-control" placeholder=" Upload image" required>
+                <input type="file" name="image"class="form-control type_nep" placeholder=" Upload image" required>
             </div>
         </div>   
 

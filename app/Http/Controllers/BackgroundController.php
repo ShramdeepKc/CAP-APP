@@ -29,7 +29,7 @@ class BackgroundController extends Controller
     public function create()
     {
         $app_client  = DB::table('public.app_client')
-        ->select('id','name_en')
+        ->select('id','name_np')
         ->where('status' ,'=','true')
         ->get(); 
         return view('background.create',compact('app_client'));
