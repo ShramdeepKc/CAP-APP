@@ -34,7 +34,7 @@
                     <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
-                <h3 class="nav-text">CLIENT APP</h3>
+               
                 <button class="nav-btn">
                     @if (Route::has('login'))
                     @auth

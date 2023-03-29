@@ -70,10 +70,13 @@
                 <input type="text" name="app_url" placeholder="App Url" required >
             </div>
         </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
     <strong>Description : </strong>
-    <textarea class="form-control type_nep" id="description" style="font-family: preeti;" name="description" rows="2" required></textarea>
+    <textarea class="form-control type_nep" id="description"  name="description" rows="2" maxlength="15" required></textarea>
   </div>
+        </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <strong>Image:</strong>
