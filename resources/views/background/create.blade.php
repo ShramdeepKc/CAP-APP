@@ -4,7 +4,7 @@
     @csrf
     <div class="card text-center">
         <div class="card-header">
-                <h2>App Assign</h2></div>
+                <h2>पृष्ठभूमि</h2></div>
         <div class="card-body row">
             <div class="col">
                 <div class>

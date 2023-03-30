@@ -32,12 +32,12 @@
                 <input type="text" name="name_np" class="form-control type_nep"  value="{{ $app->name_np }}" placeholder="नेपालीमा लेख्नुहोस्">
             </div>
         </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-            <div class="form-group">
-                <strong>स्थिति  :</strong>
-                <input type="text" name="status" class="form-control type_nep"  value="{{ $app->status }}" placeholder="Status">
-            </div>
-        </div>
+        <label for="status">स्थिति:</label><br>
+  <input type="radio" id="true" name="status" value="true"{{ ($app->status=="true")? "checked" : "" }}>
+  <label for="true">true</label><br>
+  <input type="radio" id="false" name="status" value="false"{{ ($app->status=="false")? "checked" : "" }}>
+  <label for="false">false</label><br>
+
 
          <div class="col-xs-5 col-sm-5 col-md-5 text-center">
                 <button type="submit" class="btn btn-primary">सुरक्षित गर्नुहोस </button>
