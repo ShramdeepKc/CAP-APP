@@ -13,7 +13,7 @@
            
            <div class="col-xs-5 col-sm-5 col-md-5">
                <div class="form-group">
-                   <strong> Clients:</strong>
+                   <strong> ग्राहकहरु:</strong>
                    <select name="client_id" id="client_id" >
                  @foreach ($app_client as $clients)
               <option value="{{$clients->id}}"  {{$clients->id==$map->client_id ? 'selected':''}} >{{$clients->name_en}}</option>
@@ -23,18 +23,18 @@
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
                  <div class="form-group">
-                     <strong>Code :</strong>
+                     <strong>कोड :</strong>
                      <input type="text" name="code" class="form-control" placeholder="App Url" value="{{$map->code}}" required >
                  </div>
              </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
-                <strong>App URL(English)  :</strong>
+                <strong>एप URL(English)  :</strong>
                 <input type="text" name="url" class="form-control" placeholder="App Url" value="{{$map->url}}" required >
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">सिर्जना गर्नुहोस्</button>
         </div>
         </div>
 

@@ -114,7 +114,7 @@
                 <button type="submit" href="route('logout')" onclick="return myFunction();"
                     class="btn btn-outline-light">
                     <i class="fa fa-sign-out " aria-hidden="true"></i>
-                    <span class=" d-sm-none d-md-inline-block">LOGOUT</span></button>
+                    <span class=" d-sm-none d-md-inline-block">बाहिर जाने</span></button>
 
                 <!-- <a href="route('logout')"
         onclick="event.preventDefault();

@@ -11,13 +11,13 @@
 
     </head>
     <div class="pull-center">
-                <a class="btn btn-success" href="{{ route('applications.create') }}">Assign Apps </a>
+                <a class="btn btn-success" href="{{ route('applications.create') }}">नयाँ प्रविष्टि  </a>
             </div>
   <body>
     
   <table class="table table-dark">
         <tr>
-            <th>No</th>
+            <th>नं.</th>
             <th>Clients</th>
             <th>App Name</th>
             <th>Action</th>
@@ -40,12 +40,12 @@
            
           </td>      
            <td> <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
-            <a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">सच्याउने</a>
             @csrf
                     @method('DELETE')
               
              
-                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
+                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">मेटाउने</button>
                 
                 </form></td>
 

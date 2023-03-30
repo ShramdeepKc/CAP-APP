@@ -7,11 +7,11 @@
 
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create App</h2>
+                
             </div>
          @can('view')
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('map.create') }}"> Map Url</a>
+                <a class="btn btn-success" href="{{ route('map.create') }}"> URL नक्सा</a>
             </div>
         @endcan
             
@@ -27,11 +27,11 @@
    
     <table class="table table-dark">
         <tr>
-            <th>No</th>
-            <th>Client</th>
-            <th>Code</th>
+            <th>नं.</th>
+            <th>ग्राहक</th>
+            <th>कोड</th>
             <th>Url</th>
-            <th width="200px">Action</th>
+            <th width="200px">कार्य</th>
         </tr>
         @foreach ($map as $maps)
         <tr>
@@ -43,13 +43,13 @@
            
             <td>
                 <form action="{{ route('map.destroy',$maps->id) }}" method="POST">
-                    <a class="btn btn-primary" href="{{ route('map.edit',$maps->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('map.edit',$maps->id) }}">सच्याउने</a>
                     @csrf
                     @method('DELETE')
                     
                     @can('view')
              
-                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
+                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">मेटाउने</button>
                 
                 </form>
                @endcan

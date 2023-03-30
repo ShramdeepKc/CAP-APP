@@ -54,8 +54,12 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
                                 name="password_confirmation" required />
-            </div>
+            </div><br>
 
+            
+            <div class="ml-4 btn btn-primary w-full">
+            <a href="{{route('homes.index')}}">Back</a>
+            </div>
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
@@ -65,9 +69,6 @@
                 <x-button class="ml-4">
                     {{ __('Register') }}
                 </x-button>
-                <div class="">
-                <a href="{{route('homes.index')}}">Back</a>
-                </div>
             </div>
         </form>
     </x-auth-card>

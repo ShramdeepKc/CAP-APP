@@ -7,7 +7,7 @@
 
 <div class="p-5 text-center bg-light">
     
-    <h4 class="mb-1">URL LIST</h4>
+   
 
   </div>
 
@@ -18,15 +18,15 @@
        <div class="col">
          <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
-                 <strong>Code:</strong>
-                 <input type="text"  name="code" class="form-control type_nep" placeholder="Code" required>
+                 <strong>कोड:</strong>
+                 <input type="text"  name="code" class="form-control type_nep" placeholder="कोड" required>
                  
              </div>
             </div>
       
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
-            <strong> Clients:</strong>
+            <strong> ग्राहक:</strong>
             @if(auth()->id() == 1) 
       <select name="client_id" id="client_id"  class="form-control type_nep"  required>
       @foreach ($app_client as $clients)
@@ -45,7 +45,7 @@
            
             <div class="col-xs-5 col-sm-5 col-md-5">
              <div class="form-group">
-            <strong> App Name:</strong>
+            <strong> एप नाम:</strong>
             @if(auth()->id() == 1)
       <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
@@ -66,26 +66,26 @@
             </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
-                <strong>App URL(English)  :</strong>
+                <strong>एप URL  :</strong>
                 <input type="text" name="app_url" placeholder="App Url" required >
             </div>
         </div>
 
         <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
-    <strong>Description : </strong>
+    <strong>विवरण : </strong>
     <textarea class="form-control type_nep" id="description"  name="description" rows="2" maxlength="15" required></textarea>
   </div>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
-                <strong>Image:</strong>
-                <input type="file" name="image"class="form-control type_nep" placeholder=" Upload image" required>
+                <strong>लोगो:</strong>
+                <input type="file" name="image" class="form-control type_nep" placeholder=" Upload image" required>
             </div>
         </div>   
 
         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">सुरक्षित गर्नुहोस </button>
         </div>
        </div>
    </div>

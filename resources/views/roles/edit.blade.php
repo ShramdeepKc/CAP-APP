@@ -31,7 +31,7 @@
 
 
 <div class="card">
-                    <h4 class="card-body-row">Roles And Permissions</h4>
+                    <h4 class="card-body-row">भूमिका र अनुमति</h4>
                     <div class="flex space-x-2 mt-4 p-2">
                         @if ($role->permissions)
                             @foreach ($role->permissions as $role_permission)
@@ -53,7 +53,7 @@
                         <form method="POST" action="{{ route('roles.permission', $role->id) }}">
                             @csrf
                             <div class="sm:col-span-6">
-                                <strong>Permission: </strong>
+                                <strong>अनुमति: </strong>
                                 <select id="permission" name="permission" autocomplete="permission-name"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @foreach ($permissions as $permission)
@@ -67,7 +67,7 @@
                     </div>
                     <div class="sm:col-span-6 pt-5">
                         <button type="submit"
-                            class="btn btn-success">Assign</button>
+                            class="btn btn-success">असाइन गर्नुहोस्</button>
                     </div>
                     </form>
 </div>

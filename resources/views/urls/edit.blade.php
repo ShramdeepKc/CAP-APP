@@ -4,7 +4,7 @@
 @section('content')
 <div class="p-5 text-center bg-light">
 
-    <h4 class="mb-1">URL LIST</h4>
+    <h4 class="mb-1">सम्पादन गर्नुहोस्</h4>
 
 </div>
 <form action="{{ route('urls.update',$url->id ) }}" method="POST" enctype="multipart/form-data">
@@ -15,14 +15,14 @@
             <div class="col">
                 <div class="col-xs-5 col-sm-5 col-md-5">
                     <div class="form-group">
-                        <strong>Code:</strong>
-                        <input type="text" name="code" class="form-control" value="{{ $url->code }}" placeholder="Code">
+                        <strong>कोड:</strong>
+                        <input type="text" name="code" class="form-control type_nep" value="{{ $url->code }}" placeholder="Code">
                     </div>
                 </div>
 
-
+                <div class="col-xs-5 col-sm-5 col-md-5">
                 <div class="form-group">
-                    <strong>Clients:</strong>
+                    <strong>ग्राहक:</strong>
                     @if(auth()->id() == 1)
                     <select name="client_id" id="client_id">
                         @foreach ($app_client as $clients)
@@ -35,10 +35,11 @@
                     <input type="text" name="client_id" value="{{$user = auth()->user()->client_id}}"
                         hidden>{{$user = auth()->user()->name}}</input>
                 </div>
+                </div>
                 @endif
-
+                <div class="col-xs-5 col-sm-5 col-md-5">
                 <div class="form-group">
-                    <strong>Apps:</strong>
+                    <strong> एप नाम:</strong>
                     @if(auth()->id() == 1)
                     <select id="app" name="app_id" value="apps">
                         @foreach ($app as $apps)
@@ -47,39 +48,45 @@
                         @endforeach
                     </select>
                 </div>
+                </div>
+
                 @else
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                <div class="form-group">
                 <select id="app" name="app_id" value="apps">
                     @foreach ($appList as $apps)
                     <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_en}}
                     </option>
                     @endforeach
                 </select>
+                </div>
+                </div>
                 @endif
 
                 <div class="col-xs-5 col-sm-5 col-md-5">
                     <div class="form-group">
-                        <strong>App URL(English) :</strong>
+                        <strong>एप URL :</strong>
                         <input type="text" name="app_url" class="form-control" value="{{ $url->app_url }}"
                             placeholder="Code">
                     </div>
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5">
                     <div class="form-group">
-                        <strong>Description :</strong>
+                        <strong>विवरण :</strong>
                         <textarea type="description" name="description"
-                            class="form-control">{{$url->description }}</textarea>
+                        class="form-control type_nep">{{$url->description }}</textarea>
                     </div>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="form-group">
-                        <strong>Image:</strong>
+                        <strong>लोगो :</strong>
                         <input type="file" name="image" class="form-control" placeholder=" Upload image">
                         <img src="/image/{{ $url->image }}" width="100px">
                     </div>
                 </div>
 
                 <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">सुरक्षित गर्नुहोस </button>
                 </div>
             </div>
         </div>

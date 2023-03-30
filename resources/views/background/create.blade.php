@@ -9,7 +9,7 @@
             <div class="col">
                 <div class>
                     <div class="form-group">
-                        <strong> Clients:</strong>
+                        <strong> ग्राहक:</strong>
 
                         @if(auth()->id() == 1)
                         <select name="client_id" id="client_id">
@@ -29,7 +29,7 @@
                     <input type="file" name="image">
                 </div>
                 <div class=" text-center">
-                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <button type="submit" class="btn btn-primary">अपलोड गर्नुहोस्</button>
                 </div>
             </div>
         </div>

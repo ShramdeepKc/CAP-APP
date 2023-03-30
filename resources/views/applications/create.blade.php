@@ -41,7 +41,7 @@
 
 
         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">सुरक्षित गर्नुहोस </button>
         </div>
        </div>
    </div>

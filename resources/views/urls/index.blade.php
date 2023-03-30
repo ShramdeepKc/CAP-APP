@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create Url </h2>
+                <h2> Url सूची </h2>
             </div>
          
             @if ($message = Session::get('success'))
@@ -25,7 +25,7 @@
                 </div>
             @endif
             <div class="pull-right mb-3">
-                <a class="btn btn-success" href="{{ route('urls.create') }}"> Create New URL</a>
+                <a class="btn btn-success" href="{{ route('urls.create') }}"> नयाँ प्रविष्टि  </a>
             </div>
            
         </div>
@@ -36,18 +36,18 @@
    
   <table class="table table-dark">
         <tr>
-            <th>No</th>
-            <th>Code</th>
-            <th>Clients</th>
-            <th>App Name</th>
-            <th>APP URL</th>
-            <th>Description</th>
+            <th>नं.</th>
+            <th>कोड </th>
+            <th>ग्राहक </th>
+            <th>एप नाम</th>
+            <th>एप URL</th>
+            <th>विवरण</th>
 
-            <th>App Image</th>
+            <th>एप लोगो</th>
             
            
 
-            <th width="200px">Action</th>
+            <th width="200px">कार्य</th>
             
         </tr>
         @foreach ($url as $urls)
@@ -64,13 +64,13 @@
             <td>
               
                 <form action="{{ route('urls.destroy',$urls->id) }}" method="POST">
-                    <a class="btn btn-primary" href="{{ route('urls.edit',$urls->id) }}" >Edit</a>
+                    <a class="btn btn-primary" href="{{ route('urls.edit',$urls->id) }}" >सच्याउने </a>
                   
                     @csrf
                     @method('DELETE')
                  
                     @can('view')
-                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">Delete</button>
+                    <button type="submit" onclick="return myFunction();" class="btn btn-danger">मेटाउने</button>
                     @endcan
                 </form>
               

@@ -1,3 +1,8 @@
+<?php
+use Carbon\Carbon;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +39,7 @@
                     <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
+                <h2 class="nav-text">CLIENT <span>APP</span></h2>
                
                 <button class="nav-btn">
                     @if (Route::has('login'))
