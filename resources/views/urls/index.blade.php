@@ -58,7 +58,7 @@
             <td>{{$urls->appName}}</td>
             <td><a href="{{$urls->app_url}}" target="_blank">{{$urls->appName}}</a></td>
             <td>{{$urls -> description}}</td>
-            <td><img src="/image/{{ $urls->image }}" width="100px"></td>
+            <td><img src="{{asset('/image/'. $urls->image  )}}" width="100px"></td>
             
             
             <td>

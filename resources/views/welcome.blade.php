@@ -34,8 +34,8 @@ use Carbon\Carbon;
                 <div class="head-title">
                     <img src="images/new-govt-logo.png" width="90" height="80" class="logo">
                     <div class="mun-title text-white">
-                    <h3 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
-                    <h3 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
+                    <h4 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
+                    <h4 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
                     <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ use Illuminate\Support\Facades\DB;
                         <div class="card-content">
                             <div class="card-icon">
                                 <a href="{{ $urls->app_url }}" target="_blank"> <img class="img"
-                                        src="/image/{{ $urls->image }}" width="80px"></a>
+                                        src="{{asset('/image/'. $urls->image  )}}" width="80px"></a>
                             </div>
                             <div class="card-title">{{ $urls->appName }}</div>
                             <div class="card-seperation">
@@ -106,7 +106,7 @@ use Illuminate\Support\Facades\DB;
                         <div class="card-content">
                             <div class="card-icon">
                                 <a href="{{ $urls->app_url }}" target="_blank"> <img class="img"
-                                        src="/image/{{ $urls->image }}" width="80px"></a>
+                                        src="{{asset('/image/'. $urls->image  )}}" width="80px"></a>
                             </div>
                             <div class="card-title">{{ $urls->appName }}</div>
                             <div class="card-seperation">
