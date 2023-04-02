@@ -16,7 +16,7 @@ body {
     /* background: #3a495e; */
     padding: 10px;
     /* box-shadow: 5px 0px 25px 5px #263442; */
-    margin-right: 250px;
+  
     
 }
 
@@ -371,3 +371,11 @@ input[type="radio"] {
   height: 30px;
     
   }
+
+a{
+  color: rgb(36, 36, 34);
+}
+
+a:hover{
+    color: black;
+}

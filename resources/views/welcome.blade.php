@@ -37,6 +37,7 @@ use Carbon\Carbon;
                     <h4 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
                     <h4 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
                     <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
+                    <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
                     </div>
                 </div>
                 <h2 class="nav-text">CLIENT <span>APP</span></h2>
@@ -109,7 +110,7 @@ use Illuminate\Support\Facades\DB;
                                 <a href="{{ $urls->app_url }}" target="_blank"> <img class="img"
                                         src="{{asset('/image/'. $urls->image  )}}" width="80px"></a>
                             </div>
-                            <div class="card-title">{{ $urls->appName }}</div>
+                            <div class="card-title"><a href="{{$urls->app_url}}" target="_blank"  style="text-decoration: none;  color:black "> {{ $urls->appName }}</a></div>
                             <div class="card-seperation">
                                 <img src="/images/divSeperation.png" alt="" />
                             </div>

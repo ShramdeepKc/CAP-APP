@@ -12,6 +12,7 @@
                             <h2 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
                             <h4 class="text-center">{{@$clientInfo[0]->office_type}}</h4>
                             <h5 class="text-center">{{@$clientInfo[0]->province}}</h5>
+                            <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
                            
                         </div>
                     </div>
