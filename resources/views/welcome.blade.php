@@ -36,8 +36,8 @@ use Carbon\Carbon;
                     <div class="mun-title text-white">
                     <h4 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
                     <h4 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
-                    <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
+                    <h4 class="text-center">{{@$clientInfo[0]->province}}</h3>
                     </div>
                 </div>
                 <h2 class="nav-text">CLIENT <span>APP</span></h2>

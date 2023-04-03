@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
           <div class="card-icon">
           <a href="{{ $urls->app_url }}" target="_blank"  > <img class="img" src="{{asset('/image/'. $urls->image  )}}" width="80px"></a>
           </div>
-          <div class="card-title" ><a href="{{$urls->app_url}}" target="_blank" style="text-decoration: none;   " >{{ $urls->appName }}</a></div>
+          <div class="card-title" ><a href="{{$urls->app_url}}" target="_blank" style="text-decoration: none; color:black   " >{{ $urls->appName }}</a></div>
           <div class="card-seperation">
             <img src="/images/divSeperation.png" alt="" />
           </div>

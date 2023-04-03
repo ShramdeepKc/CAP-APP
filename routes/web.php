@@ -14,6 +14,7 @@ use App\Http\Controllers\BackgroundController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Console\Application;
 
 // use App\Http\Controllers\ClientController;
@@ -45,6 +46,9 @@ Route::resource('homes',HomeController::class)->middleware('auth');
 Route::resource('/', WelcomeController::class);
  
 Route::get('/users',[UserController::class,'index'])->name('users.index');
+Route::get('edit/{user}',[UserController::class,'edit'])->name('users.edit');
+Route::post('update/{user}',[UserController::class,'update'])->name('users.update');
+
 // Route::delete('/users',[UserController::class,'destroy'])->name('users.index');
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
@@ -67,6 +71,6 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     // Route::get('/register', function () {
     //     return view('auth.register');
     // });
- 
+      
 
 require __DIR__.'/auth.php';

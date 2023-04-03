@@ -7,7 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -75,6 +77,40 @@ class UserController extends Controller
         $user->delete();
 
         return back()->with('message', 'User deleted.');
+    }
+    
+
+    public function edit(User $user)
+    {
+        
+        return view('users.edit',compact('user'));
+    }
+    public function update(Request $request , User $user)
+    {
+      $validatedData =  $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => 'required|same:password',
+        ]);
+        
+    // if($validatedData['password'] !== $validatedData['password_confirmation']) {
+    //     return redirect()->back()->withErrors(['password_confirmation' => 'Passwords do not match'])->withInput();
+    // }
+
+        
+    $user->update([
+        'password' => Hash::make($validatedData['password']),
+    ]);
+
+  
+
+    
+        // $user->update($request->all());
+    
+        return redirect()->route('users.index')
+                       
+                        ->with('success','Password updated successfully');
+        
+        
     }
 
 }

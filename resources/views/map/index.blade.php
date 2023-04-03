@@ -9,11 +9,11 @@
             <div class="pull-left">
                 
             </div>
-         @can('view')
+         
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('map.create') }}"> URL नक्सा</a>
             </div>
-        @endcan
+        
             
         </div>
       
@@ -47,12 +47,12 @@
                     @csrf
                     @method('DELETE')
                     
-                    @can('view')
+                   
              
                     <button type="submit" onclick="return myFunction();" class="btn btn-danger">मेटाउने</button>
                 
                 </form>
-               @endcan
+              
             </td>
         </tr>
      

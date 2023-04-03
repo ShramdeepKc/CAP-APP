@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    @can('view')
+   
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>एप सूची </h2>
@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-@endcan
+
 
 @if ($message = Session::get('success'))
 <div class="alert alert-success">

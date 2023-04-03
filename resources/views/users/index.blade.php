@@ -18,6 +18,7 @@
             <th>नं.</th>
             <th>प्रयोगकर्ताहरू</th>
             <th>कार्य</th>
+            <th>Password Reset</th>
            
             
            
@@ -39,8 +40,15 @@
                                  <button type="submit" class="btn btn-danger"> मेटाउन</button>
                             </form>
                        </div>
-                    </div>
+</div>
+<div>
             </td>
+            <td>
+                <a href="{{ route('users.edit' , $user->id ) }}" class="btn btn-primary">Change password</a>
+
+            </td>
+</div>
+            
          </tr>
         
         
