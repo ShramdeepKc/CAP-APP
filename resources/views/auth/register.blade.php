@@ -1,7 +1,13 @@
+@extends('layout')
+
+@section('content')
 
 
-<x-guest-layout>
-    <x-auth-card>
+    
+   <div class="card">
+    <h2 class="register-head">
+        REGISTER PAGE
+    </h2>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -16,7 +22,7 @@
 
 
             <div>
-            <strong> Clients:</strong>
+           <label for="clients"  >Clients:</label>
       <select name="client_id" id="clients">
       @foreach ($client as $clients)
               <option value="{{$clients->id}}">{{$clients->name_en}}</option>
@@ -26,52 +32,54 @@
 
 
             <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+            <div class="col-xs-5 col-sm-5 col-md-5">
+                <x-label for="name" :value="__('Name:')"  />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+            <div class="col-xs-5 col-sm-5 col-md-5">
+                <x-label for="email" :value="__('Email: ')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            <div class="col-xs-5 col-sm-5 col-md-5">
+                <x-label for="password" :value="__('Password:')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password" class="form-control"
                                 type="password"
                                 name="password"
                                 required autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+            <div class="col-xs-5 col-sm-5 col-md-5">
+                <x-label for="password_confirmation" :value="__('Confirm Password:')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
+                <x-input id="password_confirmation" class="form-control"
                                 type="password"
                                 name="password_confirmation" required />
             </div><br>
 
-            
-            <div class="ml-4 btn btn-primary w-full">
-            <a href="{{route('homes.index')}}">Back</a>
-            </div>
-            <div class="flex items-center justify-end mt-4">
+            <button class="login-button">
+                {{ __('Register') }}
+            </button>
+            <div class="row">
+            <div class="flex items-center justify-end mt-4"   >
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
+                <div class="return-button">
+                    <a href="{{route('homes.index')}}">Back</a>
+                </div>
                 
-                
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+                </div> 
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            </form>
+        </div>
+ 
+
+@endsection

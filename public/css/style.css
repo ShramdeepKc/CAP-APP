@@ -231,16 +231,36 @@ input {
     font-weight: bold;
     width: 100px;
     height: 40px;
-    background: #eab5a4;
+    background: #9e9c9b;
     box-shadow: 1px 1px 4px #131111;
     border-radius: 6px;
     margin: 1em;
 }
 .back-button:hover {
     color: black;
-    background-color: rgb(215, 206, 206);
+    background-color: rgb(240, 242, 247);
     cursor: pointer;
+    
 
+
+}
+.return-button{
+    text-align: center;
+    color: rgb(30, 25, 25);
+    margin: 0.2em;
+    padding: 0.4em;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    background: #f0edec;
+    box-shadow: 1px 1px 4px #131111;
+    border-radius: 6px;
+    margin: 1em;
+
+}
+.return-button:hover{
+    background-color: #484848;
+   cursor: pointer;
 }
 
 
@@ -293,6 +313,10 @@ img {
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .show>.nav-link {
     text-decoration: underline;
+}
+.register-head{
+    text-align: center;
+    text-decoration: solid;
 }
 
 .pr-4 {

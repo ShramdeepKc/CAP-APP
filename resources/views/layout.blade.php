@@ -69,17 +69,18 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
-                </li>
                 
-
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="{{route('background.create')}}">BG Image</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
                 </li>
+                @can('view')
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
+                </li>
+                
                 
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
@@ -100,6 +101,7 @@
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="{{ url('/register') }}">Register</a>
                 </li>
+                @endcan
                
             </ul>
         </div>
