@@ -5,6 +5,9 @@
 <div class="p-5 text-center bg-light">
     
     <h4 class="mb-1">एप सूची</h4>
+    <div class="pull-right mb-2">
+            <a class="btn btn-success" href="{{ route('apps.index') }}"> नयाँ प्रविष्टि </a>
+        </div>
  
   </div>
 <form action="{{ route('apps.store') }}" method="POST" >

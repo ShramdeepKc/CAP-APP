@@ -1,0 +1,348 @@
+@font-face {
+  font-family: kalimati;
+  src: url('fonts/kalimati');
+}
+body {
+  font-family: kalimati;
+}
+* {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+/* welcome page header LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding:0.5rem 2rem;
+  outline: 0px solid green;
+  background-color: #14213D;
+  color:#fff;
+  box-shadow: -2px 2px 10px hsl(0, 0%, 0%);
+}
+header .emblem {
+  width: clamp(8vmin, 12vmin, 15vmin);
+}
+header .headerText {
+  cursor:default;
+  font-size: 2rem;
+	color: peru;
+  letter-spacing: 0.05em;
+  margin-right: auto;
+}
+header .headerText span {
+  color:white;
+}
+header .munTitle {
+  margin-right: auto;
+  margin-left: 1rem;
+  text-align: center;
+}
+header .logBtn {
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+header button {
+  color:#fff;
+  background-color: rgb(31, 29, 29);
+  border:1px solid gray;
+  margin-left: auto;
+  padding:0.4rem;
+  cursor:pointer;
+  border-radius: 3px;
+}
+header button a {
+  color:#fff;
+  text-decoration:none;
+}
+header button:hover {
+  color:rgb(31, 29, 29);
+  background-color: #fff;
+  margin-left: auto;
+}
+
+/* index.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+main {
+  display: flex;
+  justify-content: center;
+  padding:2rem 2rem 2rem 2rem;
+  border:0px solid blue;
+}
+#allBoxes {
+  outline: 0px solid red;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-wrap: wrap;
+}
+#allBoxes .outerBox {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  margin: 0rem 2rem 2rem 0rem;
+  border-radius: 15px;
+  border:0px solid green;
+}
+.outerBox .boxP {
+  padding:0.4rem 0.6rem;
+  background-color: #f0eaea;
+  color:#000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 0;
+  flex: 0 0 0;
+  gap: 0.5rem;
+  text-align: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 2px 10px hsl(0, 0%, 0%);
+}
+.outerBox:hover .boxP {
+  transform: scale(1.15);
+  box-shadow: 2px 2px 10px hsl(0, 0%, 0%);
+  color: #000;
+  background-color: skyblue;
+  border:1px groove skyblue;
+  cursor:pointer;
+}
+.outerBox .boxP .logoP {
+  width: clamp(12vmin, 16vmin, 17vmin);
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  outline:0px solid red; 
+}
+.outerBox:hover .logoP {
+  transform: scale(1.2);
+  border-top:0px groove skyblue;
+}
+.outerBox .boxP .titleP {
+  transition: transform 0.3s ease;
+  font-size: 2vmin;
+  white-space: nowrap;
+}
+.outerBox:hover .titleP {
+  transform: scale(0.9);
+}
+.outerBox .boxP .lineP {
+  height:3px;
+  width:50%;
+  background-color: peru;
+  transition: width 0.3s ease;
+}
+.outerBox:hover .lineP {
+  width: 100%;
+  background-color: #000;
+}
+.outerBox .boxP .descriptionP {
+  transition: transform 0.3s ease;
+  font-size: 1.7vmin;
+}
+.outerBox:hover .descriptionP {
+  transform: scale(0.9);
+}
+#sideBar {
+  border:0px solid #fff;
+  height:100%;
+  flex-basis: 25%;
+  display:flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  background-color: #14213D;
+  border-radius: 15px;
+  cursor: default;
+  margin: 0 -1rem 0 2rem;
+  box-shadow:
+  -3px -3px 3px rgba(0, 0, 0, 0.7), 
+   3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+#sideBar h3 {
+  background-color: royalblue;
+  color:#fff;
+  font-size:1.2rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0.5rem 0.5rem 0.4rem 0.5rem;
+  box-shadow: 0px 0px 0px hsl(0, 0%, 0%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#sideBar p {
+  padding:0.2rem 0.5rem;
+  font-size: 90%;
+  color:#fff;
+  line-height: 120%;
+  border-top:0px solid #ccc;
+  border-bottom: 0px solid #ccc;
+  letter-spacing: 120%;
+}
+/* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+.layoutHeader {
+  background-color:#29558b;
+  gap:1rem;
+  border:0px solid red;
+}
+#cPa {
+  text-decoration: none;
+  color:white;
+  margin-right: auto;
+  border:1px solid white;
+  padding:0.5em;
+  border-radius:0.5em;
+}
+.layoutHeader #headerDivB {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+#navMenu {
+  position:relative;
+  z-index:99;
+  width:fit-content;
+  display:flex;
+  border:0px solid red;
+}
+#navMenu span {
+  letter-spacing: 130%;
+  display:flex;
+  color:#fff;
+  border:1px solid gray;
+  padding:0.2rem 1.9rem;
+  cursor:pointer;
+  border-radius: 3px;
+  font-size: 100%;
+  border:0px solid olive;
+}
+#navMenu span:hover {
+  background-color: #14213D;
+  color:white;
+}
+#navMenu ul {
+  transition: 0.5s ease;
+  border-radius: 5px;
+  overflow:hidden;
+  position:absolute;
+  top:95%;
+  left:0%;
+  border:1px solid gray;
+}
+#navMenu ul li {
+  list-style: none;
+  background-color:#fff;
+  cursor:pointer;
+  display:flex;
+  border:0px solid sandybrown;
+}
+#navMenu ul li a {
+  display: inline-flex;
+  flex-basis: 1 1 0;
+  text-decoration: none;
+  color:gray;
+  min-width:100%;
+  min-height:100%;
+  padding:0.2rem 0.5rem;
+  transition: 0.3s ease;
+  font-size:100%;
+  border-bottom:1px solid #797979;
+}
+#navMenu ul li:hover a {
+  font-weight:bolder;
+  border-left:0px solid gray;
+  color:#fff;
+  background-color: gray;
+}
+
+/* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+.guestLoginPage {
+  border:0px solid thistle;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/bg.png") no-repeat fixed;
+    background-size: 100% 100% !important;
+}
+.loginStuff {
+  border:0px solid pink;
+  background: linear-gradient(180deg, #009FE1 5.52%, rgba(53, 175, 228, 0.584746) 31.25%, rgba(127, 198, 232, 0) 56.98%, rgba(118, 203, 240, 0.469404) 80.54%);
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.loginStuff .mb-4 {
+  text-align: center;
+  padding:1rem;
+}
+.loginStuff .mb-4 {
+  text-align: left;
+}
+.loginHeader {
+  border-radius: 15px;
+  padding:1rem;
+  background: linear-gradient(180deg, #009FE1 5.52%, rgba(53, 175, 228, 0.584746) 31.25%,
+             rgba(127, 198, 232, 0) 56.98%, rgba(118, 203, 240, 0.469404) 80.54%);
+  box-shadow: 2px 2px 4px 2px rgba(118, 203, 240, 0.469404);
+}
+.loginForm {
+  padding:2rem 2.5rem;
+  display:flex;
+  flex-direction: column;
+  gap:1rem;
+  backdrop-filter: blur(10px);
+}
+.loginForm fieldset {
+  display:flex;
+  align-items: center;
+  gap:0.7rem;
+}
+.loginForm fieldset img {
+  height:100%;
+  aspect-ratio: 1/1.2;
+  margin-right: auto;
+}
+.loginForm fieldset input {
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  box-shadow: 1px 1px 4px #797979;
+}
+.loginForm fieldset button {
+  padding:0.3rem 0.5rem;
+  border-radius:5px;
+  width: clamp(8vmin, 12vmin, 17vmin);
+  box-shadow: 1px 1px 4px #797979;
+  font-weight: bold;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  color:#fff
+}
+.loginForm fieldset button:nth-child(1) {
+  background-color: #3a5791;
+}
+.loginForm fieldset button:nth-child(1):hover {
+  color: #3a5791;
+  background-color: #fff;
+  outline:1px groove #3a5791;
+}
+.loginForm fieldset button:nth-child(2) {
+  background-color: #e6977d;
+  margin-left: auto;
+}
+.loginForm fieldset button:nth-child(2):hover {
+  color: #e6977d;
+  background-color: #fff;
+  outline:1px groove #e6977d;
+}
+
+/* misc LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+.jkui {
+  margin-top:1rem;
+}

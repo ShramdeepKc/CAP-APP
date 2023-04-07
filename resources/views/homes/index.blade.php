@@ -1,5 +1,4 @@
 @extends('layout')
-   
 @section('content')
 
 <?php
@@ -8,22 +7,20 @@ use App\Models\Url;
 use Illuminate\Support\Facades\DB;
 
  ?>
- <div class="container">
-<div class="row ">
-     @foreach($url as $urls)
-      <div class="cards">
-        <div class="card-content">
-          <div class="card-icon">
-          <a href="{{ $urls->app_url }}" target="_blank"  > <img class="img" src="{{asset('/image/'. $urls->image  )}}" width="80px"></a>
-          </div>
-          <div class="card-title" ><a href="{{$urls->app_url}}" target="_blank" style="text-decoration: none; color:black   " >{{ $urls->appName }}</a></div>
-          <div class="card-seperation">
-            <img src="/images/divSeperation.png" alt="" />
-          </div>
-          <div class="card-description">{{$urls->description}}</div>
-        </div> 
-      </div>
-      @endforeach
-    </div>
-</div>
+    <main>
+      <div id="allBoxes">
+        @foreach($url as $urls)
+        <div class="outerBox">
+          <div class="boxP">
+            <a href="{{ $urls->app_url }}" target="_blank"> 
+              <img class="emblem" src="{{asset('/image/'. $urls->image  )}}">
+            </a>
+            <span class="titleP" >{{$urls->appName}}</span>
+            <div class="lineP"></div>
+            <span class="descriptionP" >{{$urls->description}}</span>
+          </div>  <!-- End of a boxP -->
+        </div> <!-- End of a outerBox -->
+        @endforeach    
+      </div> <!-- End of a allBoxes -->
+    </main>
 @endsection

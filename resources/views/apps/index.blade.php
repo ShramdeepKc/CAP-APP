@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="row">
+<div class="row jkui">
    
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">

@@ -6,18 +6,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ajx -->
-
-    <!-- Bootstrap CSS -->
+       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--css-->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- ajx -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-
+    <!-- puskar css layoutB -->
+    <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('js/convert_unicode.js')}}"></script>
-
-
     <style>
     <?php use App\Models\Background;
     use Illuminate\Support\Facades\Auth;
@@ -42,100 +39,102 @@
     // ->where('client_id',Auth::user()->client_id)
     // ->select('image');
     // dd($background);
-
-    ?>body {
-        background-image: url({{$bg_image}});
-        /* background-color: #cccccc; */
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
+    ?>
+    body {
+      background-image: url({{$bg_image}});
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
     }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #29558b; color: #fff;">
-        <a class="navbar-brand nav-text1" href="#">Client <span>Portal App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <header class="layoutHeader">
+      <a id="cPa" href="{{route('homes.index')}}">Client <span>Portal App</span></a>
+      <div id="headerDivB">
+        <nav id="navMenu">
+          <span id="navSpan">Menu</span>
+          <ul id="navUl">
+            <li>
+              <a href="{{route('homes.index')}}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li><a href="{{route('background.create')}}">Bg Img</a></li>
+            <li><a href="{{route('urls.index')}}">Url List</a></li>
+          @can('view')
+            <li><a href="{{route('apps.index')}}">Apps List</a></li>
+            <li><a href="{{route('applications.index')}}">Applications</a></li>
+            <li><a href="{{route('roles.index')}}">Roles</a></li>
+            <li><a href="{{route('permission.index')}}">Permissions</a></li>
+            <li><a href="{{route('users.index')}}">Users</a></li>
+            <li><a href="{{route('map.index')}}">Url Map</a></li>
+            <li><a href="{{ url('/register') }}">Register</a></li>
+          @endcan
+          </ul>
+        </nav>
+<script>
+    window.addEventListener('load', function() {
+        var navUl = document.getElementById('navUl');
+        var navSpan = document.getElementById('navSpan');
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link scrollto active" href="{{route('homes.index')}}">Home <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                
-                
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('background.create')}}">BG Image</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('urls.index')}}">URl List</a>
-                </li>
-                @can('view')
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('apps.index')}}">Apps List</a>
-                </li>
-                
-                
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('applications.index')}}">Applications</a>
+        navUl.style.display = 'none';
+        navSpan.addEventListener('mouseenter', function() {
+            navUl.style.display = 'block';
+        });
+        navUl.addEventListener('mouseleave', function() {
+            navUl.style.display = 'none';
+        });
+        
+        navSpan.addEventListener('mouseleave', function() {
+            setTimeout(function() {
+                if (!isHover(navUl)) {
+                    navUl.style.display = 'none';
+                }
+            }, 3000);
+        });
+      
+        function isHover(elem) {
+            return (elem.parentElement.querySelector(':hover') === elem);
+        }
+    });
+</script>
 
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('roles.index')}}">Roles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('permission.index')}}">Permission</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('users.index')}}">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{route('map.index')}}">UrlMap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ url('/register') }}">Register</a>
-                </li>
-                @endcan
-               
-            </ul>
-        </div>
+
+        <!-- puskar end -->
 
         <div class="ml-auto">
-            <a class="nav-link scrollto">
-                <h5> {{ $user = auth()->user()->name; }}</h5> <span class="caret"></span>
+          <a class="nav-link scrollto">
+            <h6> {{ $user = auth()->user()->name; }}</h6>
+            <span class="caret"></span>
+          </a>
         </div>
 
         <div class="mx-auto">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" href="route('logout')" onclick="return myFunction();"
-                    class="btn btn-outline-light">
-                    <i class="fa fa-sign-out " aria-hidden="true"></i>
-                    <span class=" d-sm-none d-md-inline-block">बाहिर जाने</span></button>
-
-                <!-- <a href="route('logout')"
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-outline-light">
+              <i class="fa fa-sign-out " aria-hidden="true"></i>
+              <span class=" d-sm-none d-md-inline-block">बाहिर जाने</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>            
+    
+      <!-- <a href="route('logout')"
         onclick="event.preventDefault();
         this.closest('form').submit();">
         {{ __('Log Out') }}
       </a> -->
-            </form>
-        </div>
+  
 
-    </nav>
     <div class="container">
         @yield('content')
     </div>
 </body>
-
-
-
-<!-- <img src="/images/bgimage.webp" alt="Bg Image" /> -->
 
 
 <!-- Optional JavaScript -->
@@ -160,4 +159,6 @@ var code = $(this).val();
     $(this).val(convert_to_unicode(code));
 })
 </script>
+
+
 </html>

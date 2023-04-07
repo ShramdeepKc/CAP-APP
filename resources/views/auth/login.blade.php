@@ -1,70 +1,69 @@
-<link rel="stylesheet" href="{{asset('/css/style.css')}}" />
+<!-- previous css
+<link rel="stylesheet" href="{{asset('/css/style.css')}}" /> -->
+<!-- puskar css pWelcome -->
+<link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-<x-guest-layout>
-    <div class="container1">
-        <div class="cards">
-            <div class="card-content1">
-                <div class="loginCard-heading">
-                    <!-- <h2 class="login-text">Kathmandu Metropolitan City</h2> -->
-                    <div class="head-title">
-                        <img src="images/new-govt-logo.png" width="80" height="70" class="logo">
-                        <div class="mun-title text-black">
-                            <h2 class="text-center"> {{@$clientInfo[0]->mun_vdc}}</h2>
-                            <h4 class="text-center">{{@$clientInfo[0]->office_type}}</h4>
-                            <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
-                            <h5 class="text-center">{{@$clientInfo[0]->province}}</h5>
-                           
-                        </div>
-                    </div>
-                </div>
+  <x-guest-layout>
+    <div class="guestLoginPage">
+    <div class="loginStuff">
+    <div class="loginHeader">
+        <img src="images/new-govt-logo.png" width="80" height="70" class="logo">
+        <div class="mun-title">
+          <h2 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h2>
+          <h4 class="text-center">{{@$clientInfo[0]->office_type}}</h4>
+          <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
+          <h5 class="text-center">{{@$clientInfo[0]->province}}</h5>
+        </div>
+    </div>
 
-                <!-- <h1 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h1>
-            <h2 class="text-center"> {{@$clientInfo[0]->office_type}}</h2>
-            <h2 class="text-center">{{@$clientInfo[0]->province}}</h2> 
-            <h1 class="text-center">{{@$clientInfo[0]->district}}</h1> -->
-                <x-slot name="logo">
-                    <a href="/">
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                    </a>
-                </x-slot>
+    <x-slot name="logo">
+      <a href="/">
+        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+      </a>
+    </x-slot>
 
-                <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')" />
+    <!-- Session Status -->
+      <x-auth-session-status class="mb-4" :status="session('status')" />
+    <!-- Validation Errors -->
+      <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                <!-- Validation Errors -->
-                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <form method="POST" action="{{ route('login') }}" class="loginForm">
+    @csrf
+      <fieldset>
+        <img class="login-icon" src="images/iconUser.png" alt="user name">
+        <input type="email" name="email" placeholder="Email" id="email" autofocus>
+      </fieldset>
 
-                <form method="POST" action="{{ route('login') }}" class="clear-both">
-                    @csrf
-                    <div class="text-fields-btn">
-                        <div class="textField">
-                            <div class="Icon"><img class="login-icon" src="images/iconUser.png" alt="user name"></div>
-                            <div class="usernameText"><input type="email" name="email" placeholder="Email" id="email"
-                                    autofocus></div>
-                        </div>
-                        <div class="textField">
-                            <div class="Icon"><img class="login-icon" src="images/iconPassword.png" alt="user name">
-                            </div>
-                            <div class="usernameText"><input type="password" placeholder="Password" id="password"
-                                    name="password" autocomplete="current-password" ></div>
-                        </div>
-                        <div class="textField">
-                            @if (Route::has('password.request'))
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                            @endif
-                        </div>
-                        
-                        <button class="login-button"><i class="fa fa-sign-in" aria-hidden="true"></i>
-                        {{ __('Login') }}</button>
-                        <div class="back-button">
-                            <a href="/">Back</a>
-                        </div>
-                    </div>
+      <fieldset>
+        <img class="login-icon" src="images/iconPassword.png" alt="user name">
+        <input type="password" placeholder="Password" id="password" name="password" autocomplete="current-password" >
+      </fieldset>
 
-                    <!-- Email Address -->
+      <fieldset>
+    @if (Route::has('password.request'))
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+          {{ __('Forgot your password?') }}
+        </a>
+    @endif
+      </fieldset>
+      
+      <fieldset>
+      <button class="loginBtn">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        {{ __('Login') }}
+      </button>
+      <button class="backBtn">
+        <i class="fas fa-arrow-circle-left"></i>
+        <a href="/">Back</a>
+      </button>
+      </fieldset>
+    </form>
+  </div> <!-- .loginstuff -->
+  </div> <!-- .guestLoginPage -->
+  </x-guest-layout>  
+                          <!-- Email Address -->
                     <!-- <div>
                 <x-label for="email" :value="__('Email')" />
 
@@ -99,8 +98,4 @@
                     {{ __('Log in') }}
                 </x-button> -->
                     <!-- </div> -->
-                </form>
-            </div>
-        </div>
-    </div>
-</x-guest-layout>
+                

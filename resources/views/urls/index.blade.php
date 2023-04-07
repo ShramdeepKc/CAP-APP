@@ -25,7 +25,7 @@
                 </div>
             @endif
             <div class="pull-right mb-3">
-                <a class="btn btn-success" href="{{ route('urls.create') }}"> नयाँ प्रविष्टि  </a>
+                <a class="btn btn-success" href="{{ route('urls.create') }}">Back </a>
             </div>
            
         </div>
