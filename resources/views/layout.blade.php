@@ -108,7 +108,7 @@
 
         <div class="ml-auto">
             <a class="nav-link scrollto">
-                <h5> {{ $user = auth()->user()->name; }}</h5> <span class="caret"></span>
+                <h5> {{ $user = auth()->user()->name; }}</h5> <span class="caret"></span></a>
         </div>
 
         <div class="mx-auto">

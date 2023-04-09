@@ -109,6 +109,7 @@ body {
     width: 240px;
     text-align: center;
     padding: 1em;
+    /* overflow: hidden; */
 }
 
 .icon-img {
@@ -148,7 +149,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  
 }
+
+  
 
 .card-content1 {
     width: 370px;
@@ -161,6 +165,7 @@ body {
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     text-align: center;
+    overflow: hidden;
 
 }
 
@@ -401,3 +406,29 @@ input[type="radio"] {
 a:hover{
     color: black;
 }
+.description-box {
+    background-color: #f3f6f9;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    transform: translateY(-50%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .description-box h2 {
+    font-size: 24px;
+    background-color: #a1ace9;
+    margin-bottom: 10px;
+  }
+  
+  .description-box p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .description-box:hover{
+    background-color: #9e9c9b;
+  }
