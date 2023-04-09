@@ -1,10 +1,17 @@
 @extends('layout')
 @section('content')
+
+
+
 <form action="{{ route('background.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="card text-center">
         <div class="card-header">
-                <h2>पृष्ठभूमि</h2></div>
+                
+<button style="display:block;" class="btn btn-danger pBtnMarginBottom pull-right">
+  <a style="color:white;margin-left:auto;" href = "{{route('homes.index')}}"> Back</a>
+</button>
+<h2>पृष्ठभूमि</h2></div>
         <div class="card-body row">
             <div class="col">
                 <div class>

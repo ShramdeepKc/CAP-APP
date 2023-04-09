@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       <!-- Bootstrap CSS -->
+      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- ajx -->
+      <!-- ajx -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    <!-- puskar css layoutB -->
-    <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
+      <!-- puskar css layoutB and fontawesome icon -->
+      <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('js/convert_unicode.js')}}"></script>
     <style>
@@ -33,7 +34,7 @@
     }
 
     else {
-        $bg_image="/images/bg.png";
+        $bg_image="/images/candidaeE.avif";
     }
 
     // ->where('client_id',Auth::user()->client_id)
@@ -52,11 +53,9 @@
 
 <body>
     <header class="layoutHeader">
-      <a id="cPa" href="{{route('homes.index')}}">Client <span>Portal App</span></a>
-      <div id="headerDivB">
-        <nav id="navMenu">
-          <span id="navSpan">Menu</span>
-          <ul id="navUl">
+      <nav id="navMenu">
+        <span id="navSpan"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        <ul id="navUl">
             <li>
               <a href="{{route('homes.index')}}">Home
                 <span class="sr-only">(current)</span>
@@ -101,21 +100,20 @@
         }
     });
 </script>
-
-
-        <!-- puskar end -->
-
-        <div class="ml-auto">
-          <a class="nav-link scrollto">
-            <h6> {{ $user = auth()->user()->name; }}</h6>
-            <span class="caret"></span>
-          </a>
+      <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
+        Client <span>Portal App</span>
+      </a>
+      
+      <div id="headerDivB">
+        <div class="layoutBladeSystemUserText">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <h6>{{ $user = auth()->user()->name; }}</h6>
         </div>
 
-        <div class="mx-auto">
+        <div class="logBtn">
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" href="route('logout')" onclick="return myFunction();" class="btn btn-outline-light">
+            <button type="submit" href="route('logout')" onclick="return myFunction();">
               <i class="fa fa-sign-out " aria-hidden="true"></i>
               <span class=" d-sm-none d-md-inline-block">बाहिर जाने</span>
             </button>

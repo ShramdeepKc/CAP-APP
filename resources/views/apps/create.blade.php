@@ -6,7 +6,7 @@
     
     <h4 class="mb-1">एप सूची</h4>
     <div class="pull-right mb-2">
-            <a class="btn btn-success" href="{{ route('apps.index') }}"> नयाँ प्रविष्टि </a>
+            <a class="btn btn-danger" href="{{ route('apps.index') }}"> Back </a>
         </div>
  
   </div>

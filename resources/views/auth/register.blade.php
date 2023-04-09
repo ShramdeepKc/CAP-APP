@@ -4,7 +4,7 @@
 
 
     
-   <div class="card">
+   <div class="card" style="padding:1rem;">
     <h2 class="register-head">
         REGISTER PAGE
     </h2>
@@ -64,21 +64,20 @@
                                 name="password_confirmation" required />
             </div><br>
 
-            <button class="login-button">
+            <button class="login-button  btn btn-success">
                 {{ __('Register') }}
             </button>
             <div class="row">
-            <div class="flex items-center justify-end mt-4"   >
+              <div style="margin-left:1rem;" class="flex items-center justify-end mt-4"   >
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-                <div class="return-button">
-                    <a href="{{route('homes.index')}}">Back</a>
+                <div class="return-button btn btn-danger">
+                    <a style="color:white" href="{{route('homes.index')}}">Back</a>
                 </div>
-                
-                </div> 
-            </div>
-            </form>
+              </div> 
+          </div>
+          </form>
         </div>
  
 

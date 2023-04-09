@@ -14,14 +14,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap:1rem;
   padding:0.5rem 2rem;
   outline: 0px solid green;
   background-color: #14213D;
   color:#fff;
   box-shadow: -2px 2px 10px hsl(0, 0%, 0%);
 }
-header .emblem {
-  width: clamp(8vmin, 12vmin, 15vmin);
+.emblem {
+  width: clamp(13vmin, 14vmin, 15vmin);
+  aspect-ratio: 1/1;
+  outline: 0px solid green;
 }
 header .headerText {
   cursor:default;
@@ -29,35 +32,54 @@ header .headerText {
 	color: peru;
   letter-spacing: 0.05em;
   margin-right: auto;
+  font-size: 4.5vmin;
+  white-space: nowrap;
+  outline: 0px solid green;
 }
 header .headerText span {
   color:white;
 }
-header .munTitle {
+.munTitle {
   margin-right: auto;
-  margin-left: 1rem;
+  margin-left: 0.7rem;
   text-align: center;
+  font-size: 2.5vmin;
+  border:0px solid red;
 }
-header .logBtn {
+.munTitle {
+  white-space: nowrap;
+}
+.munTitle h5:nth-child(3),h5:nth-child(4) {
+  display:inline;
+}
+.logBtn {
   display: flex;
   align-items: center;
+  padding:0.3em 0.3em;
   gap:1rem;
 }
-header button {
+.logBtn button {
+  font-size:3vmin;
   color:#fff;
   background-color: rgb(31, 29, 29);
-  border:1px solid gray;
+  background-color: transparent;
+  border:1px solid white;
   margin-left: auto;
   padding:0.4rem;
   cursor:pointer;
   border-radius: 3px;
 }
-header button a {
+.logBtn button a {
+  white-space: nowrap;
   color:#fff;
   text-decoration:none;
 }
-header button:hover {
-  color:rgb(31, 29, 29);
+.logBtn button:hover a{
+  color:#000;
+}
+
+.logBtn button:hover {
+  color: #000;
   background-color: #fff;
   margin-left: auto;
 }
@@ -67,10 +89,8 @@ main {
   display: flex;
   justify-content: center;
   padding:2rem 2rem 2rem 2rem;
-  border:0px solid blue;
 }
 #allBoxes {
-  outline: 0px solid red;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -82,7 +102,6 @@ main {
   align-items: center;
   margin: 0rem 2rem 2rem 0rem;
   border-radius: 15px;
-  border:0px solid green;
 }
 .outerBox .boxP {
   padding:0.4rem 0.6rem;
@@ -114,7 +133,6 @@ main {
   aspect-ratio: 1/1;
   border-radius: 15px;
   transition: transform 0.3s ease;
-  outline:0px solid red; 
 }
 .outerBox:hover .logoP {
   transform: scale(1.2);
@@ -148,6 +166,7 @@ main {
 #sideBar {
   border:0px solid #fff;
   height:100%;
+  min-width:25vmin;
   flex-basis: 25%;
   display:flex;
   flex-direction: column;
@@ -163,7 +182,7 @@ main {
 #sideBar h3 {
   background-color: royalblue;
   color:#fff;
-  font-size:1.2rem;
+  font-size:3.2vmin;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -176,6 +195,7 @@ main {
   padding:0.2rem 0.5rem;
   font-size: 90%;
   color:#fff;
+  font-size:2.2vmin;
   line-height: 120%;
   border-top:0px solid #ccc;
   border-bottom: 0px solid #ccc;
@@ -184,17 +204,34 @@ main {
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .layoutHeader {
   background-color:#29558b;
-  gap:1rem;
-  border:0px solid red;
+  display:flex;
+  justify-content: space-between;
+  padding:0 1rem;
+  margin-bottom: 1rem;
 }
-#cPa {
+#clientPortalApp_LayoutBlade {
   text-decoration: none;
+  font-size: 3vmin;
   color:white;
   margin-right: auto;
-  border:1px solid white;
-  padding:0.5em;
-  border-radius:0.5em;
+  border-bottom:1px solid white;
+  padding:0em;
+  border-radius:0em;
+  white-space: nowrap;
 }
+.layoutBladeSystemUserText {
+  font-size: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  gap:0.5rem;
+  border-radius: 0.3rem;
+  white-space: nowrap;
+}
+.layoutBladeSystemUserText h6 {
+  padding-top:0.3rem;
+ }
 .layoutHeader #headerDivB {
   display:flex;
   justify-content: center;
@@ -205,14 +242,15 @@ main {
   z-index:99;
   width:fit-content;
   display:flex;
-  border:0px solid red;
+  border:1px solid #fff;
+  border-radius: 0.3em;
 }
 #navMenu span {
   letter-spacing: 130%;
   display:flex;
   color:#fff;
   border:1px solid gray;
-  padding:0.2rem 1.9rem;
+  padding:0.5rem;
   cursor:pointer;
   border-radius: 3px;
   font-size: 100%;
@@ -236,13 +274,13 @@ main {
   background-color:#fff;
   cursor:pointer;
   display:flex;
-  border:0px solid sandybrown;
+  background-color:#29558b;
 }
 #navMenu ul li a {
   display: inline-flex;
   flex-basis: 1 1 0;
   text-decoration: none;
-  color:gray;
+  color:#fff;
   min-width:100%;
   min-height:100%;
   padding:0.2rem 0.5rem;
@@ -254,9 +292,11 @@ main {
   font-weight:bolder;
   border-left:0px solid gray;
   color:#fff;
-  background-color: gray;
+  background-color: #14213D;
 }
-
+.btnLayoutBlade {
+  white-space: nowrap;
+}
 /* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .guestLoginPage {
   border:0px solid thistle;
@@ -266,7 +306,7 @@ main {
   align-items: center;
   justify-content: center;
   background: url("../images/bg.png") no-repeat fixed;
-    background-size: 100% 100% !important;
+  background-size: 100% 100% !important;
 }
 .loginStuff {
   border:0px solid pink;
@@ -287,6 +327,9 @@ main {
   background: linear-gradient(180deg, #009FE1 5.52%, rgba(53, 175, 228, 0.584746) 31.25%,
              rgba(127, 198, 232, 0) 56.98%, rgba(118, 203, 240, 0.469404) 80.54%);
   box-shadow: 2px 2px 4px 2px rgba(118, 203, 240, 0.469404);
+  display:flex;
+  gap:1rem;
+  justify-content: space-between;
 }
 .loginForm {
   padding:2rem 2.5rem;
@@ -341,8 +384,25 @@ main {
   background-color: #fff;
   outline:1px groove #e6977d;
 }
-
+/*Registar page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+.regCard {
+  border:0px solid red;
+  padding:1rem;
+}
 /* misc LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
-.jkui {
-  margin-top:1rem;
+.scrollto {
+  display: flex;
+  gap:0.3rem;
+}
+.pDisplayFlex {
+  display: flex;
+}
+.pBtnMarginBottom {
+  margin-bottom: 1rem;
+}
+.pBtnMarginLeft {
+  margin-left:auto;
+}
+.pBtnMarginRight {
+  margin-right:auto;
 }

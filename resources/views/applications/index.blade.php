@@ -10,7 +10,7 @@
 
 
     </head>
-    <div class="pull-center">
+    <div class="pull-center pBtnMarginBottom">
                 <a class="btn btn-success" href="{{ route('applications.create') }}">नयाँ प्रविष्टि  </a>
             </div>
   <body>

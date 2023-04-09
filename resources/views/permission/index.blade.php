@@ -1,17 +1,13 @@
 @extends('layout')
 @section('content')
 
-<div class="pull-right">
-                <a class="btn btn-success" href="{{ route('permission.create') }}"> नयाँ प्रविष्टि  </a>
-            </div>
+<div class="pBtnMarginBottom">
+  <a class="btn btn-success" href="{{ route('permission.create') }}"> नयाँ प्रविष्टि  </a>
+</div>
 <table class="table table-dark">
         <tr>
             <th>नं.</th>
             <th>अनुमति</th>
-         
-            
-           
-
             <th width="100px">कार्य</th>
         </tr>
         @foreach ($permission as $perm)

@@ -21,21 +21,22 @@ use Carbon\Carbon;
         <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
-    
+      body {
+        background: url("../images/candidaeE.avif") no-repeat fixed;
+        background-size: 100% 100% !important;
+      }
     </style>
 </head>
 <body>
-
-
     <header>
       <img class="emblem" src="images/new-govt-logo.png" alt="Nepal govt emblem">
       <div class="munTitle">
         <h2> {{@$clientInfo[0]->mun_vdc}}</h2>
         <h4> {{@$clientInfo[0]->office_type}}</h4>
-        <h5>{{@$clientInfo[0]->district}}</h5>
+        <h5>{{@$clientInfo[0]->district}} </h5>
         <h5>{{@$clientInfo[0]->province}}</h5>
       </div>
-      <h2 class="headerText">CLIENT <span>APP</span></h2>
+      <h2 class="headerText">CLIENT<span>APP</span></h2>
       
       <div class="logBtn">
         <button>

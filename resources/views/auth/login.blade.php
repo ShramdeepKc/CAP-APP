@@ -9,12 +9,12 @@
     <div class="guestLoginPage">
     <div class="loginStuff">
     <div class="loginHeader">
-        <img src="images/new-govt-logo.png" width="80" height="70" class="logo">
-        <div class="mun-title">
-          <h2 class="text-center">{{@$clientInfo[0]->mun_vdc}}</h2>
-          <h4 class="text-center">{{@$clientInfo[0]->office_type}}</h4>
-          <h5 class="text-center">{{@$clientInfo[0]->district}}</h5>
-          <h5 class="text-center">{{@$clientInfo[0]->province}}</h5>
+        <img src="images/new-govt-logo.png" class="emblem">
+        <div class="munTitle">
+          <h2>{{@$clientInfo[0]->mun_vdc}}</h2>
+          <h4>{{@$clientInfo[0]->office_type}}</h4>
+          <h5>{{@$clientInfo[0]->district}}</h5>
+          <h5>{{@$clientInfo[0]->province}}</h5>
         </div>
     </div>
 

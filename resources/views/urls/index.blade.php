@@ -2,11 +2,10 @@
    
 @section('content')
 
-  
-
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Url सूची </h2>
+              <h2> Url सूची </h2>
+              <a class="btn btn-success pBtnMarginBottom" href="{{ route('urls.create') }}">Create</a>
             </div>
          
             @if ($message = Session::get('success'))
@@ -24,10 +23,6 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-            <div class="pull-right mb-3">
-                <a class="btn btn-success" href="{{ route('urls.create') }}">Back </a>
-            </div>
-           
         </div>
 
    
@@ -42,13 +37,8 @@
             <th>एप नाम</th>
             <th>एप URL</th>
             <th>विवरण</th>
-
             <th>एप लोगो</th>
-            
-           
-
             <th width="200px">कार्य</th>
-            
         </tr>
         @foreach ($url as $urls)
         <tr>

@@ -4,18 +4,16 @@
 @extends('layout') 
 @section('content')
 
+ 
 
-<div class="p-5 text-center bg-light">
-    
-<div class="pull-left">
-                <h2> Url सूची </h2>
-            </div>
-            <div class="pull-right mb-3">
-                <a class="btn btn-success" href="{{ route('urls.index') }}"> नयाँ प्रविष्टि  </a>
-            </div>
-           
-
+<div class="p-5 text-center bg-light pBtnMarginBottom">
+  <div class="pull-left">
+    <h2> Url सूची </h2>
   </div>
+  <div class="pull-right mb-3">
+    <a class="btn btn-danger" href="{{ route('urls.index') }}"> Back </a>
+  </div>
+</div>
 
 <form action="{{ route('urls.store') }}" class="nepali-font"   method="POST" enctype="multipart/form-data" >
     @csrf

@@ -3,15 +3,14 @@
 @section('content')
 
 
-<div class="row jkui">
-   
-    <div class="col-lg-12 margin-tb">
+<div class="row">
+    <div style="flex-direction:column;" class="pDisplayFlex col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>एप सूची </h2>
         </div>
 
-        <div class="pull-right mb-2">
-            <a class="btn btn-success" href="{{ route('apps.create') }}"> नयाँ प्रविष्टि </a>
+        <div>
+            <a class="btn btn-success pBtnMarginBottom" href="{{ route('apps.create') }}"> नयाँ प्रविष्टि </a>
         </div>
     </div>
 </div>

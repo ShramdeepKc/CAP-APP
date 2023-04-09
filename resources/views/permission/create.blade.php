@@ -1,5 +1,9 @@
 @extends('layout')
 @section('content')
+<div style="margin-bottom: 1rem;display:flex;">
+  <a class="btn btn-danger pBtnMarginLeft" href="{{ route('permission.index') }}"> Back </a>
+</div>
+ 
 
 <form action="{{ route('permission.store') }}" method="POST" >
     @csrf

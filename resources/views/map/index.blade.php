@@ -4,20 +4,17 @@
 
   
 <div class="row">
-
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                
-            </div>
-         
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('map.create') }}"> URL नक्सा</a>
-            </div>
-        
-            
-        </div>
-      
+  <div class="col-lg-12 margin-tb">
+    <div class="pull-left">
+  
     </div>
+    <div class="pDisplayFlex">
+      <a class="btn btn-success pBtnMarginBottom pBtnMarginRight" href="{{ route('map.create') }}">
+        URL नक्सा
+      </a>
+    </div>
+  </div>
+</div>
    
     @if ($message = Session::get('success'))
         <div class="alert alert-success">

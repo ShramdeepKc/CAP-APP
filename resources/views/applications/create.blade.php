@@ -2,7 +2,13 @@
 @extends('layout')
    
    @section('content')
-   <h2>App Assign</h2>
+    <div class="col-lg-12 margin-tb" style="display:flex;justify-content:space-between;">
+      <h2>App Assign</h2>
+      <div class="pull-right mb-2">
+        <a class="btn btn-danger" href="{{ route('applications.index') }}"> Back </a>
+      </div>
+    </div>
+ 
    <form action="{{ route('applications.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 <div class="card">

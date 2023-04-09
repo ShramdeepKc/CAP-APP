@@ -1,15 +1,21 @@
 @extends('layout')
    
 @section('content')
-<h2>Client Url Assign</h2>
+
+
+<div style="display:flex;">
+  <h2>Client Url Assign</h2>
+  <a class="btn btn-danger pBtnMarginLeft pBtnMarginBottom" href="{{ route('map.index') }}">
+    Back
+  </a>
+</div>
+ 
    <form action="{{ route('map.store') }}" method="POST">
     @csrf
 
 <div class="card">
    <div class="card-body row">
        <div class="col">
-           
-           
            <div class="col-xs-5 col-sm-5 col-md-5">
                <div class="form-group">
                    <strong> ग्राहकहरु:</strong>
