@@ -9,9 +9,9 @@
       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- ajx -->
+      <!-- puskar fontawesome icon -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-      <!-- puskar css layoutB and fontawesome icon -->
+      <!-- puskar css -->
       <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -54,7 +54,7 @@
 <body>
     <header class="layoutHeader">
       <nav id="navMenu">
-        <span id="navSpan"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
         <ul id="navUl">
             <li>
               <a href="{{route('homes.index')}}">Home
@@ -74,6 +74,37 @@
           @endcan
           </ul>
         </nav>
+
+      <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
+        Client <span>Portal App</span>
+      </a>
+      
+      <div id="headerDivB">
+        <div class="layoutBladeSystemUserText">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <span>{{ $user = auth()->user()->name; }}</span>
+        </div>
+
+        <div class="logBtn">
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" href="route('logout')" onclick="return myFunction();">
+              <i class="fa fa-sign-out " aria-hidden="true"></i>
+              बाहिर जाने
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>            
+
+    <div class="container">
+        @yield('content')
+    </div>
+    
+</body>
+
+
+<!-- Optional JavaScript -->
 <script>
     window.addEventListener('load', function() {
         var navUl = document.getElementById('navUl');
@@ -100,42 +131,6 @@
         }
     });
 </script>
-      <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
-        Client <span>Portal App</span>
-      </a>
-      
-      <div id="headerDivB">
-        <div class="layoutBladeSystemUserText">
-          <i class="fa fa-user-o" aria-hidden="true"></i>
-          <h6>{{ $user = auth()->user()->name; }}</h6>
-        </div>
-
-        <div class="logBtn">
-          <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" href="route('logout')" onclick="return myFunction();">
-              <i class="fa fa-sign-out " aria-hidden="true"></i>
-              <span class=" d-sm-none d-md-inline-block">बाहिर जाने</span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </header>            
-    
-      <!-- <a href="route('logout')"
-        onclick="event.preventDefault();
-        this.closest('form').submit();">
-        {{ __('Log Out') }}
-      </a> -->
-  
-
-    <div class="container">
-        @yield('content')
-    </div>
-</body>
-
-
-<!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

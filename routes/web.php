@@ -50,7 +50,7 @@ Route::get('edit/{user}',[UserController::class,'edit'])->name('users.edit');
 Route::post('update/{user}',[UserController::class,'update'])->name('users.update');
 
 // Route::delete('/users',[UserController::class,'destroy'])->name('users.index');
-Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+	Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::post('/users/{user}/roles', [UserController::class, 'assignRole'])->name('users.roles');
     Route::post('/users/{user}/roles', [UserController::class, 'assignRole'])->name('users.roles');

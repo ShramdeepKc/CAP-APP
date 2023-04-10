@@ -54,8 +54,7 @@ use Carbon\Carbon;
         </button>
       </div>
     </header>
-  <!-- Rough copy -->
-
+  
   
   <!-- cards and sideBar Puskar start -->
     <main>
@@ -66,11 +65,11 @@ use Carbon\Carbon;
             <a href="{{ $urls->app_url }}" target="_blank"> 
               <img class="logoP" src="{{asset('/image/'. $urls->image  )}}">
             </a>
-            <span class="titleP" >{{$urls->appName}}</span>
+            <span class="titleP">{{$urls->appName}}</span>
             <div class="lineP"></div>
             <span class="descriptionP" >{{$urls->description}}</span>
           </div>  <!-- End of a box 1 -->
-        </div> 
+        </div>
         @endforeach    
       </div>
 
@@ -80,6 +79,23 @@ use Carbon\Carbon;
       </div>
     </main>
   <!-- cards and sideBar Puskar start -->
+<!-- Rough copy -->
+<script>
+  const boxP = document.querySelectorAll('.boxP');
+  const titleP = document.querySelectorAll('.titleP');
+  const descriptionP = document.querySelectorAll('.descriptionP');
+
+  window.addEventListener('resize', function() {
+    boxP.forEach((box, index) => {
+      const boxPHeight = box.clientHeight;
+      let fontSizeT = boxPHeight / 14;
+      titleP[index].style.fontSize = `${fontSizeT}px`;
+      let fontSizeD = boxPHeight / 16;
+      descriptionP[index].style.fontSize = `${fontSizeD}px`;
+    });
+  });
+</script>
+
 
 </body>
 </html>

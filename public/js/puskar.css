@@ -2,19 +2,13 @@
   font-family: kalimati;
   src: url('fonts/kalimati');
 }
+body {
+  font-family: kalimati;
+}
 * {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
-body {
-  font-family: kalimati;
-}
-
-
-
-
-
-
 
 /* welcome page header LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 header {
@@ -29,9 +23,7 @@ header {
   box-shadow: -2px 2px 10px hsl(0, 0%, 0%);
 }
 .emblem {
-  width: clamp(13vmin, 14vmin, 15vmin);
-  max-width: 16%;
-  aspect-ratio: 1/1;
+  width: clamp(11vmin, 12vmin, 15vmin);
   outline: 0px solid green;
 }
 header .headerText {
@@ -47,6 +39,7 @@ header .headerText {
 header .headerText span {
   color:white;
 }
+/* Municipaity title next to the emblem */
 .munTitle {
   margin-right: auto;
   margin-left: 0.7rem;
@@ -60,22 +53,23 @@ header .headerText span {
 .munTitle h5:nth-child(3),h5:nth-child(4) {
   display:inline;
 }
+
+/* the dashboard and login button in the nav */
 .logBtn {
   display: flex;
   align-items: center;
-  padding:0.3em 0.3em;
   gap:1rem;
 }
 .logBtn button {
-  font-size:3vmin;
+  font-size:1.1em;
   color:#fff;
   background-color: rgb(31, 29, 29);
   background-color: transparent;
   border:1px solid white;
-  margin-left: auto;
-  padding:0.4rem;
+  padding:0.1rem;
   cursor:pointer;
   border-radius: 3px;
+  white-space: nowrap;
 }
 .logBtn button a {
   white-space: nowrap;
@@ -85,106 +79,83 @@ header .headerText span {
 .logBtn button:hover a{
   color:#000;
 }
-
 .logBtn button:hover {
   color: #000;
   background-color: #fff;
-  margin-left: auto;
 }
 
-
-
-
-
-
-/* index.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+/* index.blade The main booxes in the front page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 main {
   display: flex;
   justify-content: center;
-  outline: 0px dashed red;
+  padding:2rem 2rem 2rem 2rem;
+  outline:2px dashed #D2042D;
 }
 #allBoxes {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items:auto;
-  align-content: space-evenly;
-  grid-auto-flow: row;
-  grid-gap:2rem;
-  margin-left:4rem;
-  margin-right: 2rem;
-  padding-top: 1rem;
-  outline: 0px dashed blue;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-wrap: wrap;
+  outline:2px dashed blue;
 }
 #allBoxes .outerBox {
   display:flex;
   justify-content:center;
   align-items: center;
+  margin: 0rem 3rem;
   border-radius: 15px;
-  outline: 0px dashed green;
+  overflow: hidden;
+  outline:2px dashed green;
 }
 .outerBox .boxP {
-  padding:0rem 0.6rem;
-  background-color: #f0eaea;color:#000;
-  outline: 0px dashed orange;
-
-  display:grid;
-  grid-template-rows: 60% auto auto auto;
-  justify-items: center;
-  align-content: space-between;
-
-  min-height: 16vw;
-  max-height: 18vw;
-  aspect-ratio: 1/1.7;
-
-  overflow-y:visible;
-
+  padding:0.4rem 0.6rem;
+  width:clamp(8vw, 6vw, 8vw);
+  background-color: #f0eaea;
+  color:#000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 0;
+  flex: 0 0 0;
+  gap: 0.5rem;
   text-align: center;
   border-radius: 15px;
   transition: transform 0.3s ease;
-  box-shadow: 2px 2px 10px hsl(0, 0%, 0%);
+  box-shadow: 2px 2px 8px hsl(0, 0%, 0%);
 }
 .outerBox:hover .boxP {
   transform: scale(1.15);
   box-shadow: 2px 2px 10px hsl(0, 0%, 0%);
   color: #000;
   background-color: skyblue;
+  border:1px groove skyblue;
   cursor:pointer;
 }
 .outerBox .boxP .logoP {
-  height:100%;
-  
+  width: clamp(12vmin, 16vmin, 17vmin);
+  aspect-ratio: 1/1;
   border-radius: 15px;
   transition: transform 0.3s ease;
-  outline:0px dotted red;
 }
 .outerBox:hover .logoP {
   transform: scale(1.2);
-  outline:0px dotted red;
+  border-top:0px groove skyblue;
 }
 .outerBox .boxP .titleP {
   transition: transform 0.3s ease;
-  min-width:100%;
-
-  font-size: 1.5vw;
-  
-  white-space: wrap;
-  line-height: 110%;
-  outline:0px dotted red;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  font-size: 2vmin;
+  white-space: nowrap;
 }
 .outerBox:hover .titleP {
-  font-weight: bold;
-  color:white;
+  transform: scale(0.9);
 }
 .outerBox .boxP .lineP {
   height:3px;
   width:50%;
   background-color: peru;
   transition: width 0.3s ease;
-  outline:0px dotted red;
 }
 .outerBox:hover .lineP {
   width: 100%;
@@ -192,30 +163,13 @@ main {
 }
 .outerBox .boxP .descriptionP {
   transition: transform 0.3s ease;
-  min-width:100%;
-  font-size: 1.2vw;
-  outline:0px dotted red;
+  font-size: 1.7vmin;
 }
 .outerBox:hover .descriptionP {
   transform: scale(0.9);
 }
-@media screen and (max-width: 968px) {
-  #allBoxes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (max-width: 580px) {
-  #allBoxes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 400px) {
-  #allBoxes {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
 #sideBar {
-  margin-right:1rem;
+  border:0px solid #fff;
   height:100%;
   min-width:25vmin;
   flex-basis: 25%;
@@ -225,7 +179,7 @@ main {
   background-color: #14213D;
   border-radius: 15px;
   cursor: default;
-  margin: 1rem 1rem 0 1rem;
+  margin: 0 -1rem 0 2rem;
   box-shadow:
   -3px -3px 3px rgba(0, 0, 0, 0.7), 
    3px 3px 3px rgba(0, 0, 0, 0.7);
@@ -233,7 +187,7 @@ main {
 #sideBar h3 {
   background-color: royalblue;
   color:#fff;
-  font-size:2vw;
+  font-size:3.2vmin;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -252,11 +206,6 @@ main {
   border-bottom: 0px solid #ccc;
   letter-spacing: 120%;
 }
-
-
-
-
-
 
 
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
@@ -287,7 +236,7 @@ main {
   border-radius: 0.3rem;
   white-space: nowrap;
 }
-.layoutBladeSystemUserText h6 {
+.layoutBladeSystemUserText span {
   padding-top:0.3rem;
  }
 .layoutHeader #headerDivB {
@@ -311,8 +260,6 @@ main {
   padding:0.5rem;
   cursor:pointer;
   border-radius: 3px;
-  font-size: 100%;
-  border:0px solid olive;
 }
 #navMenu #navSpan:hover {
   background-color: #14213D;
@@ -355,11 +302,6 @@ main {
 .btnLayoutBlade {
   white-space: nowrap;
 }
-
-
-
-
-
 /* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .guestLoginPage {
   border:0px solid thistle;
@@ -452,52 +394,6 @@ main {
   border:0px solid red;
   padding:1rem;
 }
-
-
-
-
-
-
-/*Registar page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
-.myWholeForm {
-  border:2px dotted red;
-}
-.formHead {
-  border:2px dashed blue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:0.5rem;
-}
-.formP {
-  border:2px dotted red;
-  padding:1rem;
-}
-.myWholeForm .backB {
-  padding:0.4rem 0.4rem;
-  border-radius: 0.25em;
-  background-color: #dc3545;;
-  color:white;
-  margin-left:auto;
-
-}
-.myWholeForm .backB:hover {
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* misc LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .scrollto {
   display: flex;
