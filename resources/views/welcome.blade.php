@@ -33,7 +33,7 @@ use Carbon\Carbon;
       <div class="munTitle">
         <h2> {{@$clientInfo[0]->mun_vdc}}</h2>
         <h4> {{@$clientInfo[0]->office_type}}</h4>
-        <h5>{{@$clientInfo[0]->district}} </h5>,
+        <h5>{{@$clientInfo[0]->district}}</h5>
         <h5>{{@$clientInfo[0]->province}}</h5>
       </div>
       <h2 class="headerText">CLIENT <span>APP</span></h2>
