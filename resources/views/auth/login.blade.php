@@ -7,16 +7,16 @@
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
   <x-guest-layout>
     <div class="guestLoginPage">
-    <div class="loginStuff">
-    <div class="loginHeader">
-        <img src="images/new-govt-logo.png" class="emblem">
-        <div class="munTitle">
-          <h2>{{@$clientInfo[0]->mun_vdc}}</h2>
-          <h4>{{@$clientInfo[0]->office_type}}</h4>
-          <h5>{{@$clientInfo[0]->district}}</h5>
-          <h5>{{@$clientInfo[0]->province}}</h5>
+      <div class="loginStuff">
+        <div class="loginHeader">
+          <img src="images/new-govt-logo.png" class="emblemLogin">
+          <div class="munTitle">
+            <h2>{{@$clientInfo[0]->mun_vdc}}</h2>
+            <h4>{{@$clientInfo[0]->office_type}}</h4>
+            <h5>{{@$clientInfo[0]->district}}</h5>
+            <h5>{{@$clientInfo[0]->province}}</h5>
+          </div>
         </div>
-    </div>
 
     <x-slot name="logo">
       <a href="/">
@@ -32,12 +32,12 @@
     <form method="POST" action="{{ route('login') }}" class="loginForm">
     @csrf
       <fieldset>
-        <img class="login-icon" src="images/iconUser.png" alt="user name">
+        <img class="login-icon" src="images/iconUser.png" alt="user name icon">
         <input type="email" name="email" placeholder="Email" id="email" autofocus>
       </fieldset>
 
       <fieldset>
-        <img class="login-icon" src="images/iconPassword.png" alt="user name">
+        <img class="login-icon" src="images/iconPassword.png" alt="user password icon">
         <input type="password" placeholder="Password" id="password" name="password" autocomplete="current-password" >
       </fieldset>
 
@@ -61,7 +61,7 @@
       </fieldset>
     </form>
   </div> <!-- .loginstuff -->
-  </div> <!-- .guestLoginPage -->
+</div> <!-- .guestLoginPage -->
   </x-guest-layout>  
                           <!-- Email Address -->
                     <!-- <div>

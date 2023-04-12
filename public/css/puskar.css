@@ -53,8 +53,6 @@ header .headerText span {
   text-align: center;
   font-size: 2.5vmin;
   border:0px solid red;
-}
-.munTitle {
   white-space: nowrap;
 }
 .munTitle h5:nth-child(3),h5:nth-child(4) {
@@ -85,7 +83,6 @@ header .headerText span {
 .logBtn button:hover a{
   color:#000;
 }
-
 .logBtn button:hover {
   color: #000;
   background-color: #fff;
@@ -126,7 +123,7 @@ main {
   padding:0rem 0.6rem;
   background-color: #f0eaea;color:#000;
   outline: 0px dashed orange;
-
+  
   display:grid;
   grid-template-rows: 60% auto auto auto;
   justify-items: center;
@@ -362,20 +359,22 @@ main {
 
 /* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .guestLoginPage {
-  border:0px solid thistle;
   height:100vh;
+  border:2px solid red;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding:2rem;
   background: url("../images/bg.png") no-repeat fixed;
   background-size: 100% 100% !important;
 }
 .loginStuff {
-  border:0px solid pink;
   background: linear-gradient(180deg, #009FE1 5.52%, rgba(53, 175, 228, 0.584746) 31.25%, rgba(127, 198, 232, 0) 56.98%, rgba(118, 203, 240, 0.469404) 80.54%);
   border-radius: 15px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+  margin:2rem;
+  border:2px solid red;
 }
 .loginStuff .mb-4 {
   text-align: center;
@@ -393,6 +392,12 @@ main {
   display:flex;
   gap:1rem;
   justify-content: space-between;
+  border:1px solid red;
+}
+.loginHeader img {
+  outline:1px dotted pink;
+  width: clamp(1rem, 7rem, 15rem) !important;
+  height:auto;
 }
 .loginForm {
   padding:2rem 2.5rem;
@@ -408,7 +413,7 @@ main {
 }
 .loginForm fieldset img {
   height:100%;
-  aspect-ratio: 1/1.2;
+  aspect-ratio: 1/1;
   margin-right: auto;
 }
 .loginForm fieldset input {
@@ -422,11 +427,12 @@ main {
 .loginForm fieldset button {
   padding:0.3rem 0.5rem;
   border-radius:5px;
-  width: clamp(8vmin, 12vmin, 17vmin);
+  
   box-shadow: 1px 1px 4px #797979;
   font-weight: bold;
   display: flex;
   justify-content:space-between;
+  gap:0.5em;
   align-items: center;
   color:#fff
 }
@@ -460,30 +466,60 @@ main {
 
 /*Registar page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .myWholeForm {
-  border:2px dotted red;
+  border:0px dotted red;
+  background-color: #fff;
+}
+.flex {
+  display:flex;
+  gap:0.5em;
 }
 .formHead {
-  border:2px dashed blue;
+  border:0px dashed blue;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:0.5rem;
+  padding:0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom:1px solid #e7e8e9;
 }
-.formP {
-  border:2px dotted red;
-  padding:1rem;
+.formHeadCr {
+  background-color: #343a40;
+  color:#fff;
 }
-.myWholeForm .backB {
-  padding:0.4rem 0.4rem;
+.btnB {
+  padding:0.5rem 0.8rem;
   border-radius: 0.25em;
-  background-color: #dc3545;;
   color:white;
   margin-left:auto;
+  border:none;outline:none;
+}
+.backB {
+  background-color: #dc3545;;
+}
+.createB {
+  background-color: #28A745;
+}
+.submitB {
+  background-color: dodgerblue;
+}
+.backB:hover, .createB:hover, .submitB:hover {
+  text-decoration: none;
+  color:white;
+}
+.backB a:hover, .createB a:hover, .submitB a:hover {
+  text-decoration: none;
+  color:white;
+}
+.formP {
+  border:0px dotted red;
+  padding:1rem;
+}
+.formP fieldset {
+  border:1px dotted gray;
+  padding:1rem;
+}
 
-}
-.myWholeForm .backB:hover {
-  
-}
+
 
 
 
