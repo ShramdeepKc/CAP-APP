@@ -2,45 +2,39 @@
    
    @section('content')
 
-   <div class="p-5 text-center bg-light">
-    
+
+   <div class="myWholeForm">
+  <div class="formHead">
     <h4 class="mb-1">APP LIST</h4>
+</div>
  
-  </div>
-<form action="{{ route('applications.update', $application->id ) }}" method="POST" >
+ 
+<form class="formP" action="{{ route('applications.update', $application->id ) }}" method="POST" >
     @csrf
     @method('PUT')
-<div class="card">
-   <div class="card-body row">
-       <div class="col">
-         <div class="col-xs-5 col-sm-5 col-md-5">
-             <div class="form-group">
+
+    <fieldset>
                 <strong>CLients:</strong>
                  <select name="client_id" id="client_id"  >
                          @foreach ($app_client as $clients)
                       <option value="{{$clients->id}}"  {{$clients->id==$application->client_id ? 'selected':''}} >{{$clients->name_np}}</option>
                       @endforeach
               </select> 
-             </div>
-             <div class="form-group">
+</fieldset>
+
+<fieldset>
                 <strong>Apps:</strong>
                  <select name="app_id[]" id="app_id" multiple >
                          @foreach ($app as $apps)
                          <option value="{{ $apps->id }}" {{ in_array($apps->id, $selectedAppIds) ? 'selected' : '' }}>{{ $apps->name_en }}</option>
                       @endforeach
               </select> 
-             </div>
-         </div>
-       
+</fieldset>
 
-         <div class="col-xs-5 col-sm-5 col-md-5 text-center">
-                <button type="submit" class="btn btn-primary">सुरक्षित गर्नुहोस </button>
-        </div>
-    </div>
-  </div>
-</div>
-   
+<fieldset>
+  <button type="submit" class="btnB submitB">सुरक्षित गर्नुहोस </button>
+</fieldset>
 </form>
-
+</div>
 
    @endsection

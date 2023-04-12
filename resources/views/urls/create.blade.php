@@ -17,13 +17,13 @@
   @csrf
   <fieldset>
     <strong>कोड:</strong>
-    <input type="text" name="code" placeholder="कोड" required>
+    <input type="text" name="code" class="type_nep" placeholder="कोड" required>
   </fieldset>
 
   <fieldset>
     <strong> ग्राहक:</strong>
     @if(auth()->id() == 1) 
-      <select name="client_id" id="client_id"  class="form-control type_nep"  required>
+      <select name="client_id" id="client_id"  class="type_nep" required>
       @foreach ($app_client as $clients)
         <option value="{{$clients->id}}" >{{$clients->name_np}}</option>
       @endforeach
@@ -59,12 +59,12 @@
   
   <fieldset>
     <strong>विवरण : </strong>
-    <textarea class="form-control type_nep" id="description" name="description" rows="2" maxlength="15" required></textarea>
+    <textarea class="type_nep" id="description" name="description" rows="4" maxlength="15" required></textarea>
   </fieldset>
   
   <fieldset>
     <strong>लोगो:</strong>
-    <input type="file" name="image" class="form-control type_nep" placeholder=" Upload image" required>
+    <input type="file" name="image" class="type_nep" placeholder=" Upload image" required>
   </fieldset>    
   
   <fieldset>

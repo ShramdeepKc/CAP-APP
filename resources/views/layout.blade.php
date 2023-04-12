@@ -12,7 +12,7 @@
       <!-- puskar fontawesome icon -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
       <!-- puskar css -->
-      <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('js/convert_unicode.js')}}"></script>
@@ -34,7 +34,7 @@
     }
 
     else {
-        $bg_image="/images/candidaeE.avif";
+        $bg_image="/images/candidateX.avif";
     }
 
     // ->where('client_id',Auth::user()->client_id)
@@ -95,14 +95,15 @@
           </form>
         </div>
       </div>
-    </header>            
+    </header>
 
     <div class="container">
-        @yield('content')
+      @yield('content')
     </div>
     
+    
 </body>
-
+    
 
 <!-- Optional JavaScript -->
 <script>

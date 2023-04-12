@@ -15,6 +15,10 @@
     </fieldset>           
     
     <fieldset>
+
+    </fieldset>
+    
+    <fieldset>
       <strong>एप नाम(अंग्रेजी)  :</strong>
       <input type="text" name="name_en" class="form-control type_nep" placeholder=" In English" required >
     </fieldset>
@@ -24,12 +28,18 @@
       <input type="text" name="name_np" class="form-control type_nep" placeholder="नेपालीमा लेख्नुहोस्" required>
     </fieldset>
 
-    <fieldset>
-      <label for="status">स्थिति:</label><br>
+    <fieldset class="trueFalse">
+      <label for="status"><strong>स्थिति:</strong></label>
+      <div>
       <input type="radio" id="true" name="status" value="true">
-      <label for="true">true</label><br>
+      <label for="true">true</label>
+      </div>
+      
+      <div>
       <input type="radio" id="false" name="status" value="false">
-      <label for="false">false</label><br>
+      <label for="false">false</label>
+      </div>
+      
     </fieldset>
     
     <fieldset>

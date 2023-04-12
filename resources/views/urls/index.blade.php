@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="myWholeForm">
+<div>
   <div class="formHead formHeadCr">
     <h2> Url सूची </h2>
     <a class="btnB createB" href="{{ route('urls.create') }}">Create</a>
@@ -47,7 +47,7 @@
       <td>{{$urls->appName}}</td>
       <td><a href="{{$urls->app_url}}" target="_blank">{{$urls->appName}}</a></td>
       <td>{{$urls -> description}}</td>
-      <td><img src="{{asset('/image/'. $urls->image  )}}" width="50px"></td>
+      <td><img src="{{asset('/image/'. $urls->image  )}}" width="70px"></td>
       <td>
         <form class="flex" action="{{ route('urls.destroy',$urls->id) }}" method="POST">
           <a class="btnB submitB" href="{{ route('urls.edit',$urls->id) }}">सच्याउने </a>

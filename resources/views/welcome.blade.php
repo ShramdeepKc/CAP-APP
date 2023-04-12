@@ -22,7 +22,7 @@ use Carbon\Carbon;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
       body {
-        background: url("../images/candidaeE.avif") no-repeat fixed;
+        background: url("../images/candidateX.avif") no-repeat fixed;
         background-size: 100% 100% !important;
       }
     </style>
@@ -36,7 +36,8 @@ use Carbon\Carbon;
         <h5>{{@$clientInfo[0]->district}} </h5>
         <h5>{{@$clientInfo[0]->province}}</h5>
       </div>
-      <h2 class="headerText">CLIENT<span>APP</span></h2>
+      
+      <h3 class="headerText">CLIENT<span>APP</span></h3>
       
       <div class="logBtn">
         <button>

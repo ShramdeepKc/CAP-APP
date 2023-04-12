@@ -1,20 +1,18 @@
-<!-- previous css
-<link rel="stylesheet" href="{{asset('/css/style.css')}}" /> -->
 <!-- puskar css pWelcome -->
 <link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
   <x-guest-layout>
+
     <div class="guestLoginPage">
       <div class="loginStuff">
         <div class="loginHeader">
           <img src="images/new-govt-logo.png" class="emblemLogin">
           <div class="munTitle">
-            <h2>{{@$clientInfo[0]->mun_vdc}}</h2>
+            <h3>{{@$clientInfo[0]->mun_vdc}}</h3>
             <h4>{{@$clientInfo[0]->office_type}}</h4>
-            <h5>{{@$clientInfo[0]->district}}</h5>
-            <h5>{{@$clientInfo[0]->province}}</h5>
+            <h5>{{@$clientInfo[0]->district}}ㅤ{{@$clientInfo[0]->province}}</h5>
+            <h5></h5>
           </div>
         </div>
 
