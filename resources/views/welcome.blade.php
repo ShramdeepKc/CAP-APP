@@ -22,7 +22,7 @@ use Carbon\Carbon;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
       body {
-        background: url("../images/candidaeE.avif") no-repeat fixed;
+        background: url("../images/candidaeE.jpg") no-repeat fixed;
         background-size: 100% 100% !important;
       }
     </style>

@@ -34,7 +34,7 @@
     }
 
     else {
-        $bg_image="/images/candidaeE.avif";
+        $bg_image="/images/candidaeE.jpg";
     }
 
     // ->where('client_id',Auth::user()->client_id)
