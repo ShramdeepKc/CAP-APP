@@ -9,7 +9,9 @@
 body {
   font-family: kalimati;
 }
-
+::-webkit-scrollbar {
+  display:none;
+}
 
 
 
@@ -35,7 +37,6 @@ header {
   aspect-ratio: 1/0.9;
   outline: 0px solid green;
 }
-
 header .headerText {
   cursor:default;
   font-size: 3vw;
