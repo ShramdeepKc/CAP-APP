@@ -1,5 +1,5 @@
-<!-- puskar css pWelcome -->
-<link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
+<!-- cap css pWelcome -->
+<link rel="stylesheet" href="{{asset('css/cap.css')}}" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
   <x-guest-layout>
