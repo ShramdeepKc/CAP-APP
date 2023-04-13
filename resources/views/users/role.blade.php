@@ -4,18 +4,20 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <a href="{{ route('users.index') }}" class="btnB">प्रयोगकर्ताहरू</a>
-                
+    <h2>भूमिका</h2>  
+    <a href="{{ route('users.index') }}" class="btnB backB">Back</a>
+  </div>
+    
     <fieldset>
-      <div>User Name: {{ $user->name }}</div>
-      <div>User Email: {{ $user->email }}</div>
+      <span>User Name: {{ $user->name }}</span><br>
+      <span>User Email: {{ $user->email }}</span>
     </fieldset>
 
-    <fieldset>
-      <h2>भूमिका</h2>
+    
+      
       @if ($user->roles)
       @foreach ($user->roles as $user_role)
-      <form method="POST"
+      <form class="formP" method="POST"
             action="{{ route('users.roles.remove', [$user->id, $user_role->id]) }}"
             onsubmit="return confirm('Are you sure?');">
             @csrf
@@ -24,10 +26,9 @@
       </form>
       @endforeach
       @endif
-    </fieldset>
+    
 
-    <fieldset>
-      <form class="form" method="POST" action="{{ route('users.roles', $user->id) }}">
+     <form class="formP" method="POST" action="{{ route('users.roles', $user->id) }}">
         @csrf
         <label for="role">भूमिका</label>
         <select id="role" name="role" autocomplete="role-name">
@@ -40,13 +41,12 @@
         @enderror
         <button type="submit" class="btnB createB">Assign</button>
       </form>
-    </fieldset>
     
       <fieldset>
         <h2>अनुमति</h2>
         @if ($user->permissions)
         @foreach ($user->permissions as $user_permission)
-        <form method="POST" action="{{ route('users.permissions.revoke', [$user->id, $user_permission->id]) }}"
+        <form class="formP" method="POST" action="{{ route('users.permissions.revoke', [$user->id, $user_permission->id]) }}"
                                     onsubmit="return confirm('Are you sure?');">
                                     @csrf
                                     @method('DELETE')
@@ -56,23 +56,21 @@
         @endif
       </fieldset>  
 
-      <fieldset>
-        <form method="POST" action="{{ route('users.permissions', $user->id) }}">
+      <form class="form" method="POST" action="{{ route('users.permissions', $user->id) }}">
         @csrf
         <label for="permission">अनुमति</label>
         <select id="permission" name="permission" autocomplete="permission-name" >
           @foreach ($permissions as $permission)
-          <option value="{{ $permission->name }}">{{ $permission->name }}</option>
-          @endforeach
-        </select>
-        @error('name')
-        <span>{{ $message }}</span>
-        @enderror
-      </fieldset>    
+            <option value="{{ $permission->name }}">{{ $permission->name }}</option>
+            @endforeach
+          </select>
+          @error('name')
+          <span>{{ $message }}</span>
+          @enderror  
       
-      <fieldset>
-        <button type="submit" class="btnB createB">तोक्नु</button>
-      </fieldset>
-  </form>
+        <fieldset>
+          <button type="submit" class="btnB createB">तोक्नु</button>
+        </fieldset>
+      </form>
 </div>
-    @endsection
+@endsection
