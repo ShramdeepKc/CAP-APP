@@ -252,7 +252,7 @@ main {
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .layoutHeader {
   background-color:#29558b;
-  border:2px solid red;
+  border:0px solid red;
   display:flex;
   gap:1rem;
   justify-content: space-between;
