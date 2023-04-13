@@ -37,7 +37,7 @@ use Carbon\Carbon;
         <h5>{{@$clientInfo[0]->province}}</h5>
       </div>
       
-      <h3 class="headerText">CLIENT<span>APP</span></h3>
+      <h3 class="headerText">CLIENT<span> APP</span></h3>
       
       <div class="logBtn">
         <button>
