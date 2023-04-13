@@ -48,7 +48,7 @@
       background-attachment: fixed;
       background-size: cover;
     }
-    </style>
+  </style>
 </head>
 
 <body>

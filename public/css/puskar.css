@@ -95,8 +95,8 @@ header .headerText span {
 main {
   display: flex;
   gap:2rem;
-  border: 0px dashed red;
   justify-content: space-evenly;
+  padding-bottom: 3rem;
 }
 .layoutB {
   display: flex;
@@ -205,37 +205,7 @@ main {
   color:#fff;
   font-weight: bold;
 }
-/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
-@media screen and (max-width: 968px) {
-  #allBoxes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 28vw;
-    max-height: 28vw;
-    aspect-ratio: 1/1.7;
-  }
-}
-@media screen and (max-width: 580px) {
-  #allBoxes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 35vw;
-    max-height: 35vw;
-    aspect-ratio: 1/1.7;
-  }
-}
-@media screen and (max-width: 400px) {
-  #allBoxes {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 38vw;
-    max-height: 38vw;
-    aspect-ratio: 1/1.7;
-  }
-}
+
 #sideBar {
   height:100%;
   min-width:25vmin;
@@ -282,10 +252,11 @@ main {
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .layoutHeader {
   background-color:#29558b;
+  border:2px solid red;
   display:flex;
   gap:1rem;
   justify-content: space-between;
-  padding:0.2rem 3rem;
+  padding:0.2rem 1rem;
   margin-bottom: 3rem;
 }
 #clientPortalApp_LayoutBlade {
@@ -307,9 +278,6 @@ main {
   border-radius: 0.3rem;
   white-space: nowrap;
 }
-.layoutBladeSystemUserText h6 {
-  padding-top:0.3rem;
- }
 .layoutHeader #headerDivB {
   display:flex;
   justify-content: center;
@@ -379,7 +347,59 @@ main {
   font-size: 2vw;
 }
 
-
+/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
+@media screen and (max-width: 968px) {
+  #allBoxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .layoutB .outerBox .boxP {
+    min-height: 28vw;
+    max-height: 28vw;
+    aspect-ratio: 1/1.7;
+  }
+  #navMenu #navSpan {
+    font-size: 4vw;
+  }
+  #clientPortalApp_LayoutBlade {
+    font-size: 4vw;
+  }
+  .layoutBladeSystemUserText {
+    font-size: 4vw;
+  }
+  .layoutHeader .logBtn button {
+    font-size: 4vw;
+  }
+}
+@media screen and (max-width: 580px) {
+  #allBoxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .layoutB .outerBox .boxP {
+    min-height: 35vw;
+    max-height: 35vw;
+    aspect-ratio: 1/1.7;
+  }
+  #navMenu #navSpan {
+    font-size: 5vw;
+  }
+  .layoutHeader .logBtn button {
+    font-size: 5vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #allBoxes {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .layoutB .outerBox .boxP {
+    min-height: 38vw;
+    max-height: 38vw;
+    aspect-ratio: 1/1.7;
+  }
+  #clientPortalApp_LayoutBlade {
+    font-size: 4vw;
+  }
+}
+/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
 
 
 /* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
@@ -520,7 +540,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:0.3rem 1rem;
+  padding:0.5rem 1rem;
   background-color: #f8f9fa;
   border-bottom:1px solid #e7e8e9;
 }
@@ -565,8 +585,6 @@ main {
   gap:0.5rem;
   background-color: #f8f9fa;
 }
-
-
 .formP fieldset input[type="text"],[type="file"],select {
   padding:0.4em;
   border-radius: 0.2em;
@@ -584,9 +602,23 @@ main {
 }
 
 
-
-
-
+.specialFieldset {
+  border:0px solid blue;
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap:2rem;
+  padding:1rem;
+}
+.specialFieldset select {
+  width:25%;
+}
+.specialFieldset span,label {
+  font-weight: 700;
+}
+.specialFieldset button {
+  margin-right: auto;
+}
 
 
 

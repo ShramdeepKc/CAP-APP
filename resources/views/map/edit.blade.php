@@ -4,6 +4,7 @@
 <div class="myWholeForm">
   <div class="formHead">
     <h2>Client Url Assign</h2>
+    <a class="btnB backB" href="{{route('map.index')}}">Back</a>
   </div>
   <form class="formP" action="{{ route('map.update',$map->id) }}" method="POST">
     @csrf

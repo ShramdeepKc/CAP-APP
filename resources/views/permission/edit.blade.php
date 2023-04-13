@@ -4,6 +4,7 @@
 <div class="myWholeForm">
   <div class="formHead">
     <h2>Permission</h2>
+    <a class="btnB backB" href="{{route('permission.index')}}">Back</a>
   </div>
 
 <form class="formP" action="{{ route('permission.update',$permission->id) }}" method="POST" >

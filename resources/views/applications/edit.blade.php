@@ -6,6 +6,7 @@
    <div class="myWholeForm">
   <div class="formHead">
     <h4 class="mb-1">APP LIST</h4>
+    <a class="btnB backB" href="{{route('applications.index')}}">Back</a>
 </div>
  
  

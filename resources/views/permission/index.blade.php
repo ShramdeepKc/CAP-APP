@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="formHead formHeadCr">
-  <a class="btnB createB" href="{{ route('permission.create') }}">नयाँ प्रविष्टि</a>
+  <h2>Permissions</h2>
+  <a class="btnB createB" href="{{ route('permission.create') }}">Create</a>
 </div>
 
 <table class="table table-dark">

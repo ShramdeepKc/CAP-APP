@@ -4,8 +4,9 @@
 
   
 <div class="formHead formHeadCr">
+  <h2>Url नक्सा</h2>
   <a class="btnB createB" href="{{ route('map.create') }}">
-    URL नक्सा
+    Create
   </a>
 </div>
  

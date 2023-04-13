@@ -4,6 +4,7 @@
 <div class="myWholeForm">
   <div class="formHead">
     <h4>सम्पादन गर्नुहोस्</h4>
+    <a class="btnB backB" href="{{route('urls.index')}}">Back</a>
   </div>
 
   <form class="formP" action="{{ route('urls.update',$url->id ) }}" method="POST" enctype="multipart/form-data">
