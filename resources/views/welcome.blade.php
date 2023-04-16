@@ -31,7 +31,7 @@ use Carbon\Carbon;
     <header>
       <img class="emblem" src="images/new-govt-logo.png" alt="Nepal govt emblem">
       <div class="munTitle">
-        <h2> {{@$clientInfo[0]->mun_vdc}}</h2>
+        <h3> {{@$clientInfo[0]->mun_vdc}}</h3>
         <h4> {{@$clientInfo[0]->office_type}}</h4>
         <h5>{{@$clientInfo[0]->district}} </h5>
         <h5>{{@$clientInfo[0]->province}}</h5>
