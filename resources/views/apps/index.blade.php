@@ -11,7 +11,7 @@
     <p>{{ $message }}</p>
 </div>
 @endif
-
+<div class="table-responsive"> 
 <table class="table table-dark">
   <tr>
     <th>नं.</th>
@@ -48,4 +48,5 @@
       }
   </script>
 </table>
+</div>
 @endsection

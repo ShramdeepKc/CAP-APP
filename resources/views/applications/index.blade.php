@@ -11,6 +11,7 @@
 </div>
 
 <body>
+<div class="table-responsive"> 
   <table class="table table-dark">
     <tr>
       <th>नं.</th>
@@ -51,6 +52,7 @@
       }
     </script>
   </table>
+    </div>
 </body>
 @endsection
   

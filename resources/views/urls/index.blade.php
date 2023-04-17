@@ -25,9 +25,9 @@
   @endif
 
    
-    
+  </div>   
 
-   
+<div class="table-responsive">  
   <table class="table table-dark">
     <tr>
       <th>नं.</th>
@@ -37,7 +37,7 @@
       <th>एप URL</th>
       <th>विवरण</th>
       <th>एप लोगो</th>
-      <th width="200px">कार्य</th>
+      <th width="20%">कार्य</th>
     </tr>
     @foreach ($url as $urls)
     <tr>
@@ -69,4 +69,5 @@
     </script>
   </table>
 </div>
+
 @endsection
