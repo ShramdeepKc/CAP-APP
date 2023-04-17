@@ -33,7 +33,7 @@
    
     
 
-   
+   <div class="table-responsive">
   <table class="table table-dark">
         <tr>
             <th>नं.</th>
@@ -86,9 +86,9 @@
       event.preventDefault();
   }
  </script>
-    
-    </table>
 
+    </table>
+   </div>
 
 
 

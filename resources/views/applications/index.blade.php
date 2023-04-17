@@ -14,7 +14,7 @@
                 <a class="btn btn-success" href="{{ route('applications.create') }}">नयाँ प्रविष्टि  </a>
             </div>
   <body>
-    
+    <div class="table-responsive">
   <table class="table table-dark">
         <tr>
             <th>नं.</th>
@@ -60,7 +60,7 @@
     </table>
 
 
- 
+    </div>
 
   </body>
 

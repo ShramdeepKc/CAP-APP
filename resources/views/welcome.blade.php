@@ -83,11 +83,7 @@ use Carbon\Carbon;
                     </div>
                 </div>
                 @endforeach
-                <div class="description-box">
-  <h2>Description</h2>
-  <p>Here is some text describing your website or product.</p>
-</div>
-            </div>
+     </div>
         </div>
 
 </body>
