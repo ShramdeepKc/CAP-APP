@@ -106,25 +106,6 @@ header .headerText span {
 
 
 /* index.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
-main {
-  display: flex;
-  gap:5rem;
-  justify-content: space-evenly;
-  padding-bottom: 3rem;
-  border:0px solid red;
-}
-.layoutB {
-  display: flex;
-  gap:6rem !important;
-  justify-content: space-evenly;
-}
-.layoutB .outerBox .boxP {
-  min-height: 16vw;
-  max-height: 16vw;
-  aspect-ratio: 1/1.3;
-}
-
-
 
 #allBoxes {
   display: grid;
@@ -140,7 +121,6 @@ main {
   justify-content:center;
   align-items: center;
   border-radius: 0.1em;
-  outline:0px dashed green;
   position:relative;
 }
 .outerBox .boxP {
@@ -269,14 +249,51 @@ main {
 
 
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+#layoutBody {
+  display:flex;
+}
+section {
+  border:2px solid yellow;
+  width:100%;
+}
+aside {
+  display:flex;
+  gap:1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#29558b;
+  padding:0.2rem 1rem;
+  margin-bottom: 3rem;
+  height: max-content;
+}
+
+main {
+  display: flex;
+  gap:2rem;
+  justify-content: space-evenly;
+  padding: 0rem 0rem;
+	border:2px solid blue;
+}
+.layoutB {
+  display: flex;
+  gap:6rem !important;
+  justify-content: space-evenly;
+  border:2px solid green;
+}
+.layoutB .outerBox .boxP {
+  min-height: 16vw;
+  max-height: 16vw;
+  aspect-ratio: 1/1.3;
+}
+
 .layoutHeader {
   background-color:#29558b;
-  border:0px solid red;
   display:flex;
   gap:1rem;
   justify-content: space-between;
   padding:0.2rem 1rem;
   margin-bottom: 3rem;
+  border:2px solid red;
 }
 #clientPortalApp_LayoutBlade {
   text-decoration: none;
@@ -303,14 +320,14 @@ main {
   align-items: center;
 }
 #navMenu {
-  position:relative;
   z-index:99;
   width:fit-content;
   display:flex;
   border:1px solid #fff;
   border-radius: 0.3em;
+  transition: display 0.5s ease-in-out;
 }
-#navMenu #navSpan {
+#navSpan {
   letter-spacing: 130%;
   display:flex;
   color:#fff;
@@ -321,7 +338,7 @@ main {
   font-size: 2vw;
   border:0px solid olive;
 }
-#navMenu #navSpan:hover {
+#navSpan:hover {
   background-color: #14213D;
   color:white;
 }
@@ -329,9 +346,7 @@ main {
   transition: 0.5s ease;
   border-radius: 5px;
   overflow:hidden;
-  position:absolute;
-  top:95%;
-  left:0%;
+  
   border:1px solid gray;
 }
 #navMenu ul li {

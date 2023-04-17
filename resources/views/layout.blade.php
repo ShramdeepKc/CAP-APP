@@ -51,29 +51,34 @@
   </style>
 </head>
 
-<body>
+<body id="layoutBody">
+	<aside id="aside">
+		<nav id="navMenu">
+      <ul id="navUl">
+        <li>
+          <a href="{{route('homes.index')}}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li><a href="{{route('background.create')}}">Bg Img</a></li>
+        <li><a href="{{route('urls.index')}}">Url List</a></li>
+        @can('view')
+        <li><a href="{{route('apps.index')}}">Apps List</a></li>
+        <li><a href="{{route('applications.index')}}">Applications</a></li>
+        <li><a href="{{route('roles.index')}}">Roles</a></li>
+        <li><a href="{{route('permission.index')}}">Permissions</a></li>
+        <li><a href="{{route('users.index')}}">Users</a></li>
+        <li><a href="{{route('map.index')}}">Url Map</a></li>
+        <li><a href="{{ url('/register') }}">Register</a></li>
+        @endcan
+      </ul>
+    </nav>
+	</aside>
+	
+	<section>
     <header class="layoutHeader">
-      <nav id="navMenu">
-        <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
-        <ul id="navUl">
-            <li>
-              <a href="{{route('homes.index')}}">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li><a href="{{route('background.create')}}">Bg Img</a></li>
-            <li><a href="{{route('urls.index')}}">Url List</a></li>
-          @can('view')
-            <li><a href="{{route('apps.index')}}">Apps List</a></li>
-            <li><a href="{{route('applications.index')}}">Applications</a></li>
-            <li><a href="{{route('roles.index')}}">Roles</a></li>
-            <li><a href="{{route('permission.index')}}">Permissions</a></li>
-            <li><a href="{{route('users.index')}}">Users</a></li>
-            <li><a href="{{route('map.index')}}">Url Map</a></li>
-            <li><a href="{{ url('/register') }}">Register</a></li>
-          @endcan
-          </ul>
-        </nav>
+      
+      <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
 
       <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
         Client <span>Portal App</span>
@@ -96,22 +101,35 @@
         </div>
       </div>
     </header>
-
     <div class="container">
       @yield('content')
     </div>
-    
-    
+  </section>
 </body>
     
+<script>
+    window.addEventListener('load', function() {
+        var navMenu = document.getElementById('aside');
+        var navSpan = document.getElementById('navSpan');
 
-<!-- Optional JavaScript -->
+        navSpan.addEventListener('click', function() {
+            if (navMenu.style.display === 'block') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'block';
+            }
+        });
+    });
+</script>
+
+
+<!-- Optional JavaScript 
 <script>
     window.addEventListener('load', function() {
         var navUl = document.getElementById('navUl');
         var navSpan = document.getElementById('navSpan');
 
-        navUl.style.display = 'none';
+        navUl.style.display = 'block';
         navSpan.addEventListener('mouseenter', function() {
             navUl.style.display = 'block';
         });
@@ -132,6 +150,7 @@
         }
     });
 </script>
+    -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
