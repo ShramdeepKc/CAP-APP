@@ -169,7 +169,7 @@ main {
   transform: scale(1.15);
   box-shadow: 2px 2px 10px hsl(0, 0%, 0%);
   color: #000;
-  background-color:#2260bf;
+  background-color:#487fd1;
   cursor:pointer;
 }
 .outerBox .boxP .logoP {

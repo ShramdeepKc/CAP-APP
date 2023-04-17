@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
