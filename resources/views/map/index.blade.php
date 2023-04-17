@@ -1,8 +1,7 @@
 @extends('layout')
-   
 @section('content')
 
-  
+<div class="myWholeTable">
 <div class="formHead formHeadCr">
   <h2>Url नक्सा</h2>
   <a class="btnB createB" href="{{ route('map.create') }}">
@@ -15,14 +14,15 @@
       <p>{{ $message }}</p>
     </div>
   @endif
-   
-  <table class="table table-dark">
+  
+ <div class="table-responsive">
+  <table>
     <tr>
       <th>नं.</th>
       <th>ग्राहक</th>
       <th>कोड</th>
       <th>Url</th>
-      <th width="200px">कार्य</th>
+      <th>कार्य</th>
     </tr>
     @foreach ($map as $maps)
     <tr>
@@ -32,10 +32,10 @@
       <td><a href="{{$maps->url}}">{{ $maps->url }}</td>
       <td>
         <form action="{{ route('map.destroy',$maps->id) }}" method="POST">
-          <a class="btn btn-primary" href="{{ route('map.edit',$maps->id) }}">सच्याउने</a>
+          <a class="btnB submitB" href="{{ route('map.edit',$maps->id) }}">सच्याउने</a>
             @csrf
             @method('DELETE')
-          <button type="submit" onclick="return myFunction();" class="btn btn-danger">मेटाउने</button>
+          <button type="submit" onclick="return myFunction();" class="btnB backB">मेटाउने</button>
         </form>
       </td>
     </tr>
@@ -45,9 +45,13 @@
         if(!confirm("Are You Sure to delete this"))
         event.preventDefault();
       }
+
+ 
+
     </script>
   </table>
-   
+    </div>
+</div>
 
 
     

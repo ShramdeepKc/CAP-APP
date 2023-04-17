@@ -211,7 +211,6 @@ header .headerText span {
   flex-basis: 25%;
   display:flex;
   flex-direction: column;
-  backdrop-filter: blur(20px);
   background-color: #14213D;
   border-radius: 0.5em;
   cursor: default;
@@ -235,7 +234,7 @@ header .headerText span {
   padding:0.2rem 0.5rem;
   font-size: 90%;
   color:#fff;
-  font-size:2.2vmin;
+  font-size:1.7vw;
   line-height: 120%;
   border-top:0px solid #ccc;
   border-bottom: 0px solid #ccc;
@@ -250,35 +249,31 @@ header .headerText span {
 
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 #layoutBody {
-  display:flex;
+  
 }
 section {
-  border:2px solid yellow;
+  border:0px solid yellow;
   width:100%;
+  height:100%;
+  display:flex;
 }
 aside {
-  display:flex;
-  gap:1rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color:#29558b;
-  padding:0.2rem 1rem;
-  margin-bottom: 3rem;
-  height: max-content;
+  
 }
 
 main {
   display: flex;
   gap:2rem;
   justify-content: space-evenly;
-  padding: 0rem 0rem;
-	border:2px solid blue;
+  padding: 0rem 1rem;
+	border:0px solid blue;
 }
 .layoutB {
   display: flex;
-  gap:6rem !important;
+  gap:2.5rem !important;
   justify-content: space-evenly;
-  border:2px solid green;
+  border:0px solid green;
+  padding-top: 1rem;
 }
 .layoutB .outerBox .boxP {
   min-height: 16vw;
@@ -292,12 +287,13 @@ main {
   gap:1rem;
   justify-content: space-between;
   padding:0.2rem 1rem;
-  margin-bottom: 3rem;
-  border:2px solid red;
+  margin-bottom: 0rem;
+  font-size: 1.6vw;
+  min-width:100vw !important;
+  border:0px solid red;
 }
 #clientPortalApp_LayoutBlade {
   text-decoration: none;
-  font-size: 2vw;
   color:white;
   margin-right: auto;
   border-bottom:1px solid white;
@@ -305,7 +301,6 @@ main {
   white-space: nowrap;
 }
 .layoutBladeSystemUserText {
-  font-size: 2vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -323,8 +318,7 @@ main {
   z-index:99;
   width:fit-content;
   display:flex;
-  border:1px solid #fff;
-  border-radius: 0.3em;
+  border:0px solid #fff;
   transition: display 0.5s ease-in-out;
 }
 #navSpan {
@@ -335,7 +329,6 @@ main {
   padding:0.5rem;
   cursor:pointer;
   border-radius: 3px;
-  font-size: 2vw;
   border:0px solid olive;
 }
 #navSpan:hover {
@@ -345,9 +338,7 @@ main {
 #navMenu ul {
   transition: 0.5s ease;
   border-radius: 5px;
-  overflow:hidden;
-  
-  border:1px solid gray;
+  height:100%;
 }
 #navMenu ul li {
   list-style: none;
@@ -363,10 +354,10 @@ main {
   color:#fff;
   min-width:100%;
   min-height:100%;
-  padding:0.2rem 0.5rem;
+  padding:0.4rem 1rem 0.4rem 2rem;
   transition: 0.3s ease;
   font-size:100%;
-  border-bottom:1px solid #797979;
+  border-bottom:0px solid #797979;
 }
 #navMenu ul li:hover a {
   font-weight:bolder;
@@ -374,69 +365,10 @@ main {
   color:#fff;
   background-color: #14213D;
 }
-.btnLayoutBlade {
+.layoutHeader .logBtn button {
   white-space: nowrap;
 }
-.layoutHeader .logBtn button {
-  font-size: 2vw;
-}
 
-/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
-@media screen and (max-width: 968px) {
-  #allBoxes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 28vw;
-    max-height: 28vw;
-    aspect-ratio: 1/1.7;
-  }
-  #navMenu #navSpan {
-    font-size: 4vw;
-  }
-  #clientPortalApp_LayoutBlade {
-    font-size: 4vw;
-  }
-  .layoutBladeSystemUserText {
-    font-size: 4vw;
-  }
-  .layoutHeader .logBtn button {
-    font-size: 4vw;
-  }
-}
-@media screen and (max-width: 580px) {
-  #allBoxes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 35vw;
-    max-height: 35vw;
-    aspect-ratio: 1/1.7;
-  }
-  #navMenu #navSpan {
-    font-size: 5vw;
-  }
-  .layoutHeader .logBtn button {
-    font-size: 5vw;
-  }
-  .logBtn button {
-    font-size:4vw;
-  }
-}
-@media screen and (max-width: 400px) {
-  #allBoxes {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .layoutB .outerBox .boxP {
-    min-height: 38vw;
-    max-height: 38vw;
-    aspect-ratio: 1/1.7;
-  }
-  #clientPortalApp_LayoutBlade {
-    font-size: 4vw;
-  }
-}
-/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
 
 
 /* login.blade LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
@@ -562,15 +494,44 @@ main {
 
 
 
-/* All forms Registar page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
+/* All forms Register page LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 .myWholeForm {
-  border:2px dotted blue;
+  border:0px dotted blue;
   background-color: #fff;
   margin:0 20vw;
 }
-.flex {
+.container {
+  border:0px solid red;
+  margin:1rem auto;
+  width:100%;
+}
+.myWholeTable {
+  color:#fff;
+  background-color: #343a40;
+}
+.myWholeTable table {
+  border-collapse: collapse;
+  border:0px solid greenyellow;
+  font-size: 1.7vw;
+  table-layout: fixed;
+}
+.myWholeTable table form button {
+  font-size: 1.7vw;
+}
+.myWholeTable table tr{
+  display:grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 1em;
+  align-items: center;
+  color:white;
+  border:0px solid greenyellow;
+}
+.myWholeTable table tr th,td{
+  border:0px solid pink;
+  height:100%;
   display:flex;
-  gap:0.5em;
+  align-items: center;
+  white-space: nowrap;
 }
 .formHead {
   border:0px dashed blue;
@@ -581,12 +542,15 @@ main {
   background-color: #f8f9fa;
   border-bottom:1px solid #e7e8e9;
 }
+.formHead h2,button {
+  font-size:3vw;
+}
 .formHeadCr {
   background-color: #343a40;
   color:#fff;
 }
 .btnB {
-  padding:0.5rem 0.8rem;
+  padding:0.3rem 0.5rem;
   border-radius: 0.25em;
   color:white;
   margin-left:auto;
@@ -601,13 +565,18 @@ main {
 .submitB {
   background-color: dodgerblue;
 }
-.backB:hover, .createB:hover, .submitB:hover {
+.btnB:hover, .createB:hover, .submitB:hover {
   text-decoration: none;
   color:white;
 }
-.backB a:hover, .createB a:hover, .submitB a:hover {
+.btnB a {
   text-decoration: none;
   color:white;
+  padding:0.3rem 0.5rem;
+  border-radius: 0.25em;
+  margin-left:auto;
+  border:none;outline:none;
+  
 }
 .formP {
   border:0px dotted red;
@@ -659,7 +628,7 @@ main {
 
 
 
-
+/* misc LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 
 
 
@@ -682,3 +651,124 @@ main {
 .pBtnMarginRight {
   margin-right:auto;
 }
+
+
+
+
+
+
+
+
+
+/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
+@media screen and (max-width: 968px) {
+  main {
+  	display:flex;
+  	flex-direction:column-reverse;
+  }
+  header .headerText {
+  	font-size: 2.7vw;
+  }
+  .emblem {
+  	width: clamp(8vw, 8vw, 15vw);
+  	max-width: 16%;
+  	aspect-ratio: 1/0.9;
+  }
+  .munTitle {
+  	font-size: 2.4vw;
+	}
+	#sideBar h3 {
+  	font-size:2.4vw;
+  }
+  #sideBar p {
+  	font-size:2.3vw;
+  	letter-spacing:0.05em;
+  }
+  #allBoxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .outerBox .boxP {
+    min-height: 28vw;
+    max-height: 28vw;
+    aspect-ratio: 1/1.7;
+  }
+  .outerBox .boxP .titleP {
+  	font-size:2.8vw !important;
+  }
+  .outerBox .boxP .descriptionP{
+  	font-size:2.4vw !important;
+  }
+  .layoutHeader {
+    font-size: 3vw;
+    min-width:100vw;
+    border:0px solid green;
+  }
+  .myWholeTable table {
+    font-size: 2.7vw;
+  }
+  .logBtn button {
+    font-size:3vw;
+  }
+}
+@media screen and (max-width: 580px) {
+  header .headerText {
+  	font-size: 3.4vw;
+  }
+  #sideBar h3 {
+  	font-size:3vw;
+  }
+  #sideBar p {
+  	font-size:3.3vw;
+  	letter-spacing:0.05em;
+  }
+  .emblem {
+  	width: clamp(12vw, 12vw, 15vw);
+  	max-width: 16%;
+  	aspect-ratio: 1/0.9;
+  }
+  .munTitle {
+  	font-size: 3.3vw;
+	}
+	.outerBox .boxP .titleP {
+  	font-size:3.8vw !important;
+  }
+  .outerBox .boxP .descriptionP{
+  	font-size:3.1vw !important;
+  }
+  #allBoxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .outerBox .boxP {
+    min-height: 35vw;
+    max-height: 35vw;
+    aspect-ratio: 1/1.3;
+  }
+  .layoutHeader {
+    font-size: 3.5vw;
+    min-width:100vw;
+  }
+  .logBtn button {
+    font-size:3.5vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #allBoxes {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .outerBox .boxP {
+    min-height: 60vw;
+    max-height: 65vw;
+    aspect-ratio: 1/1.3;
+  }
+  .layoutHeader {
+    font-size: 3.5vw;
+    min-width:100vw;
+  }
+  .outerBox .boxP .titleP {
+  	font-size:5.8vw !important;
+  }
+  .outerBox .boxP .descriptionP{
+  	font-size:5.1vw !important;
+  }
+}
+/* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */

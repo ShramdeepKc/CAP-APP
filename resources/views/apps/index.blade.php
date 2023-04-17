@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
 
+<div class="myWholeTable">
 <div class="formHead formHeadCr">
   <h2>एप सूची </h2>
   <a class="btnB createB" href="{{ route('apps.create') }}">नयाँ प्रविष्टि</a>
@@ -48,4 +49,5 @@
       }
   </script>
 </table>
+</div>
 @endsection

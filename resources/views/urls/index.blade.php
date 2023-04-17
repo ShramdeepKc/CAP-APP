@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div>
+<div class="myWholeTable">
   <div class="formHead formHeadCr">
     <h2> Url सूची </h2>
     <a class="btnB createB" href="{{ route('urls.create') }}">Create</a>

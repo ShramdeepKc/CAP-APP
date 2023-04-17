@@ -5,12 +5,14 @@
   @section('content')
 </head>
 
-<div class="formHead formHeadCr">
-  <h2> Url सूची </h2>
-  <a class="btnB createB" href="{{ route('applications.create') }}">नयाँ प्रविष्टि</a>
-</div>
-
 <body>
+
+<div class="myWholeTable">
+  <div class="formHead formHeadCr">
+    <h2> Url सूची </h2>
+    <a class="btnB createB" href="{{ route('applications.create') }}">नयाँ प्रविष्टि</a>
+  </div>
+
   <table class="table table-dark">
     <tr>
       <th>नं.</th>
@@ -51,6 +53,7 @@
       }
     </script>
   </table>
+    </div>
 </body>
 @endsection
   

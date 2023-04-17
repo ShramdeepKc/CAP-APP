@@ -58,6 +58,8 @@ use Carbon\Carbon;
   
   
   <!-- cards and sideBar Puskar start -->
+  
+  
     <main>
       <div id="allBoxes">
         @foreach($url as $urls)
@@ -79,6 +81,8 @@ use Carbon\Carbon;
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.Corrupti, quasi? Dolorum sunt illo, autem inventore rerum deserunt laboriosam similique voluptas quae totam quidem error, tempora modi. At reprehenderit blanditiis iste?</p>
       </div>
     </main>
+    
+    
   <!-- cards and sideBar Puskar start -->
 <!-- Rough copy -->
 <script>
@@ -89,9 +93,9 @@ use Carbon\Carbon;
   window.addEventListener('resize', function() {
     boxP.forEach((box, index) => {
       const boxPHeight = box.clientHeight;
-      let fontSizeT = boxPHeight / 14;
+      let fontSizeT = boxPHeight / 10;
       titleP[index].style.fontSize = `${fontSizeT}px`;
-      let fontSizeD = boxPHeight / 16;
+      let fontSizeD = boxPHeight / 12;
       descriptionP[index].style.fontSize = `${fontSizeD}px`;
     });
   });

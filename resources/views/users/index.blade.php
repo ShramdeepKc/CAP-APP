@@ -1,6 +1,6 @@
-@extends('layout')
-   
+@extends('layout')   
 @section('content')
+<div class="myWholeTable">
   @if ($message = Session::get('success'))
     <div class="alert alert-success">
       <p>{{ $message }}</p>
@@ -32,7 +32,7 @@
     </tr>
     @endforeach
   </table>
-
+</div>
 
 
   

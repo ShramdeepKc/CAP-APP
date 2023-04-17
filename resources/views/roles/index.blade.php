@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+<div class="myWholeTable">
 <div class="formHead formHeadCr">
   <h2>भूमिका</h2>
   <a class="btnB createB" href="{{ route('roles.create') }}">भूमिका सिर्जना गर्नुहोस्</a>
@@ -25,4 +26,5 @@
   </tr>
   @endforeach
 </table>
+</div>
 @endsection

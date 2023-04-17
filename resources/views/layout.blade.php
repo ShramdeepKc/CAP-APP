@@ -9,7 +9,8 @@
       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- puskar fontawesome icon -->
+        
+        <!-- puskar fontawesome icon -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
       <!-- puskar css -->
     <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
@@ -52,31 +53,7 @@
 </head>
 
 <body id="layoutBody">
-	<aside id="aside">
-		<nav id="navMenu">
-      <ul id="navUl">
-        <li>
-          <a href="{{route('homes.index')}}">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li><a href="{{route('background.create')}}">Bg Img</a></li>
-        <li><a href="{{route('urls.index')}}">Url List</a></li>
-        @can('view')
-        <li><a href="{{route('apps.index')}}">Apps List</a></li>
-        <li><a href="{{route('applications.index')}}">Applications</a></li>
-        <li><a href="{{route('roles.index')}}">Roles</a></li>
-        <li><a href="{{route('permission.index')}}">Permissions</a></li>
-        <li><a href="{{route('users.index')}}">Users</a></li>
-        <li><a href="{{route('map.index')}}">Url Map</a></li>
-        <li><a href="{{ url('/register') }}">Register</a></li>
-        @endcan
-      </ul>
-    </nav>
-	</aside>
-	
-	<section>
-    <header class="layoutHeader">
+<header class="layoutHeader">
       
       <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
 
@@ -95,12 +72,39 @@
             @csrf
             <button type="submit" href="route('logout')" onclick="return myFunction();">
               <i class="fa fa-sign-out " aria-hidden="true"></i>
-              बाहिर जाने
+              <span>बाहिर जाने</span>
             </button>
           </form>
         </div>
       </div>
     </header>
+
+	
+	
+	<section>
+    <aside id="aside">
+		  <nav id="navMenu">
+        <ul id="navUl">
+        <li>
+          <a href="{{route('homes.index')}}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+          <li><a href="{{route('background.create')}}">Bg Img</a></li>
+          <li><a href="{{route('urls.index')}}">Url List</a></li>
+          @can('view')
+          <li><a href="{{route('apps.index')}}">Apps List</a></li>
+          <li><a href="{{route('applications.index')}}">Applications</a></li>
+          <li><a href="{{route('roles.index')}}">Roles</a></li>
+          <li><a href="{{route('permission.index')}}">Permissions</a></li>
+          <li><a href="{{route('users.index')}}">Users</a></li>
+          <li><a href="{{route('map.index')}}">Url Map</a></li>
+          <li><a href="{{ url('/register') }}">Register</a></li>
+          @endcan
+        </ul>
+      </nav>
+	  </aside>
+
     <div class="container">
       @yield('content')
     </div>
@@ -124,34 +128,7 @@
 
 
 
-<!-- Optional JavaScript 
-<script>
-    window.addEventListener('load', function() {
-        var navUl = document.getElementById('navUl');
-        var navSpan = document.getElementById('navSpan');
-
-        navUl.style.display = 'block';
-        navSpan.addEventListener('mouseenter', function() {
-            navUl.style.display = 'block';
-        });
-        navUl.addEventListener('mouseleave', function() {
-            navUl.style.display = 'none';
-        });
-        
-        navSpan.addEventListener('mouseleave', function() {
-            setTimeout(function() {
-                if (!isHover(navUl)) {
-                    navUl.style.display = 'none';
-                }
-            }, 3000);
-        });
-      
-        function isHover(elem) {
-            return (elem.parentElement.querySelector(':hover') === elem);
-        }
-    });
-</script>
-    -->
+<!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
 
+<div class="myWholeTable">
 <div class="formHead formHeadCr">
   <h2>Permissions</h2>
   <a class="btnB createB" href="{{ route('permission.create') }}">Create</a>
@@ -26,4 +27,5 @@
     </td>
   @endforeach
 </table>
+</div>
 @endsection

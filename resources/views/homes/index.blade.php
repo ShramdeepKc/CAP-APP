@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\DB;
       const boxPHeight = box.clientHeight;
       let fontSizeT = boxPHeight / 12;
       titleP[index].style.fontSize = `${fontSizeT}px`;
-      let fontSizeD = boxPHeight / 16;
+      let fontSizeD = boxPHeight / 14;
       descriptionP[index].style.fontSize = `${fontSizeD}px`;
     });
   }
