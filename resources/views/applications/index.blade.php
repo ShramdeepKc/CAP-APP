@@ -35,7 +35,7 @@
         ?>
       </td>      
       <td>
-        <form class="flex" action="{{ route('applications.destroy',$application->id) }}" method="POST">
+        <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
           <a class="btnB submitB" href="{{ route('applications.edit',$application->id) }}">
             सच्याउने
           </a>
@@ -53,7 +53,7 @@
       }
     </script>
   </table>
-    </div>
+</div>
 </body>
 @endsection
   

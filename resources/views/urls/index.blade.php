@@ -23,12 +23,8 @@
       <p>{{ $message }}</p>
     </div>
   @endif
-
    
-    
-
-   
-  <table class="myWholeTable">
+  <table class="table table-dark">
     <tr>
       <th>नं.</th>
       <th>कोड </th>
@@ -49,7 +45,7 @@
       <td>{{$urls -> description}}</td>
       <td><img src="{{asset('/image/'. $urls->image  )}}" width="70px"></td>
       <td>
-        <form class="flex" action="{{ route('urls.destroy',$urls->id) }}" method="POST">
+        <form action="{{ route('urls.destroy',$urls->id) }}" method="POST">
           <a class="btnB submitB" href="{{ route('urls.edit',$urls->id) }}">सच्याउने </a>
             @csrf
             @method('DELETE')

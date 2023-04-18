@@ -234,7 +234,7 @@ header .headerText span {
   padding:0.2rem 0.5rem;
   font-size: 90%;
   color:#fff;
-  font-size:1.5vw;
+  font-size:1.3vw;
   line-height: 120%;
   border-top:0px solid #ccc;
   border-bottom: 0px solid #ccc;
@@ -259,7 +259,14 @@ section {
 }
 #aside {
   
-}    
+} 
+#navMenu {
+  z-index:99;
+  width:fit-content;
+  display:flex;
+  border:0px solid #fff;
+  transition: display 0.5s ease-in-out;
+}
 #navUl {
   transition: max-width 0.5s ease;
   border-radius: 0px 0px 5px 5px;
@@ -269,6 +276,32 @@ section {
   border: 0px solid red;
   width: max-content;
 }
+#navMenu ul li {
+  list-style: none;
+  background-color:#fff;
+  cursor:pointer;
+  display:flex;
+  background-color:#29558b;
+}
+#navMenu ul li a {
+  display: inline-flex;
+  flex-basis: 1 1 0;
+  text-decoration: none;
+  color:#fff;
+  min-width:100%;
+  min-height:100%;
+  padding:1rem 3rem 1rem 3rem;
+  transition: 0.3s ease;
+  font-size:100%;
+  white-space:nowrap;
+  border-bottom:0px solid #797979;
+}
+#navMenu ul li:hover a {
+  font-weight:bolder;
+  border-left:0px solid gray;
+  color:#fff;
+  background-color: #14213D;
+}   
 .container {
   outline:0px solid yellow;
   width: 100%;
@@ -294,7 +327,6 @@ main {
   max-height: 16vw;
   aspect-ratio: 1/1.3;
 }
-
 .layoutHeader {
   background-color:#29558b;
   display:flex;
@@ -341,40 +373,6 @@ main {
   display:flex;
   justify-content: center;
   align-items: center;
-}
-#navMenu {
-  z-index:99;
-  width:fit-content;
-  display:flex;
-  border:0px solid #fff;
-  transition: display 0.5s ease-in-out;
-}
-
-#navMenu ul li {
-  list-style: none;
-  background-color:#fff;
-  cursor:pointer;
-  display:flex;
-  background-color:#29558b;
-}
-#navMenu ul li a {
-  display: inline-flex;
-  flex-basis: 1 1 0;
-  text-decoration: none;
-  color:#fff;
-  min-width:100%;
-  min-height:100%;
-  padding:1rem 3rem 1rem 3rem;
-  transition: 0.3s ease;
-  font-size:90%;
-  white-space:nowrap;
-  border-bottom:0px solid #797979;
-}
-#navMenu ul li:hover a {
-  font-weight:bolder;
-  border-left:0px solid gray;
-  color:#fff;
-  background-color: #14213D;
 }
 .layoutHeader .logBtn button {
   white-space: nowrap;
@@ -509,12 +507,15 @@ main {
 .myWholeForm {
   border:0px dotted blue;
   background-color: #fff;
-  margin:0 20vw;
+  margin:0 10vw;
 }
+
 .myWholeTable {
   color:#fff;
   background-color: #343a40;
+  padding:0.3em;
 }
+/*
 .myWholeTable table {
 	width:100%;
   border-collapse: collapse;
@@ -522,7 +523,7 @@ main {
   font-size: 1.7vw;
   table-layout: fixed;
 }
-/*
+
 .myWholeTable table tr{
   display:grid;
   grid-template-columns: 3% 20% 20% 20% auto;
@@ -541,6 +542,7 @@ main {
 */
 table form {
   display:flex;
+  gap:0.5em;
 }
 .formHead {
   border:0px dashed blue;
@@ -552,7 +554,7 @@ table form {
   border-bottom:1px solid #e7e8e9;
 }
 .formHead h2,button {
-  font-size:3vw;
+  font-size:2.5vw;
 }
 .formHeadCr {
   background-color: #343a40;

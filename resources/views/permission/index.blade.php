@@ -18,7 +18,7 @@
     <td>{{ ++$i }}</td>
     <td>{{ $perm->name }}</td>
     <td>
-      <form class="flex" method="post" action="{{ route('permission.destroy',$perm->id) }}" onsubmit="return confirm('sure?');">
+      <form method="post" action="{{ route('permission.destroy',$perm->id) }}" onsubmit="return confirm('sure?');">
         <a class="btn btn-primary" href="{{ route('permission.edit',$perm->id) }}">सच्याउने</a>  
         @csrf
         @method('delete')

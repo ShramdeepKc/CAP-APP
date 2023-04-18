@@ -15,7 +15,7 @@
     </div>
   @endif
   
-  <table>
+  <table class="table table-dark">
     <tr>
       <th>नं.</th>
       <th>ग्राहक</th>
