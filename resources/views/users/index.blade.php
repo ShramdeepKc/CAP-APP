@@ -19,7 +19,7 @@
       <td>{{ ++$i }}</td>
       <td>{{ $user->name}}</td>
       <td>
-        <form class="flex" method="POST" action="{{ route('users.destroy', $user->id) }}" onsubmit="return confirm('Are you sure?');">
+        <form method="POST" action="{{ route('users.destroy', $user->id) }}" onsubmit="return confirm('Are you sure?');">
           <a href="{{ route('users.show', $user->id) }}" class="btnB submitB">भूमिका</a>
           @csrf
           @method('DELETE')

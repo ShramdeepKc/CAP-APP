@@ -28,7 +28,7 @@
     
 
    
-  <table class="table table-dark">
+  <table class="myWholeTable">
     <tr>
       <th>नं.</th>
       <th>कोड </th>

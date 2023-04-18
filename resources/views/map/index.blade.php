@@ -15,7 +15,6 @@
     </div>
   @endif
   
- <div class="table-responsive">
   <table>
     <tr>
       <th>नं.</th>
@@ -45,12 +44,8 @@
         if(!confirm("Are You Sure to delete this"))
         event.preventDefault();
       }
-
- 
-
-    </script>
+	</script>
   </table>
-    </div>
 </div>
 
 

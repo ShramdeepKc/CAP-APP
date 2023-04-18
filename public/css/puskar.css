@@ -266,11 +266,11 @@ section {
   height: 100%;
   max-width: 0px;
   overflow: hidden;
-  border: 1px solid red;
+  border: 0px solid red;
   width: max-content;
 }
 .container {
-  outline:1px solid yellow;
+  outline:0px solid yellow;
   width: 100%;
   margin:1rem auto;
   transition: width 0.5s ease, margin 0.5s ease;
@@ -516,28 +516,31 @@ main {
   background-color: #343a40;
 }
 .myWholeTable table {
+	width:100%;
   border-collapse: collapse;
-  border:0px solid greenyellow;
+  border:0px solid red;
   font-size: 1.7vw;
   table-layout: fixed;
 }
-.myWholeTable table form button {
-  font-size: 1.7vw;
-}
+/*
 .myWholeTable table tr{
   display:grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 1em;
+  grid-template-columns: 3% 20% 20% 20% auto;
+  grid-gap: 0em;
   align-items: center;
   color:white;
-  border:0px solid greenyellow;
+  border:1px solid greenyellow;
+  white-space:nowrap;
 }
-.myWholeTable table tr th,td{
-  border:0px solid pink;
+.myWholeTable table tr th,td {
+  border:1px solid pink;
   height:100%;
   display:flex;
   align-items: center;
-  white-space: nowrap;
+}
+*/
+table form {
+  display:flex;
 }
 .formHead {
   border:0px dashed blue;
@@ -561,6 +564,7 @@ main {
   color:white;
   margin-left:auto;
   border:none;outline:none;
+  font-size:1em;
 }
 .backB {
   background-color: #dc3545;;
@@ -710,9 +714,7 @@ main {
     min-width:100vw;
     border:0px solid green;
   }
-  .myWholeTable table {
-    font-size: 2.7vw;
-  }
+  
   .logBtn button {
     font-size:3vw;
   }
