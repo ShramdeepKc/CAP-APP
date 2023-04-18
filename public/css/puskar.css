@@ -38,7 +38,7 @@ header {
   max-width: 100vw;
 }
 .emblem {
-  width: clamp(6vw, 6vw, 15vw);
+  width: clamp(6vw, 8vw, 15vw);
   max-width: 16%;
   aspect-ratio: 1/0.9;
   outline: 0px solid green;
@@ -166,7 +166,7 @@ header .headerText span {
   transition: transform 0.3s ease;
   min-width:100%;
   margin-top:-1rem;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   
   white-space: wrap;
   line-height: 110%;
@@ -221,7 +221,7 @@ header .headerText span {
 #sideBar h3 {
   background-color: royalblue;
   color:#fff;
-  font-size:2vw;
+  font-size:1.7vw;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -234,7 +234,7 @@ header .headerText span {
   padding:0.2rem 0.5rem;
   font-size: 90%;
   color:#fff;
-  font-size:1.7vw;
+  font-size:1.5vw;
   line-height: 120%;
   border-top:0px solid #ccc;
   border-bottom: 0px solid #ccc;
@@ -257,10 +257,24 @@ section {
   height:100%;
   display:flex;
 }
-aside {
+#aside {
   
+}    
+#navUl {
+  transition: max-width 0.5s ease;
+  border-radius: 0px 0px 5px 5px;
+  height: 100%;
+  max-width: 0px;
+  overflow: hidden;
+  border: 1px solid red;
+  width: max-content;
 }
-
+.container {
+  outline:1px solid yellow;
+  width: 100%;
+  margin:1rem auto;
+  transition: width 0.5s ease, margin 0.5s ease;
+}
 main {
   display: flex;
   gap:2rem;
@@ -292,6 +306,20 @@ main {
   min-width:100vw !important;
   border:0px solid red;
 }
+#navSpan {
+  letter-spacing: 130%;
+  display:flex;
+  color:#fff;
+  border:1px solid gray;
+  padding:0.5rem;
+  cursor:pointer;
+  border-radius: 3px;
+  border:0px solid olive;
+}
+#navSpan:hover {
+  background-color: #14213D;
+  color:white;
+}
 #clientPortalApp_LayoutBlade {
   text-decoration: none;
   color:white;
@@ -321,25 +349,7 @@ main {
   border:0px solid #fff;
   transition: display 0.5s ease-in-out;
 }
-#navSpan {
-  letter-spacing: 130%;
-  display:flex;
-  color:#fff;
-  border:1px solid gray;
-  padding:0.5rem;
-  cursor:pointer;
-  border-radius: 3px;
-  border:0px solid olive;
-}
-#navSpan:hover {
-  background-color: #14213D;
-  color:white;
-}
-#navMenu ul {
-  transition: 0.5s ease;
-  border-radius: 5px;
-  height:100%;
-}
+
 #navMenu ul li {
   list-style: none;
   background-color:#fff;
@@ -354,9 +364,10 @@ main {
   color:#fff;
   min-width:100%;
   min-height:100%;
-  padding:0.4rem 1rem 0.4rem 2rem;
+  padding:1rem 3rem 1rem 3rem;
   transition: 0.3s ease;
-  font-size:100%;
+  font-size:90%;
+  white-space:nowrap;
   border-bottom:0px solid #797979;
 }
 #navMenu ul li:hover a {
@@ -499,11 +510,6 @@ main {
   border:0px dotted blue;
   background-color: #fff;
   margin:0 20vw;
-}
-.container {
-  border:0px solid red;
-  margin:1rem auto;
-  width:100%;
 }
 .myWholeTable {
   color:#fff;
@@ -661,6 +667,7 @@ main {
 
 
 /* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
+/* 333333333333333333333333333333333333 ffffffffffffffffffrrrrrrrrrrrrrrrrrrrrr 333333333333333333333333333 */
 @media screen and (max-width: 968px) {
   main {
   	display:flex;
@@ -687,16 +694,16 @@ main {
   #allBoxes {
     grid-template-columns: repeat(3, 1fr);
   }
-  .outerBox .boxP {
+  #allBoxes .outerBox .boxP {
     min-height: 28vw;
     max-height: 28vw;
     aspect-ratio: 1/1.7;
   }
-  .outerBox .boxP .titleP {
-  	font-size:2.8vw !important;
+  #allBoxes .outerBox .boxP .titleP {
+  	font-size:2vw;
   }
-  .outerBox .boxP .descriptionP{
-  	font-size:2.4vw !important;
+  #allBoxes .outerBox .boxP .descriptionP{
+  	font-size:1.8vw;
   }
   .layoutHeader {
     font-size: 3vw;
@@ -710,6 +717,7 @@ main {
     font-size:3vw;
   }
 }
+/* 222222222222222222222222222222222222222222222 ffffffffffffffffffrrrrrrrrrrrrrrrrrrrrr 222222222222222222222222222222 */
 @media screen and (max-width: 580px) {
   header .headerText {
   	font-size: 3.4vw;
@@ -718,7 +726,7 @@ main {
   	font-size:3vw;
   }
   #sideBar p {
-  	font-size:3.3vw;
+  	font-size:3.5vw;
   	letter-spacing:0.05em;
   }
   .emblem {
@@ -729,19 +737,19 @@ main {
   .munTitle {
   	font-size: 3.3vw;
 	}
-	.outerBox .boxP .titleP {
-  	font-size:3.8vw !important;
+	#allBoxes {
+    grid-template-columns: repeat(1, 1fr);
   }
-  .outerBox .boxP .descriptionP{
-  	font-size:3.1vw !important;
+  #allBoxes .outerBox .boxP {
+    min-height: 40vw;
+    max-height: 40vw;
+    aspect-ratio: 1/1.1;
   }
-  #allBoxes {
-    grid-template-columns: repeat(2, 1fr);
+	#allBoxes .outerBox .boxP .titleP {
+  	font-size:3.2vw;
   }
-  .outerBox .boxP {
-    min-height: 35vw;
-    max-height: 35vw;
-    aspect-ratio: 1/1.3;
+  #allBoxes .outerBox .boxP .descriptionP{
+  	font-size:3vw;
   }
   .layoutHeader {
     font-size: 3.5vw;
@@ -751,11 +759,12 @@ main {
     font-size:3.5vw;
   }
 }
+/* 1111111111111111111111111111111111111 ffffffffffffffffffrrrrrrrrrrrrrrrrrrrrr 111111111111111111111111 */
 @media screen and (max-width: 400px) {
   #allBoxes {
     grid-template-columns: repeat(1, 1fr);
   }
-  .outerBox .boxP {
+  #allBoxes .outerBox .boxP {
     min-height: 60vw;
     max-height: 65vw;
     aspect-ratio: 1/1.3;
@@ -764,11 +773,18 @@ main {
     font-size: 3.5vw;
     min-width:100vw;
   }
-  .outerBox .boxP .titleP {
+  #allBoxes .outerBox .boxP .titleP {
   	font-size:5.8vw !important;
   }
-  .outerBox .boxP .descriptionP{
+  #allBoxes .outerBox .boxP .descriptionP{
   	font-size:5.1vw !important;
+  }
+  #sideBar h3 {
+  	font-size:3vw;
+  }
+  #sideBar p {
+  	font-size:3.3vw;
+  	letter-spacing:0.05em;
   }
 }
 /* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */

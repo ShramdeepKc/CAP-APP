@@ -110,21 +110,26 @@
     </div>
   </section>
 </body>
-    
+     
+     
 <script>
-    window.addEventListener('load', function() {
-        var navMenu = document.getElementById('aside');
-        var navSpan = document.getElementById('navSpan');
+  window.addEventListener('load', function() {
+  var navMenu = document.getElementById('navUl');
+  var navSpan = document.getElementById('navSpan');
+  var container = document.querySelector('.container');
 
-        navSpan.addEventListener('click', function() {
-            if (navMenu.style.display === 'block') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'block';
-            }
-        });
-    });
+  navSpan.addEventListener('click', function() {
+    if (navMenu.style.maxWidth === '0px') {
+      navMenu.style.maxWidth = '100%';
+      container.style.width = `calc(100% - ${getComputedStyle(navMenu).width})`;
+    } else {
+      navMenu.style.maxWidth = '0px';
+      container.style.width = '100%';
+    }
+  });
+});
 </script>
+
 
 
 
