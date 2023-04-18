@@ -64,7 +64,7 @@ use Carbon\Carbon;
         </nav>
  
         <div class="body-content">
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
+            <div class="row row-cols-1 row-cols-md-3">
                 @foreach($url as $urls)
                 <div class="col-md-4 mb-4">
                     <div class="cards">
@@ -83,7 +83,7 @@ use Carbon\Carbon;
                     </div>
                 </div>
                 @endforeach
-     </div>
+            </div>
         </div>
 
 </body>

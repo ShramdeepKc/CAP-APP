@@ -2,6 +2,15 @@
     font-family: kalimati;
     src: url('/fonts/kalimati');
 }
+
+
+
+
+
+
+
+
+
 .nepali-font {
     font-family: 'kalimati', serif;
   }
@@ -75,7 +84,7 @@ body {
 
 .container1 {
     background: url("../images/bg.png") no-repeat fixed;
-    background-size: 100% 100% !important;
+    background-size: 100% !important;
     height: 100vh;
 
 }
