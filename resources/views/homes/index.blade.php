@@ -31,9 +31,9 @@ use Illuminate\Support\Facades\DB;
   function adjustFontSizes() {
     boxP.forEach((box, index) => {
       const boxPHeight = box.clientHeight;
-      let fontSizeT = boxPHeight / 12;
+      let fontSizeT = boxPHeight / 10;
       titleP[index].style.fontSize = `${fontSizeT}px`;
-      let fontSizeD = boxPHeight / 14;
+      let fontSizeD = boxPHeight / 12;
       descriptionP[index].style.fontSize = `${fontSizeD}px`;
     });
   }
