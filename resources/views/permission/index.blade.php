@@ -7,7 +7,7 @@
   <a class="btnB createB" href="{{ route('permission.create') }}">Create</a>
 </div>
 
-<table class="table table-dark">
+<table class="table">
   <tr>
     <th>नं.</th>
     <th>अनुमति</th>

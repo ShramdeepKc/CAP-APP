@@ -466,7 +466,6 @@ main {
 .loginForm fieldset button {
   padding:0.3rem 0.5rem;
   border-radius:5px;
-  
   box-shadow: 1px 1px 4px #797979;
   font-weight: bold;
   display: flex;
@@ -511,39 +510,35 @@ main {
 }
 
 .myWholeTable {
-  color:#fff;
-  background-color: #343a40;
-  padding:0.3em;
-}
-/*
-.myWholeTable table {
-	width:100%;
-  border-collapse: collapse;
-  border:0px solid red;
-  font-size: 1.7vw;
-  table-layout: fixed;
-}
 
-.myWholeTable table tr{
-  display:grid;
-  grid-template-columns: 3% 20% 20% 20% auto;
-  grid-gap: 0em;
-  align-items: center;
-  color:white;
-  border:1px solid greenyellow;
-  white-space:nowrap;
+}
+.myWholeTable .table {
+	color:white;
+}
+.myWholeTable table tr:nth-child(even) {
+  background-color: HSL(210, 10%, 30%) ;
+  font-size:115%;
+}
+.myWholeTable table tr:nth-child(odd) {
+  background-color: HSL(210, 10%, 35%) ;
+  font-size:115%;
+}
+.myWholeTable table tr:nth-child(1) {
+  background-color: #252a30;
+  font-size:115%;
 }
 .myWholeTable table tr th,td {
-  border:1px solid pink;
-  height:100%;
-  display:flex;
-  align-items: center;
+  
 }
-*/
-table form {
+
+.myWholeTable table tr td form {
   display:flex;
+  justify-content:center;
+  align-items:center;
   gap:0.5em;
 }
+
+/* forms forms forms forms */
 .formHead {
   border:0px dashed blue;
   display: flex;
@@ -554,17 +549,17 @@ table form {
   border-bottom:1px solid #e7e8e9;
 }
 .formHead h2,button {
-  font-size:2.5vw;
+  font-size:3.0vw;
 }
 .formHeadCr {
-  background-color: #343a40;
+  background-color: #252a30;
   color:#fff;
 }
 .btnB {
   padding:0.3rem 0.5rem;
   border-radius: 0.25em;
   color:white;
-  margin-left:auto;
+  width:max-content;
   border:none;outline:none;
   font-size:1em;
 }
@@ -595,13 +590,22 @@ table form {
   padding:1rem;
 }
 .formP fieldset {
-  border-bottom:1px solid #f8f9fa;
   padding:1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap:0.5rem;
   background-color: #f8f9fa;
+}
+#spfieldregister {
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
+  gap:0.5rem;
+}
+#spfieldregister a {
+	
 }
 .formP fieldset input[type="text"],[type="file"],select {
   padding:0.4em;
@@ -616,7 +620,7 @@ table form {
   outline:1px solid skyblue;
 }
 .formP fieldset button{
-  margin-right: auto;
+  
 }
 
 
@@ -733,6 +737,12 @@ table form {
   	font-size:3.5vw;
   	letter-spacing:0.05em;
   }
+  #bahiraJaneBtn span {
+  	display:none;
+  }
+  .layoutBladeSystemUserText {
+  	display:none;
+  }
   .emblem {
   	width: clamp(12vw, 12vw, 15vw);
   	max-width: 16%;
@@ -756,7 +766,7 @@ table form {
   	font-size:3vw;
   }
   .layoutHeader {
-    font-size: 3.5vw;
+    font-size: 4vw !important;
     min-width:100vw;
   }
   .logBtn button {

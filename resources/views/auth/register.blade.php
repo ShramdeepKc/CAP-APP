@@ -3,7 +3,7 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <h2>REGISTER PAGE</h2>
+    <h2>Register page</h2>
     <a class="btnB backB" href="{{route('homes.index')}}">Back</a>
     <x-slot name="logo">
       <a href="/">
@@ -54,7 +54,7 @@
                                 name="password_confirmation" required />
     </fieldset>
 
-    <fieldset>
+    <fieldset id="spfieldregister">
       <button class="btnB createB">{{ __('Register') }}</button>
       <a class="btnB submitB" href="{{ route('login') }}">{{ __('Already registered?') }}</a>
     </fieldset>

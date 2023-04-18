@@ -70,7 +70,7 @@
         <div class="logBtn">
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" href="route('logout')" onclick="return myFunction();">
+            <button id="bahiraJaneBtn" type="submit" href="route('logout')" onclick="return myFunction();">
               <i class="fa fa-sign-out " aria-hidden="true"></i>
               <span>बाहिर जाने</span>
             </button>
