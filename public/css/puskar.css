@@ -1,6 +1,6 @@
 @font-face {
-  font-family: kalimati;
-  src: url('fonts/kalimati');
+    font-family: kalimati;
+    src: url('/fonts/kalimati.ttf');
 }
 * {
   padding: 0 0 0 0;
@@ -18,11 +18,6 @@ body {
 ::-ms-scrollbar {
   display: none;
 }
-
-
-
-
-
 
 /* welcome page header LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 header {
@@ -129,7 +124,7 @@ header .headerText span {
   background-color: #f0eaea;
   color:#000;
   outline: 0px dashed orange;
-  
+
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -220,7 +215,7 @@ header .headerText span {
   border-radius: 0.5em;
   cursor: default;
   box-shadow:
-  -3px -3px 3px rgba(0, 0, 0, 0.4), 
+  -3px -3px 3px rgba(0, 0, 0, 0.4),
    3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 #sideBar h3 {
@@ -254,7 +249,7 @@ header .headerText span {
 
 /* layout.blade.php LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL */
 #layoutBody {
-  
+
 }
 section {
   width:100%;
@@ -264,7 +259,7 @@ section {
 #aside {
   background-color:#29558b;
   min-height 100vh;
-} 
+}
 #navMenu {
   z-index:99;
   width:fit-content;
@@ -304,7 +299,7 @@ section {
   border-left:0px solid gray;
   color:#fff;
   background-color: #14213D;
-}   
+}
 .container {
   outline:0px solid yellow;
   width: 100%;
@@ -516,6 +511,12 @@ main {
 .myWholeTable .table {
 	color:white;
 }
+td a {
+    color: #fff;
+}
+td a:hover{
+    color: #009FE1;
+}
 .myWholeTable table tr:nth-child(even) {
   background-color: HSL(210, 10%, 50%);
   font-size:115%;
@@ -549,7 +550,7 @@ main {
   border-bottom:1px solid #e7e8e9;
 }
 .formHead h2,button {
-  
+
 }
 .formHeadCr {
   background-color: HSL(210, 10%, 35%);
@@ -594,7 +595,7 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   gap:0.5rem;
-  
+
   color:white;
 }
 #spfieldregister {
@@ -605,12 +606,12 @@ main {
   gap:0.5rem;
 }
 #spfieldregister a {
-	
+
 }
 .formP fieldset input[type="text"],[type="file"],select {
   padding:0.4em;
   border-radius: 0.2em;
-  background-color: HSL(210, 10%, 60%);
+  background-color: HSL(210, 10%, 90%);
   border:1px solid gray;
   display: flex;
   align-items: center;
@@ -620,7 +621,7 @@ main {
   outline:1px solid skyblue;
 }
 .formP fieldset button{
-  
+
 }
 
 
