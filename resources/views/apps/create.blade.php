@@ -15,10 +15,6 @@
     </fieldset>           
     
     <fieldset>
-
-    </fieldset>
-    
-    <fieldset>
       <strong>एप नाम(अंग्रेजी)  :</strong>
       <input type="text" name="name_en" class="form-control type_nep" placeholder=" In English" required >
     </fieldset>
