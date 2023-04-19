@@ -820,11 +820,11 @@ main {
   	border:0px solid blue;
   	gap:1em;
   }
-	#allBoxes .outerBox .boxP .titleP, .layoutB #allBoxes .outerBox .boxP .titleP {
-  	font-size:110%;
+	#allBoxes .outerBox .boxP .titleP, .layoutB #allBoxes .outerBox .boxP .ltd .titleP {
+  	font-size:5vw !important;
   }
-  #allBoxes .outerBox .boxP .descriptionP, .layoutB #allBoxes .outerBox .boxP .descriptionP {
-  	font-size:100%;
+  #allBoxes .outerBox .boxP .descriptionP, .layoutB #allBoxes .outerBox .boxP .ltd .descriptionP {
+  	font-size:4vw !important;
   }
   .layoutHeader {
     font-size: 4vw !important;

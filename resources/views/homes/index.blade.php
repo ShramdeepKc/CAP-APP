@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\DB;
             <a href="{{ $urls->app_url }}" target="_blank"> 
               <img class="logoP" src="{{asset('/image/'. $urls->image  )}}">
             </a>
-            <span class="titleP">{{$urls->appName}}</span>
-            <div class="lineP"></div>
-            <span class="descriptionP" >{{$urls->description}}</span>
+            <div class="tld">
+            	<span class="titleP">{{$urls->appName}}</span>
+            	<div class="lineP"></div>
+            	<span class="descriptionP" >{{$urls->description}}</span>
+          	</div>
           </div>  <!-- End of a box 1 -->
         </div>
         @endforeach    
