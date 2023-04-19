@@ -1,74 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- ajx -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!-- puskar fontawesome icon -->
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+      <!-- puskar css -->
+    <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{asset('js/convert_unicode.js')}}"></script>
+    <style>
+    <?php use App\Models\Background;
+    use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\DB;
+
+    $background=Background::all();
+
+    foreach($background as $b) {
+        if($b->client_id==Auth::user()->client_id) {
+            $bg_image=$b->image;
+        }
+    }
+
+    if(@$bg_image) {
+        $bg_image="/image/".$bg_image;
+    }
+
+    else {
+        $bg_image="/images/candidateX.avif";
+    }
+
+    // ->where('client_id',Auth::user()->client_id)
+    // ->select('image');
+    // dd($background);
+    ?>
+    body {
+      background-image: url({{$bg_image}});
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body id="layoutBody">
+<header class="layoutHeader">
+      
+      <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
+
+      <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
+        Client <span>Portal App</span>
+      </a>
+      
+      <div id="headerDivB">
+        <div class="layoutBladeSystemUserText">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <span>{{ $user = auth()->user()->name; }}</span>
+        </div>
+
+        <div class="logBtn">
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button id="bahiraJaneBtn" type="submit" href="route('logout')" onclick="return myFunction();">
+              <i class="fa fa-sign-out " aria-hidden="true"></i>
+              <span>बाहिर जाने</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+	
+	
+	<section>
+    <aside id="aside">
+		  <nav id="navMenu">
+        <ul id="navUl">
+        <li>
+          <a href="{{route('homes.index')}}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+          <li><a href="{{route('background.create')}}">Bg Img</a></li>
+          <li><a href="{{route('urls.index')}}">Url List</a></li>
+          @can('view')
+          <li><a href="{{route('apps.index')}}">Apps List</a></li>
+          <li><a href="{{route('applications.index')}}">Applications</a></li>
+          <li><a href="{{route('roles.index')}}">Roles</a></li>
+          <li><a href="{{route('permission.index')}}">Permissions</a></li>
+          <li><a href="{{route('users.index')}}">Users</a></li>
+          <li><a href="{{route('map.index')}}">Url Map</a></li>
+          <li><a href="{{ url('/register') }}">Register</a></li>
+          @endcan
+        </ul>
+      </nav>
+	  </aside>
+
+    <div class="container">
+      @yield('content')
+    </div>
+  </section>
+</body>
+     
+     
+<script>
+  window.addEventListener('load', function() {
+  var navMenu = document.getElementById('navUl');
+  var navSpan = document.getElementById('navSpan');
+  var container = document.querySelector('.container');
+
+  navSpan.addEventListener('click', function() {
+    if (navMenu.style.maxWidth === '0px') {
+      navMenu.style.maxWidth = '100%';
+      container.style.width = `calc(100% - ${getComputedStyle(navMenu).width})`;
+    } else {
+      navMenu.style.maxWidth = '0px';
+      container.style.width = '100%';
+    }
+  });
+});
+</script>
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Client Portal App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{route('dashboard')}}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Clients List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('apps.index')}}">Apps List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('urls.index')}}">URl List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-   
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-
-  </nav>
 
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script>
+function myFunction() {
+    if (!confirm("Are You Sure to logout"))
+        event.preventDefault();
+}
 
-  </head>
-  <body>
-  <style> 
-body {
-  background-image: url("/images/blue.webp"), url("blue.webp");
-  /* background-color: #cccccc; */
-}</style>
+$('.type_nep').on('keyup',function(){
+var code = $(this).val();
+    $(this).val(convert_to_unicode(code));
+})
+</script>
 
-  <!-- <img src="/images/bgimage.webp" alt="Bg Image" /> -->
-  <div class="container">
-    @yield('content')
-</div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
- 
-
-  </body>
-  
 </html>
