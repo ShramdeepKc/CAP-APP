@@ -1,6 +1,6 @@
 @font-face {
   font-family: kalimati;
-  src: url('fonts/kalimati');
+  src: url('fonts/kalimati.otf');
 }
 * {
   padding: 0 0 0 0;
@@ -263,7 +263,7 @@ section {
 }
 #aside {
   background-color:#29558b;
-  min-height 100vh;
+  min-height:100vh;
 } 
 #navMenu {
   z-index:99;
@@ -276,6 +276,7 @@ section {
   border-radius: 0px 0px 5px 5px;
   height: 100%;
   max-width: 0px;
+
   overflow: hidden;
   border: 0px solid red;
   width: max-content;
@@ -295,7 +296,7 @@ section {
   min-height:100%;
   padding:1.5rem 3.5rem 1.5rem 3.5rem;
   transition: 0.3s ease;
-  font-size:1.3em;
+  font-size:1.1em;
   white-space:nowrap;
   border-bottom:1px solid #797979;
 }
@@ -483,6 +484,7 @@ main {
   background-color: #fff;
   outline:1px groove #3a5791;
 }
+
 .loginForm fieldset button:nth-child(2) {
   background-color: #e6977d;
   margin-left: auto;
@@ -543,7 +545,12 @@ main {
   align-items:center;
   gap:0.5em;
 }
-
+.myWholeTable table tr td a {
+  color:white;
+}
+.myWholeTable table tr td a:hover {
+  color:skyblue;
+}
 /* forms forms forms forms */
 .formHead {
 	width:100%;
@@ -617,7 +624,7 @@ main {
 .formP fieldset input[type="text"],[type="file"],select {
   padding:0.4em;
   border-radius: 0.2em;
-  background-color: HSL(210, 10%, 60%);
+  background-color: HSL(210, 10%, 80%);
   border:1px solid gray;
   display: flex;
   align-items: center;
@@ -685,7 +692,7 @@ main {
 
 /* MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET MOBILE TABLET */
 /* 333333333333333333333333333333333333 ffffffffffffffffffrrrrrrrrrrrrrrrrrrrrr 333333333333333333333333333 */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
 	main {
   	display:flex;
   	flex-direction:column-reverse;
