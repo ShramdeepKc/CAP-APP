@@ -1,6 +1,7 @@
 @font-face {
-  font-family: kalimati;
-  src: url('fonts/kalimati.otf');
+  font-family: "Kalimati";
+  src: url("../fonts/Kalimati.otf") format("truetype");
+  src: local("Kalimati"), url("../fonts/Kalimati.otf") format("truetype");
 }
 * {
   padding: 0 0 0 0;
