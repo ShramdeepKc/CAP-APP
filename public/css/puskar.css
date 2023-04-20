@@ -511,10 +511,16 @@ main {
 }
 
 .myWholeTable {
-
+	text-align:center;
 }
 .myWholeTable .table {
+	overflow-x:auto;
+	display:block;
 	color:white;
+}
+.myWholeTable table tr {
+  min-width:100% !important;
+  outline:0px solid blue;
 }
 .myWholeTable table tr:nth-child(even) {
   background-color: HSL(210, 10%, 50%);
@@ -540,6 +546,7 @@ main {
 
 /* forms forms forms forms */
 .formHead {
+	width:100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -828,7 +835,7 @@ main {
   }
   .layoutHeader {
     font-size: 4vw !important;
-    min-width:100vw;
+    min-width:100vw !important;
   }
   .logBtn button {
     font-size:3.5vw;

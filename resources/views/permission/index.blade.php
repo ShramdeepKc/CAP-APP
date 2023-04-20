@@ -2,12 +2,12 @@
 @section('content')
 
 <div class="myWholeTable">
-<div class="formHead formHeadCr">
-  <h2>Permissions</h2>
-  <a class="btnB createB" href="{{ route('permission.create') }}">Create</a>
-</div>
+	<div class="formHead formHeadCr">
+  	<h2>Permissions</h2>
+  	<a class="btnB createB" href="{{ route('permission.create') }}">Create</a>
+	</div>
 
-<table class="table">
+<table class="table noBlc">
   <tr>
     <th>नं.</th>
     <th>अनुमति</th>

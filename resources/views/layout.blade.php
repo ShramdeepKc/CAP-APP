@@ -130,6 +130,32 @@
 });
 </script>
 
+<script>
+  window.addEventListener('load', function() {
+    var tables = document.querySelectorAll('.myWholeTable .table');
+
+    function toggleTableDisplay() {
+      if (window.innerWidth < 992) {
+        tables.forEach(function(table) {
+          if (table.classList.contains('noBlc')) {
+            table.style.display = 'table';
+          } else {
+            table.style.display = 'block';
+          }
+        });
+      } else {
+        tables.forEach(function(table) {
+          table.style.display = 'table';
+        });
+      }
+    }
+
+    toggleTableDisplay();
+    window.addEventListener('resize', toggleTableDisplay);
+  });
+</script>
+
+
 
 
 

@@ -12,14 +12,15 @@ use Carbon\Carbon;
     <!-- Default css
     <link rel="stylesheet" href="{{asset('css/style.css')}}" />
     -->
-    <!-- puskar css pWelcome -->
-    <link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
+    
     <!-- bootstrap
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- puskar css pWelcome -->
+    <link rel="stylesheet" href="{{asset('css/puskar.css')}}" />
     <style>
       body {
         background: url("../images/candidateX.avif") no-repeat fixed;

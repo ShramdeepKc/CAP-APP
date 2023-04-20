@@ -6,9 +6,9 @@
   <a class="btnB createB" href="{{ route('roles.create') }}">भूमिका सिर्जना गर्नुहोस्</a>
 </div>
 
-<table class="table table-dark" >
+<table class="table noBlc">
   <tr>
-    <th>भूमिका </th>
+    <th>भूमिका</th>
     <th width="200px">कार्य</th>
   </tr>
   

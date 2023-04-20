@@ -24,7 +24,7 @@
     </div>
   @endif
    
-  <table class="table table-dark">
+  <table class="table table-dark table-responsive">
     <tr>
       <th>नं.</th>
       <th>कोड </th>

@@ -3,7 +3,7 @@
 
 <div class="myWholeTable">
 <div class="formHead formHeadCr">
-  <h2>एप सूची </h2>
+  <h2>एप सूची</h2>
   <a class="btnB createB" href="{{ route('apps.create') }}">नयाँ प्रविष्टि</a>
 </div>
 
@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<table class="table table-dark">
+<table class="table">
   <tr>
     <th>नं.</th>
     <th>कोड </th>

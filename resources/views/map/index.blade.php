@@ -2,12 +2,12 @@
 @section('content')
 
 <div class="myWholeTable">
-<div class="formHead formHeadCr">
-  <h2>Url नक्सा</h2>
-  <a class="btnB createB" href="{{ route('map.create') }}">
-    Create
-  </a>
-</div>
+	<div class="formHead formHeadCr">
+	  <h2>Url नक्सा</h2>
+	  <a class="btnB createB" href="{{ route('map.create') }}">
+	    Create
+	  </a>
+	</div>
  
   @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -15,7 +15,7 @@
     </div>
   @endif
   
-  <table class="table table-dark">
+  <table class="table">
     <tr>
       <th>नं.</th>
       <th>ग्राहक</th>

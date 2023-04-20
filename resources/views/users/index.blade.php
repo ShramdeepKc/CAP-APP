@@ -6,7 +6,7 @@
       <p>{{ $message }}</p>
     </div>
   @endif
-  <table class="table table-dark">
+  <table class="table">
     <tr>
       <th>नं.</th>
       <th>प्रयोगकर्ताहरू</th>
