@@ -98,7 +98,7 @@
           <li><a href="{{route('roles.index')}}">Roles</a></li>
           <li><a href="{{route('permission.index')}}">Permissions</a></li>
           <li><a href="{{route('users.index')}}">Users</a></li>
-          <li><a href="{{route('map.index')}}">Url Map</a></li>
+          <li><a href="{{route('map.index')}}">Url Maps</a></li>
           <li><a href="{{ url('/register') }}">Register</a></li>
           @endcan
         </ul>
