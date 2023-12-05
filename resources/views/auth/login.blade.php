@@ -14,7 +14,7 @@
             <h5>{{@$clientInfo[0]->district}}ㅤ{{@$clientInfo[0]->province}}</h5>
             <h5></h5>
           </div>
-        </div>
+        </div>                    
 
     <x-slot name="logo">
       <a href="/">

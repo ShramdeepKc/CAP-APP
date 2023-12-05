@@ -30,6 +30,8 @@ class AuthenticatedSessionController extends Controller
             $clientId = $check_url->client_id;
             // dd($clientId);
             $clientCode = DB::table('vw_app_clientwise_setting')->where(['setting_id'=>196,'client_id'=>$clientId])->first();
+            // dd($clientCode);
+
             $data['clientInfo'] = DB::table('vw_mst_federal_hierarchy as t1')
             ->leftjoin('vw_mst_federal_hierarchy as t2', 't2.id', '=', 't1.parent_id')
             ->leftjoin('vw_mst_federal_hierarchy as t3', 't3.id', '=', 't2.parent_id')
