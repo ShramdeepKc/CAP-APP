@@ -17,7 +17,7 @@
   @csrf
   <fieldset>
     <strong>कोड:</strong>
-    <input type="text" name="code" class="type_nep" placeholder="कोड" required>
+    <input type="text" name="code" class="type_eng" placeholder="कोड" required>
   </fieldset>
 
   <fieldset>

@@ -9,7 +9,7 @@ class Application extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'client_id','app_id'
+        'client_id','app_id','is_public'
     ];
   
     // public function app(){

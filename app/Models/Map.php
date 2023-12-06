@@ -9,6 +9,6 @@ class Map extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'client_id','code','url'
+        'client_id','code','url','c_url'
     ];
 }

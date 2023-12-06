@@ -41,11 +41,13 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'code'=>'required',
             'name_en' => 'required',
             'name_np'=>'required',
             'status' => 'required',
+            'is_public'=>'',
         ]);
     
      App::create($request->all());
@@ -90,6 +92,7 @@ class AppController extends Controller
             'name_en' => 'required',
             'name_np'=>'required',
             'status' => 'required',
+            'is_public'=>'',
             
         ]);
     

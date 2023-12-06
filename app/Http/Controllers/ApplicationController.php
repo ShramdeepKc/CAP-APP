@@ -62,15 +62,32 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $app_id = $input['app_id'];
-        $input['app_id'] = implode(",",$app_id); 
+
+        // Process app_id array
+        $appIds = $input['app_id'];
+        $input['app_id'] = implode(",", $appIds);
     
-        Application::create($input);
-        // dd($input);
+        // Process is_public array to prepare the data for insertion
+        $isPublicData = [];
+        foreach ($appIds as $appId) {
+            if (isset($input['is_public'][$appId])) {
+                $isPublicData[$appId] = true;
+            } else {
+                $isPublicData[$appId] = false; // Assuming 'core' as default value when 'Public' is not selected
+            }
+        }
     
-        return redirect()->route('applications.index')
-                        ->with('success','Applications assigned successfully');
+        // Create or update each application with its respective 'is_public' value
+        foreach ($appIds as $appId) {
+            Application::create([
+                'client_id' => $input['client_id'],
+                'app_id' => $appId,
+                'is_public' => $isPublicData[$appId],
+            ]);
     }
+    return redirect()->route('applications.index')
+    ->with('success','Applications created successfully.');
+}
 
     /**
      * Display the specified resource.
@@ -91,15 +108,16 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
-        $app=App::get();
+        $app = App::findOrFail($application->app_id); 
         // $application = Application::all();
-        // dd($application);
-        $selectedAppIds = explode(',', $application->app_id);
+        // dd($app);
+        // $selectedAppIds = explode(',', $application->app_id);
         $app_client = DB::table('public.app_client')
         ->select('id','name_np')
         ->where('status' ,'=','true')
          ->get();   
-        return view('applications.edit',compact('application','app_client','app','selectedAppIds'));
+        //  dd($app_client);
+        return view('applications.edit',compact('application','app_client','app'));
     }
 
     /**
@@ -113,15 +131,17 @@ class ApplicationController extends Controller
     {
         $input = $request->all();
 
+        // Update the is_public field
+        $input['is_public'] = $request->has('is_public') ?  true: false;
+    
         $app_id = $input['app_id'];
-        $input['app_id'] = implode(",",$app_id);
-       $application->update($input);
-        // dd($application);
+        $input['app_id'] = implode(",", $app_id);
+    
+        $application->update($input);
     
         return redirect()->route('applications.index')
-                        ->with('success','Product updated successfully');
+                         ->with('success','Product updated successfully');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -135,4 +155,5 @@ class ApplicationController extends Controller
         return redirect()->route('applications.index')
                         ->with('success','Product deleted successfully');
     }
+
 }

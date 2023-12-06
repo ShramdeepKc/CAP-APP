@@ -16,7 +16,7 @@
     
     <fieldset>
       <strong>एप नाम(अंग्रेजी)  :</strong>
-      <input type="text" name="name_en" class="form-control type_nep" placeholder=" In English" required >
+      <input type="text" name="name_en" class="form-control type_eng" placeholder=" In English" required >
     </fieldset>
     
     <fieldset>
@@ -37,7 +37,7 @@
       </div>
       
     </fieldset>
-    
+  
     <fieldset>
       <button type="submit" class="btnB submitB">सुरक्षित गर्नुहोस </button>
     </fieldset>   

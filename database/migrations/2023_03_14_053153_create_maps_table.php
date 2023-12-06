@@ -18,6 +18,7 @@ class CreateMapsTable extends Migration
             $table->foreignId('client_id')->nullable()->constrained('public.app_client')->onUpdate('cascade')->onDelete('cascade');
             $table->string('code');
             $table->string('url');
+            $table->string('c_url');
             $table->timestamps();
         });
     }

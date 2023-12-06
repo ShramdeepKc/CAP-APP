@@ -38,8 +38,6 @@ use Illuminate\Console\Application;
 Route::resource('apps',AppController::class)->middleware(['auth']);
 
 Route::resource('urls',UrlController::class)->middleware(['auth']);
-
-
 Route::resource('applications',ApplicationController::class)->middleware(['auth']);
 
 Route::resource('homes',HomeController::class)->middleware('auth');

@@ -50,7 +50,8 @@ class MapController extends Controller
         $request->validate([
             'client_id'=>'required',
             'code'=>'required',
-            'url' => 'required',   
+            'url' => 'required',  
+            'c_url'=>'required', 
             
         ]);
    
@@ -99,6 +100,7 @@ class MapController extends Controller
             'client_id' => 'required',
             'code'=>'required',
             'url'=>'required',
+            'c_url'=>'required',
             
             
         ]);

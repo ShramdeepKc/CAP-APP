@@ -24,8 +24,12 @@
     </fieldset>
     
     <fieldset>
-      <strong>एप URL(English)  :</strong>
-      <input type="text" name="url" class="form-control" placeholder="App Url" required >
+      <strong>एप Public URL(English)  :</strong>
+      <input type="text" name="url" class="form-control" placeholder="App Public Url" required >
+    </fieldset>
+    <fieldset>
+      <strong>एप Core URL(English)  :</strong>
+      <input type="text" name="c_url" class="form-control" placeholder="App Core Url" required >
     </fieldset>
     
     <fieldset>
