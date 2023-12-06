@@ -16,7 +16,7 @@
     
     <fieldset>
     <strong>एप नाम(अंग्रेजी)  :</strong>
-                <input type="text" name="name_en" class="type_nep" value="{{ $app->name_en }}" placeholder="Name" required >
+                <input type="text" name="name_en" class="type_eng" value="{{ $app->name_en }}" placeholder="Name" required >
           
     </fieldset>
             
