@@ -25,6 +25,7 @@ class WelcomeController extends Controller
         ->where('c_url','=',$url_segment)
         ->Orwhere('url','=',$url_segment)
         ->first();
+        // $title = ''; // Set a default value
         // dd($url_segment,$check_url);
         if(!empty($check_url)){
 
@@ -44,6 +45,9 @@ class WelcomeController extends Controller
                 ->select('urls.*','app.name_en as appName')
                 ->where('urls.client_id',$clientId)                 
                 ->get();
+
+                $data['title'] = "स्थानीय तह कार्यसम्पादन पोर्टल";
+            
             } else {
                 $data['url'] =DB::table('urls')
                 ->leftJoin('apps as app','urls.app_id','=','app.id')
@@ -52,8 +56,9 @@ class WelcomeController extends Controller
                 ->where('urls.client_id',$clientId)   
                 ->where('ap.is_public',true)                 
                 ->get();
-            }
 
+               $data['title'] = "स्थानीय तह सेवाग्राही पोर्टल";
+            }
             
         }  else {
             $data['url'] =DB::table('urls')
@@ -61,6 +66,7 @@ class WelcomeController extends Controller
             ->select('urls.*','app.name_en as appName')     
             ->distinct('app_id')     
             ->get();
+            $data['title'] = "स्थानीय तह सेवाग्राही पोर्टल";
         }
         return view('welcome',$data);
     }

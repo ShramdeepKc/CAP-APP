@@ -137,7 +137,7 @@ header .headerText span {
   justify-content:space-between;
 
   min-height: 16vw;
-  max-height: 16vw;
+  max-height: 18vw;
   aspect-ratio: 1/1.5;
 
   text-align: center;
@@ -180,6 +180,7 @@ header .headerText span {
 }
 .outerBox .boxP .titleP {
   transition: transform 0.3s ease;
+  padding-bottom:5px ;
   min-width:100%;
   white-space: wrap;
   line-height: 1;
@@ -190,7 +191,8 @@ header .headerText span {
   color:#fff;
 }
 .outerBox .boxP .lineP {
-  height:2px;
+  /* height:1px; */
+  border-bottom: 1px solid #e7780b;
   width:50%;
   background-color: peru;
   transition: width 0.3s ease;

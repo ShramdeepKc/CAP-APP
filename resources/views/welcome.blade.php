@@ -38,7 +38,7 @@ use Carbon\Carbon;
         <h5>{{@$clientInfo[0]->province}}</h5>
       </div>
       
-      <h3 class="headerText">CLIENT<span> APP</span></h3>
+      <h3 class="headerText"><span>{{$title}}</span></h3>
       
       <div class="logBtn">
         <button>
@@ -81,7 +81,7 @@ use Carbon\Carbon;
 
       <div id="sideBar">
         <h3>About App <i class="fas fa-info-circle"></i></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.Corrupti, quasi? Dolorum sunt illo, autem inventore rerum deserunt laboriosam similique voluptas quae totam quidem error, tempora modi. At reprehenderit blanditiis iste?</p>
+        <p>स्थानीय तहले सेवाग्राहीहरूलाई सुनिश्चित, निर्भर, र अधिक पहुँचयोग्य सेवाहरू एकीकृत माध्यमबाट प्रदान गर्नका लागि सेवाग्राही पोर्टल कार्यान्वयनमा ल्याएको छ। यो पोर्टलमा नागरिक/सेवाग्राहीले विभिन्न सेवाहरूमा सहजरूपमा आफ्नो आवश्यकता अनुरुप प्राप्तिको पहुँच गराउँछ । सेवाग्राही पोर्टलहरूले सेवाग्राहीलाई स्थानीय तह तथा मातहतबाट सेवाहरू प्राप्तिमा टेवा पुर्‍याउँछ।</p>
       </div>
     </main>
     
