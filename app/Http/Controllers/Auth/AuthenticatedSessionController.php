@@ -22,7 +22,8 @@ class AuthenticatedSessionController extends Controller
         $data = [];
         // $check_url = DB::table('maps')
         $check_url = DB::table('maps')
-        ->where('url','=',$url_segment)
+        ->where('c_url','=',$url_segment)
+        ->ORwhere('url','=',$url_segment)
         ->first();
         // dd($url_segment,$check_url);
         if(!empty($check_url)){
