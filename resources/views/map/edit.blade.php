@@ -25,8 +25,12 @@
     </fieldset>
 
     <fieldset>
-    <strong>एप URL (English)  :</strong>
-    <input type="text" name="url" class="form-control" placeholder="App Url" value="{{$map->url}}" required >
+    <strong>Public URL (English)  :</strong>
+    <input type="text" name="url" class="form-control" placeholder="Public Url" value="{{$map->url}}" required >
+    </fieldset>        
+    <fieldset>
+    <strong>Core URL (English)  :</strong>
+    <input type="text" name="c_url" class="form-control" placeholder="Core Url" value="{{$map->c_url}}" required >
     </fieldset>        
     
     <fieldset>

@@ -42,12 +42,11 @@ class UrlController extends Controller
         ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
         ->leftJoin('apps as app','urls.app_id','=','app.id')
         // ->leftJoin('applications','urls.app_id','=','applications.id')
-        ->select('urls.*','ac.name_np as clientName','app.name_en as appName')
+        ->select('urls.*','ac.name_np as clientName','app.name_np as appName')
             ->where('urls.client_id', '=', $client_id)
-            ->get();
-             
-
+            ->get();     
         }
+       
     
         return view('urls.index',compact('url'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -71,7 +70,6 @@ class UrlController extends Controller
         $app = App::all();
         $app_client  = DB::table('public.app_client')
         ->select('id','name_np')
-          
         ->where('status' ,'=','true')
         ->get(); 
         return view('urls.create',compact('app','app_client'));
@@ -99,15 +97,15 @@ class UrlController extends Controller
           
             
 
-            $selected_apps = Application::where('client_id', $client_id)->first();
+            $selected_apps = Application::select('app_id')->where('client_id', $client_id)->pluck('app_id')->toArray(); 
 
             if ($selected_apps === null) {
                 return back()->with('error', 'You must have at least one app to create a new one.');
             }
-            $selApp = explode(',',$selected_apps->app_id);
+            // $selApp = explode(',',$selected_apps->app_id);
 
 
-            if (empty($selApp)) {
+            if (empty($selected_apps)) {
                 session()->flash('error', 'No apps are assigned to this client.');
                 return redirect()->back();
             }
@@ -116,7 +114,7 @@ class UrlController extends Controller
             $urlapps = DB::table('urls')->where('client_id',$client_id)->pluck('app_id')->toArray(); 
             
         
-           $remapps = array_diff($selApp,$urlapps);
+           $remapps = array_diff($selected_apps,$urlapps);
            $appList = DB::table('apps')->whereIn('id',$remapps)           
            ->get();
        

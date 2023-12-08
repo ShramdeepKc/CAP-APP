@@ -25,7 +25,7 @@
     <strong>App Name:</strong>
     <div>
         <input type="checkbox" id="app_{{ $application->id }}" name="app_id[]" value="{{ $app->id }}" checked>
-        <label for="app_{{ $application->id }}">{{ $app->name_en }}</label>
+        <label for="app_{{ $application->id }}">{{ $app->name_np }}</label>
         <input type="checkbox" id="public_{{ $application->id }}" name="is_public" value="public" {{ $application->is_public == 'public' ? 'checked' : '' }}>
         <label for="public_{{ $application->id }}">PublicApp</label>
     </div>

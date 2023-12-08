@@ -40,13 +40,13 @@
     @if(auth()->id() == 1)
       <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
-        <option value="{{$apps->id}}" class="form-control type_nep" >{{$apps->name_en}}</option>
+        <option value="{{$apps->id}}" class="form-control type_nep" >{{$apps->name_np}}</option>
       @endforeach
       </select>
       @else
       <select name="app_id" id="app_id" required>
       @foreach($appList as $apps)
-        <option value="{{ $apps->id }}"> {{ $apps->name_en}}</option>
+        <option value="{{ $apps->id }}"> {{ $apps->name_np}}</option>
       @endforeach  
       </select>
     @endif
@@ -72,4 +72,23 @@
   </fieldset>
 </form>
 </div>
+<script>
+$(document).ready(function() {
+    // Function to set the description based on the selected app name
+    function setDescription() {
+        var appName = $('#app_id').children("option:selected").text();
+        $('#description').val('' + appName);
+    }
+
+    // Set description for initially selected app on page load
+    setDescription();
+
+    // Listen for changes in the app name select field
+    $('#app_id').change(function() {
+        // Update description when app selection changes
+        setDescription();
+    });
+});
+</script>
+
 @endsection

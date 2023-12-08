@@ -22,7 +22,7 @@
       @foreach ($app as $apps)
       <div>
         <input type="checkbox" id="app_{{ $apps->id }}" name="app_id[]" value="{{ $apps->id }}">
-        <label for="app_{{ $apps->id }}">{{ $apps->name_en }}</label>
+        <label for="app_{{ $apps->id }}">{{ $apps->name_np }}</label>
         <input type="checkbox" id="public_{{ $apps->id }}" name="is_public[{{ $apps->id }}][]" value="public">
         <label for="public_{{ $apps->id }}">PublicApp </label>
       </div>

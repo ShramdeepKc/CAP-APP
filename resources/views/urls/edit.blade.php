@@ -35,7 +35,7 @@
                     @if(auth()->id() == 1)
                     <select id="app" name="app_id" value="apps">
                         @foreach ($app as $apps)
-                        <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_en}}
+                        <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_np}}
                         </option>
                         @endforeach
                     </select>
@@ -46,7 +46,7 @@
                 <fieldset>
                 <select id="app" name="app_id" value="apps">
                     @foreach ($appList as $apps)
-                    <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_en}}
+                    <option value="{{$apps->id}}" {{$apps->id==$url->app_id ? 'selected':''}}>{{$apps->name_np}}
                     </option>
                     @endforeach
                 </select>

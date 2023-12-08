@@ -18,9 +18,12 @@ class WelcomeController extends Controller
     {
 
         $url_segment = url('/');
+        $ss = str_replace('http://','',$url_segment);
+        $subdomain = explode('.',$ss);
         // $check_url = DB::table('maps')
         $check_url = DB::table('maps')
-        ->where('url','=',$url_segment)
+        ->where('c_url','=',$url_segment)
+        ->Orwhere('url','=',$url_segment)
         ->first();
         // dd($url_segment,$check_url);
         if(!empty($check_url)){
@@ -35,22 +38,30 @@ class WelcomeController extends Controller
             ->where(['t1.code' => $clientCode->combo_value] )
             ->get();
 
-            $data['url'] =DB::table('urls')
-            ->leftJoin('apps as app','urls.app_id','=','app.id')
-            ->select('urls.*','app.name_en as appName')
-            ->where('client_id',$clientId)
-     
+            if($subdomain[0]=='core'){
+                $data['url'] =DB::table('urls')
+                ->leftJoin('apps as app','urls.app_id','=','app.id')
+                ->select('urls.*','app.name_en as appName')
+                ->where('urls.client_id',$clientId)                 
+                ->get();
+            } else {
+                $data['url'] =DB::table('urls')
+                ->leftJoin('apps as app','urls.app_id','=','app.id')
+                ->leftJoin('applications as ap','app.id','=','ap.app_id')
+                ->select('urls.*','app.name_en as appName','ap.is_public')
+                ->where('urls.client_id',$clientId)   
+                ->where('ap.is_public',true)                 
+                ->get();
+            }
+
             
-            ->get();
         }  else {
             $data['url'] =DB::table('urls')
             ->leftJoin('apps as app','urls.app_id','=','app.id')
-            ->select('urls.*','app.name_en as appName')
-     
+            ->select('urls.*','app.name_en as appName')     
             ->distinct('app_id')     
             ->get();
         }
-       
         return view('welcome',$data);
     }
 

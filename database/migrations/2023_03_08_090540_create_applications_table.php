@@ -19,7 +19,7 @@ class CreateApplicationsTable extends Migration
      
             
             $table->foreignId('client_id')->nullable()->constrained('public.app_client')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('app_id');
+            $table->foreignId('app_id');
             $table->timestamps();
             
            
