@@ -80,7 +80,7 @@ use Carbon\Carbon;
       </div>
 
       <div id="sideBar">
-        <h3>About App <i class="fas fa-info-circle"></i></h3>
+        <h3><i class="fas fa-info-circle"></i></h3>
         <p style="text-align: justify;">{{$about}}</p>
       </div>
     </main>
