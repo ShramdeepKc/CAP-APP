@@ -39,7 +39,12 @@ use Carbon\Carbon;
       </div>
       
       <h3 class="headerText"><span>{{$title}}</span></h3>
-      
+      <h3> {{ $dateBs }} <h3>
+        &nbsp;
+      <h3> <span id="timeset"></span> <h3>
+     
+    </h3>
+    
       <div class="logBtn">
         <button>
           @if (Route::has('login'))
@@ -64,29 +69,29 @@ use Carbon\Carbon;
     <main>
       <div id="allBoxes">
         @foreach($url as $urls)
-        <div class="outerBox">
+        <div class="outerBox" >
           <div class="boxP">
             <a href="{{ $urls->app_url }}" target="_blank"> 
               <img class="logoP" src="{{asset('/image/'. $urls->image  )}}">
             </a>
             <div class="tld">
-            	<span class="titleP">{{$urls->appName}}</span>
+            <a href="{{ $urls->app_url }}" target="_blank" style="text-decoration: none; color: black;" >	<span class="titleP"  >{{$urls->appName}}</span></a>
             	<div class="lineP"></div>
-            	<span class="descriptionP" >{{$urls->description}}</span>
+              <a href="{{ $urls->app_url }}" target="_blank" style="text-decoration: none; color: black;" ><span class="descriptionP"  >{{$urls->description}}</span></a>
           	</div>
           </div>  <!-- End of a box 1 -->
         </div>
         @endforeach    
       </div>
 
-      <div id="sideBar">
+    
+    </main>
+    <div id="sideBar">
         <h3><i class="fas fa-info-circle"></i></h3>
         <p style="text-align: justify;">{{$about}}</p>
       </div>
-    </main>
-    
-    
-  <!-- cards and sideBar Puskar start -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- cards and sideBar  -->
 <!-- Rough copy	-->
 <script>
   const boxP = document.querySelectorAll('.boxP');
@@ -102,6 +107,66 @@ use Carbon\Carbon;
       descriptionP[index].style.fontSize = `${fontSizeD}px`;
     });
   });
+
+
+  $(window).ready(function () {
+        onMenuDateTime();
+   });
+   // Set current timer
+function onMenuDateTime() {
+    var me = this;
+    // alert("Image is loaded");
+    myVar = setInterval(me.myTimer, 1000);
+}
+
+function myTimer() {
+    var me = this;
+    //    menuTimeset = $('#timeser');
+    currentTime = new Date();
+    if (currentTime.getHours() > 12) {
+        var hours = currentTime.getHours() - 12;
+    } else {
+        var hours = currentTime.getHours();
+    }
+    var displayDateAd =
+        hours + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+    // var displayDateAd = Date(currentTime, 'g:i:s');
+    //    let options = {
+    //     weekday: "long", year: "numeric", month: "short",
+    //     day: "numeric", hour: "2-digit", minute: "2-digit"
+    // };
+
+    // console.log(currentTime.toLocaleTimeString("en-us", options));
+    //    alert(displayDateAd);
+    $("#timeset").html(displayDateAd);
+    var hours = currentTime.getHours();
+    am = Date(currentTime, "A");
+    var text = "";
+    // if (am == 'AM') {
+    if (hours >= 0 && hours <= 4) {
+        text = "रात्री";
+        $("#timeset").html(displayDateAd + " " + text);
+    }
+    if (hours >= 5 && hours <= 11) {
+        text = "बिहानी ";
+        $("#timeset").html(displayDateAd + " " + text);
+    }
+    // } else {
+    if (hours >= 12 && hours <= 16) {
+        text = "अपरान्ह";
+        $("#timeset").html(displayDateAd + " " + text);
+    }
+    if (hours >= 17 && hours <= 20) {
+        text = "सन्ध्या";
+        $("#timeset").html(displayDateAd + " " + text);
+    }
+    if (hours >= 21 && hours <= 23) {
+        text = "रात्री";
+        $("#timeset").html(displayDateAd + " " + text);
+    }
+    // }
+}
+//reset
 </script>
 
 

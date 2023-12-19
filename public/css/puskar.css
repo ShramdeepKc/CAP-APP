@@ -225,6 +225,7 @@ header .headerText span {
   box-shadow:
   -3px -3px 3px rgba(0, 0, 0, 0.4), 
    3px 3px 3px rgba(0, 0, 0, 0.4);
+   margin: 30px 100px 30px;
 }
 #sideBar h3 {
   background-color: royalblue;
@@ -239,7 +240,7 @@ header .headerText span {
   border-top-right-radius: 0.2em;
 }
 #sideBar p {
-  padding:0.2rem 0.5rem;
+  padding:0.8rem 1rem;
   font-size: 90%;
   color:#fff;
   font-size:1.4em;

@@ -3,14 +3,14 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <h2>Client Url Assign</h2>
-    <a class="btnB backB" href="{{route('map.index')}}">Back</a>
+    <h2>{{ __('public.Client') }} {{ __('public.Url') }} {{ __('public.Assign') }} </h2>
+    <a class="btnB backB" href="{{route('map.index')}}">{{ __('public.Back') }}</a>
   </div>
  
   <form class="formP" action="{{ route('map.store') }}" method="POST">
     @csrf
     <fieldset>
-      <strong> ग्राहकहरु:</strong>
+      <strong>{{ __('public.Client') }}  :</strong>
       <select name="client_id" id="client_id">
         @foreach ($app_client as $clients)
           <option value="{{$clients->id}}">{{$clients->name_en}}</option>
@@ -19,21 +19,21 @@
     </fieldset>
     
     <fieldset>
-      <strong>कोड :</strong>
+      <strong>{{ __('public.Code') }}  :</strong>
       <input type="text" name="code" class="form-control" placeholder="App Url" required >
     </fieldset>
     
     <fieldset>
-      <strong>एप Public URL(English)  :</strong>
+      <strong>{{ __('public.Public') }} {{ __('public.Url') }}   :</strong>
       <input type="text" name="url" class="form-control" placeholder="App Public Url" required >
     </fieldset>
     <fieldset>
-      <strong>एप Core URL(English)  :</strong>
+      <strong>{{ __('public.Core') }} {{ __('public.Url') }} :</strong>
       <input type="text" name="c_url" class="form-control" placeholder="App Core Url" required >
     </fieldset>
     
     <fieldset>
-      <button type="submit" class="btnB submitB">सिर्जना गर्नुहोस्</button>
+      <button type="submit" class="btnB submitB">{{ __('public.Add') }}</button>
     </fieldset>
   </form>
 </div>

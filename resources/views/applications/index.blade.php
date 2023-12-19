@@ -14,6 +14,7 @@
     </div>
 
     <table class="table">
+      <thead>
       <tr>
         <th>नं.</th>
         <th>Clients</th>
@@ -21,6 +22,8 @@
         <th>Type</th>
         <th>Action</th>
       </tr>
+</thead>
+<tbody>
       @foreach ($applications as $key => $application)
       <tr>  
         <td>{{ $key + 1 }}</td>
@@ -47,6 +50,7 @@
         </td>
       </tr>
       @endforeach
+          </tbody>
     </table>
   </div>
 

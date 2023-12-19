@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\App;
 use App\Models\Url;
 use Illuminate\Http\Request;
+use App\Rules\UniqueAppName;
+
 
 class AppController extends Controller
 {
@@ -41,21 +43,22 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->validate([
-            'code'=>'required',
-            'name_en' => 'required',
-            'name_np'=>'required',
-            'status' => 'required',
-            'is_public'=>'',
-        ]);
+        try {
+            $request->validate([
+                'code' => 'required',
+                'name_en' => ['required', new UniqueAppName],
+                'name_np' => ['required', new UniqueAppName],
+                'status' => 'required',
+                'is_public' => '',
+            ]);
     
-     App::create($request->all());
-     
-        return redirect()->route('apps.index')
-                        ->with('success','App List created successfully.');
+            App::create($request->all());
+    
+            return redirect()->route('apps.index')->with('success', 'App List created successfully.');
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        }
     }
-
     /**
      * Display the specified resource.
      *

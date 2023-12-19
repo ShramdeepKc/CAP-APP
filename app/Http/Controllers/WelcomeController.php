@@ -6,6 +6,8 @@ use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL as FacadesURL;
+use Pratiksh\Nepalidate\Facades\NepaliDate;
+
 
 class WelcomeController extends Controller
 {
@@ -16,6 +18,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        $data['currentTime']= now(); // Get current time
+        $data['dateBs'] = NepaliDate::create(\Carbon\Carbon::now())->toFormattedNepaliDate(); // 21 Shrawan 2078, Thurday
 
         $url_segment = url('/');
         $ss = str_replace('http://','',$url_segment);
@@ -42,8 +46,10 @@ class WelcomeController extends Controller
             if($subdomain[0]=='core'){
                 $data['url'] =DB::table('urls')
                 ->leftJoin('apps as app','urls.app_id','=','app.id')
-                ->select('urls.*','app.name_en as appName')
-                ->where('urls.client_id',$clientId)                 
+                ->leftJoin('applications as ap','app.id','=','ap.app_id')
+                ->select('urls.*','app.name_en as appName','ap.is_public')
+                ->where('urls.client_id',$clientId)   
+                ->where('ap.is_public',false)                 
                 ->get();
 
                 $data['title'] = "स्थानीय तह कार्यसम्पादन पोर्टल";

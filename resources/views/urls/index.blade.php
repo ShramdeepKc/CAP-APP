@@ -3,8 +3,8 @@
 
 <div class="myWholeTable">
   <div class="formHead formHeadCr">
-    <h2> Url सूची </h2>
-    <a class="btnB createB" href="{{ route('urls.create') }}">Create</a>
+    <h2> {{ __('public.Url') }}{{ __('public.List') }} </h2>
+    <a class="btnB createB" href="{{ route('urls.create') }}">{{ __('public.Add') }}</a>
   </div>
          
   @if ($message = Session::get('success'))
@@ -24,17 +24,20 @@
     </div>
   @endif
    
-  <table class="table table-dark table-responsive">
-    <tr>
-      <th>नं.</th>
-      <th>कोड </th>
-      <th>ग्राहक </th>
-      <th>एप नाम</th>
-      <th>एप URL</th>
-      <th>विवरण</th>
-      <th>एप लोगो</th>
-      <th width="200px">कार्य</th>
+  <table id="myTable"   class="table  table-responsive">
+  <thead>  
+  <tr>
+      <th>{{ __('public.No') }}.</th>
+      <th>{{ __('public.Code') }} </th>
+      <th>{{ __('public.Client') }} </th>
+      <th>{{ __('public.App') }} {{ __('public.Name') }} </th>
+      <th>{{ __('public.App') }}{{ __('public.Url') }}</th>
+      <th>{{ __('public.Description') }}</th>
+      <th>{{ __('public.App') }} {{ __('public.Logo') }}</th>
+      <th width="200px">{{ __('public.Action') }}</th>
     </tr>
+</thead>
+    <tbody>
     @foreach ($url as $urls)
     <tr>
       <td>{{ ++$i }}</td>
@@ -46,23 +49,25 @@
       <td><img src="{{asset('/image/'. $urls->image  )}}" width="70px"></td>
       <td>
         <form action="{{ route('urls.destroy',$urls->id) }}" method="POST">
-          <a class="btnB submitB" href="{{ route('urls.edit',$urls->id) }}">सच्याउने </a>
+          <a class="btnB submitB" href="{{ route('urls.edit',$urls->id) }}">{{ __('public.Edit') }} </a>
             @csrf
             @method('DELETE')
             @can('view')
-          <button type="submit" onclick="return myFunction();" class="btnB backB">मेटाउने</button>
+          <button type="submit" onclick="return myFunction();" class="btnB backB">{{ __('public.Delete') }}</button>
             @endcan
         </form>
       </td>
     </tr>
     @endforeach
-        
+</tbody>
+  </table>
+</div>
+
     <script>
       function myFunction() {
         if(!confirm("Are You Sure to delete this"))
         event.preventDefault();
       }
+    
     </script>
-  </table>
-</div>
 @endsection

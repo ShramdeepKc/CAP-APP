@@ -278,4 +278,6 @@ class UrlController extends Controller
         return redirect()->route('urls.index')
                         ->with('success','URL deleted successfully');
     }
+
+   
 }

@@ -3,8 +3,8 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <h2>पृष्ठभूमि</h2>
-    <a class="btnB backB" href="{{route('homes.index')}}">Back</a>
+    <h2>{{ __('public.Background') }} </h2>
+    <a class="btnB backB" href="{{route('homes.index')}}">{{ __('public.Back') }} </a>
   </div>
  
   <form class="formP" action="{{ route('background.store') }}" method="POST" enctype="multipart/form-data">
@@ -24,12 +24,12 @@
     </fieldset>
 
     <fieldset>
-      <strong>Background Image:</strong>
+      <strong>{{ __('public.Background') }} </strong>
       <input type="file" name="image">
     </fieldset>
 
     <fieldset>
-      <button type="submit" class="btnB submitB">अपलोड गर्नुहोस्</button>
+      <button type="submit" class="btnB submitB">{{ __('public.Upload') }} </button>
     </fieldset>
   </form>
 @endsection

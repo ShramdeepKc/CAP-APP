@@ -6,21 +6,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-        <!-- puskar fontawesome icon -->
+
+    <!-- puskar fontawesome icon -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-      <!-- puskar css -->
+    <!-- puskar css -->
     <link rel="stylesheet" href="{{asset('css/puskar.css')}}">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+ 
+    
     <script src="{{asset('js/convert_unicode.js')}}"></script>
     <style>
     <?php use App\Models\Background;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 
     $background=Background::all();
 
@@ -41,118 +46,130 @@
     // ->where('client_id',Auth::user()->client_id)
     // ->select('image');
     // dd($background);
-    ?>
-    body {
-      background-image: url({{$bg_image}});
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      background-size: cover;
+    ?>body {
+        background-image: url({{$bg_image}});
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
     }
-  </style>
+    </style>
 </head>
 
 <body id="layoutBody">
-<header class="layoutHeader">
-      
-      <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
+    <header class="layoutHeader">
 
-      <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
-        Client <span>Portal App</span>
-      </a>
-      
-      <div id="headerDivB">
-        <div class="layoutBladeSystemUserText">
-          <i class="fa fa-user-o" aria-hidden="true"></i>
-          <span>{{ $user = auth()->user()->name; }}</span>
-        </div>
+        <i id="navSpan" class="fa fa-bars" aria-hidden="true"></i>
 
-        <div class="logBtn">
-          <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button id="bahiraJaneBtn" type="submit" href="route('logout')" onclick="return myFunction();">
-              <i class="fa fa-sign-out " aria-hidden="true"></i>
-              <span>बाहिर जाने</span>
-            </button>
-          </form>
+        <a id="clientPortalApp_LayoutBlade" href="{{route('homes.index')}}">
+        {{ __('public.Client') }}  <span>{{ __('public.Portal') }} {{ __('public.App') }} </span>
+        </a>
+
+        <div id="headerDivB">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item dropdown">
+                    <a class="btn btn-secondary" style="margin-right: 50px;"  href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown">{{ __('public.Language') }} </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('setLang', 'en') }}">{{ __('public.English') }} </a>
+                        <a class="dropdown-item" href="{{ route('setLang', 'ne') }}">{{ __('public.Nepali') }} </a>
+                    </div>
+                </li>
+              
+            </ul>
+            <div class="layoutBladeSystemUserText">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <span>@if(session::get('locale')=='en'){{ $user = auth()->user()->name; }}@else{{ $user = auth()->user()->name_np; }}@endif</span>
+            </div>
+
+
+            <div class="logBtn">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button id="bahiraJaneBtn" type="submit" href="route('logout')" onclick="return myFunction();">
+                        <i class="fa fa-sign-out " aria-hidden="true"></i>
+                        <span>{{ __('public.Log Out') }}</span>
+                    </button>
+                </form>
+            </div>
         </div>
-      </div>
     </header>
 
-	
 
-	<section>
-    <aside id="aside">
-		  <nav id="navMenu">
-        <ul id="navUl">
-        <li>
-          <a href="{{route('homes.index')}}">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-          <li><a href="{{route('background.create')}}">Bg Img</a></li>
-          <li><a href="{{route('urls.index')}}">Url List</a></li>
-          @can('view')
-          <li><a href="{{route('apps.index')}}">Apps List</a></li>
-          <li><a href="{{route('applications.index')}}">Applications</a></li>
-          <li><a href="{{route('roles.index')}}">Roles</a></li>
-          <li><a href="{{route('permission.index')}}">Permissions</a></li>
-          <li><a href="{{route('users.index')}}">Users</a></li>
-          <li><a href="{{route('map.index')}}">Url Maps</a></li>
-          <li><a href="{{ url('/register') }}">Register</a></li>
-          @endcan
-        </ul>
-      </nav>
-	  </aside>
+    <section>
+        <aside id="aside">
+            <nav id="navMenu">
+                <ul id="navUl">
+                    <li>
+                        <a href="{{route('homes.index')}}">{{ __('public.Home') }} 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                  
+                    <li><a href="{{route('background.create')}}">{{ __('public.Background') }} </a></li>
+                    <li><a href="{{route('urls.index')}}">{{ __('public.App') }}{{ __('public.Link') }} </a></li>
 
-    <div class="container">
-      @yield('content')
-    </div>
-  </section>
+
+                    @can('view')
+                    <li><a href="{{route('apps.index')}}">{{ __('public.App') }} {{ __('public.List') }}</a></li>
+                    <li><a href="{{route('applications.index')}}">{{ __('public.App') }}{{ __('public.Assign') }}</a></li>
+                    <li><a href="{{route('roles.index')}}">{{ __('public.Roles') }}</a></li>
+                    <li><a href="{{route('permission.index')}}">{{ __('public.Permissions') }}</a></li>
+                    <li><a href="{{route('users.index')}}">{{ __('public.Users') }}</a></li>
+                    <li><a href="{{route('map.index')}}">{{ __('public.Maps') }}</a></li>
+                    @endcan
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="container">
+            @yield('content')
+        </div>
+    </section>
 </body>
-     
-     
-<script>
-  window.addEventListener('load', function() {
-  var navMenu = document.getElementById('navUl');
-  var navSpan = document.getElementById('navSpan');
-  var container = document.querySelector('.container');
 
-  navSpan.addEventListener('click', function() {
-    if (navMenu.style.maxWidth === '0px') {
-      navMenu.style.maxWidth = '100%';
-      container.style.width = `calc(100% - ${getComputedStyle(navMenu).width})`;
-    } else {
-      navMenu.style.maxWidth = '0px';
-      container.style.width = '100%';
-    }
-  });
+
+<script>
+window.addEventListener('load', function() {
+    var navMenu = document.getElementById('navUl');
+    var navSpan = document.getElementById('navSpan');
+    var container = document.querySelector('.container');
+
+    navSpan.addEventListener('click', function() {
+        if (navMenu.style.maxWidth === '0px') {
+            navMenu.style.maxWidth = '100%';
+            container.style.width = `calc(100% - ${getComputedStyle(navMenu).width})`;
+        } else {
+            navMenu.style.maxWidth = '0px';
+            container.style.width = '100%';
+        }
+    });
 });
 </script>
 
 <script>
-  window.addEventListener('load', function() {
+window.addEventListener('load', function() {
     var tables = document.querySelectorAll('.myWholeTable .table');
 
     function toggleTableDisplay() {
-      if (window.innerWidth < 992) {
-        tables.forEach(function(table) {
-          if (table.classList.contains('noBlc')) {
-            table.style.display = 'table';
-          } else {
-            table.style.display = 'block';
-          }
-        });
-      } else {
-        tables.forEach(function(table) {
-          table.style.display = 'table';
-        });
-      }
+        if (window.innerWidth < 992) {
+            tables.forEach(function(table) {
+                if (table.classList.contains('noBlc')) {
+                    table.style.display = 'table';
+                } else {
+                    table.style.display = 'block';
+                }
+            });
+        } else {
+            tables.forEach(function(table) {
+                table.style.display = 'table';
+            });
+        }
     }
 
     toggleTableDisplay();
     window.addEventListener('resize', toggleTableDisplay);
-  });
+});
 </script>
 
 
@@ -170,16 +187,39 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+   
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    
 <script>
 function myFunction() {
     if (!confirm("Are You Sure to logout"))
         event.preventDefault();
 }
 
-$('.type_nep').on('keyup',function(){
-var code = $(this).val();
+$('.type_nep').on('keyup', function() {
+    var code = $(this).val();
     $(this).val(convert_to_unicode(code));
 })
+$(document).ready( function () {
+      $('.table').DataTable(
+          {
+              <?php if(Session::get('locale')=='ne'){?>
+            language: {
+            search: '<i class="fa fa-search"></i> खोज्नुहोस',
+             "lengthMenu": "", 
+            "paginate": {
+                "previous": "पछाडी",
+                "next": "अगाडी"
+            },
+            "info": " दर्ता रेकर्डहरु  देखाउँदै",
+
+        },
+        <?php } ?>
+
+          }
+      );
+      } );
 </script>
 
 

@@ -13,6 +13,7 @@ class AppHelpers
 
         return $appName;
     }
+
    
 }
 ?>

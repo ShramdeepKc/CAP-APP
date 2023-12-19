@@ -7,7 +7,7 @@
  
 <div class="myWholeForm">
   <div class="formHead">
-    <h2>Url सूची</h2>
+    <h2>{{ __('public.Url') }}{{ __('public.List') }}</h2>
     <a class="btnB backB" href="{{ route('urls.index') }}">
       Back
     </a>
@@ -16,12 +16,12 @@
 <form class="formP" action="{{ route('urls.store') }}" class="nepali-font" method="POST" enctype="multipart/form-data" >
   @csrf
   <fieldset>
-    <strong>कोड:</strong>
+    <strong>{{ __('public.Code') }}:</strong>
     <input type="text" name="code" class="type_eng" placeholder="कोड" required>
   </fieldset>
 
   <fieldset>
-    <strong> ग्राहक:</strong>
+    <strong> {{ __('public.Client') }}:</strong>
     @if(auth()->id() == 1) 
       <select name="client_id" id="client_id"  class="type_nep" required>
       @foreach ($app_client as $clients)
@@ -36,7 +36,7 @@
   </fieldset>
   
   <fieldset>
-    <strong> एप नाम:</strong>
+    <strong> {{ __('public.App') }} {{ __('public.Name') }}:</strong>
     @if(auth()->id() == 1)
       <select name="app_id" id="app_id" required>
       @foreach ($app as $apps)
@@ -53,22 +53,22 @@
   </fieldset>    
   
   <fieldset>
-    <strong>एप URL  :</strong>
+    <strong>{{ __('public.App') }}{{ __('public.Url') }}  :</strong>
     <input type="text" name="app_url" placeholder="App Url" required >
   </fieldset>   
   
   <fieldset>
-    <strong>विवरण : </strong>
+    <strong>{{ __('public.Description') }} : </strong>
     <textarea class="type_nep" id="description" name="description" rows="4" maxlength="15" required></textarea>
   </fieldset>
   
   <fieldset>
-    <strong>लोगो:</strong>
+    <strong>{{ __('public.Logo') }}:</strong>
     <input type="file" name="image" class="type_nep" placeholder=" Upload image" required>
   </fieldset>    
   
   <fieldset>
-    <button type="submit" class="btnB submitB">सुरक्षित गर्नुहोस </button>
+    <button type="submit" class="btnB submitB">{{ __('public.Add') }}</button>
   </fieldset>
 </form>
 </div>

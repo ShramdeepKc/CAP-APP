@@ -3,15 +3,15 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <h2>भूमिका र अनुमति</h2>
-    <a class="btnB backB" href="{{route('roles.index')}}">Back</a>
+    <h2>{{ __('public.Roles') }} & {{ __('public.Permissions') }}</h2>
+    <a class="btnB backB" href="{{route('roles.index')}}">{{ __('public.Back') }}</a>
   </div>
 
 <form class="formP" action="{{ route('roles.update',$role->id) }}" method="POST">
     @csrf
     @method('PUT')
   <fieldset>
-   <strong>Name:</strong>
+   <strong>{{ __('public.Name') }}:</strong>
    <input type="text" name="name" placeholder="name" value="{{$role->name}}">
    <button type="submit" class="btnB submitB">EDIT</button>
   </fieldset>
@@ -32,7 +32,7 @@
     <form class="formP" method="POST" action="{{ route('roles.permission', $role->id) }}">
       @csrf
       <fieldset>
-        <strong>अनुमति: </strong>
+        <strong>{{ __('public.Permissions') }}: </strong>
         <select id="permission" name="permission" autocomplete="permission-name">
           @foreach ($permissions as $permission)
           <option value="{{ $permission->name }}">{{ $permission->name }}</option>
@@ -41,7 +41,7 @@
         @error('name')
         <span>{{ $message }}</span>
         @enderror
-        <button type="submit" class="btn btn-success">असाइन गर्नुहोस्</button>
+        <button type="submit" class="btn btn-success">{{ __('public.Assign') }}</button>
       </fieldset>
       </form>
 </div>

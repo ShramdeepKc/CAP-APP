@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\DB;
               <img class="logoP" src="{{asset('/image/'. $urls->image  )}}">
             </a>
             <div class="tld">
-            	<span class="titleP">{{$urls->appName}}</span>
+            <a href="{{ $urls->app_url }}" target="_blank" style="text-decoration: none; color: black;" ><span class="titleP" style="font-size: 26px;">{{$urls->appName}}</span></a>
             	<div class="lineP"></div>
-            	<span class="descriptionP" >{{$urls->description}}</span>
+              <a href="{{ $urls->app_url }}" target="_blank" style="text-decoration: none; color: black;" ><span class="descriptionP" >{{$urls->description}}</span></a>
           	</div>
           </div>  <!-- End of a box 1 -->
         </div>
@@ -33,9 +33,9 @@ use Illuminate\Support\Facades\DB;
   function adjustFontSizes() {
     boxP.forEach((box, index) => {
       const boxPHeight = box.clientHeight;
-      let fontSizeT = boxPHeight / 10;
+      let fontSizeT = boxPHeight / 12;
       titleP[index].style.fontSize = `${fontSizeT}px`;
-      let fontSizeD = boxPHeight / 12;
+      let fontSizeD = boxPHeight / 14;
       descriptionP[index].style.fontSize = `${fontSizeD}px`;
     });
   }

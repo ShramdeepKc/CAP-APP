@@ -3,9 +3,9 @@
 
 <div class="myWholeTable">
 	<div class="formHead formHeadCr">
-	  <h2>Url नक्सा</h2>
+	  <h2>{{ __('public.Url') }} {{ __('public.Maps') }}</h2>
 	  <a class="btnB createB" href="{{ route('map.create') }}">
-	    Create
+    {{ __('public.Add') }}
 	  </a>
 	</div>
  
@@ -16,14 +16,17 @@
   @endif
   
   <table class="table">
+    <thead>
     <tr>
-      <th>नं.</th>
-      <th>ग्राहक</th>
-      <th>कोड</th>
-      <th>Core Url</th>
-      <th>Public Url</th>
-      <th>कार्य</th>
+      <th>{{ __('public.No') }}.</th>
+      <th>{{ __('public.Client') }}</th>
+      <th>{{ __('public.Code') }}</th>
+      <th>{{ __('public.Public') }}{{ __('public.Url') }}</th>
+      <th>{{ __('public.Core') }}{{ __('public.Url') }}</th>
+      <th>{{ __('public.Action') }}</th>
     </tr>
+</thead>
+<tbody>
     @foreach ($map as $maps)
     <tr>
       <td>{{ ++$i }}</td>
@@ -34,22 +37,23 @@
 
       <td>
         <form action="{{ route('map.destroy',$maps->id) }}" method="POST">
-          <a class="btnB submitB" href="{{ route('map.edit',$maps->id) }}">सच्याउने</a>
+          <a class="btnB submitB" href="{{ route('map.edit',$maps->id) }}">{{ __('public.Edit') }}</a>
             @csrf
             @method('DELETE')
-          <button type="submit" onclick="return myFunction();" class="btnB backB">मेटाउने</button>
+          <button type="submit" onclick="return myFunction();" class="btnB backB">{{ __('public.Delete') }}</button>
         </form>
       </td>
     </tr>
     @endforeach
+</tbody>
+  </table>
+</div>
     <script>
       function myFunction() {
         if(!confirm("Are You Sure to delete this"))
         event.preventDefault();
       }
 	</script>
-  </table>
-</div>
 
 
     

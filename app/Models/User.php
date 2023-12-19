@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'name_np',
     ];
     
 
@@ -53,6 +54,5 @@ class User extends Authenticatable
     {
         return $this->role === 'System';
     }
-    
  
 }

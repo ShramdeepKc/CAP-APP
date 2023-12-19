@@ -15,9 +15,9 @@
    
   <table class="table table-dark">
         <tr>
-            <th>नं.</th>
-            <th>प्रयोगकर्ताहरू</th>
-            <th>कार्य</th>
+            <th>{{ __('public.No') }}.</th>
+            <th>{{ __('public.Client') }}</th>
+            <th>{{ __('public.Action') }}</th>
            
             
            

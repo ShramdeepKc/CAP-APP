@@ -3,20 +3,20 @@
 
 <div class="myWholeForm">
   <div class="formHead">
-    <h4>सम्पादन गर्नुहोस्</h4>
-    <a class="btnB backB" href="{{route('urls.index')}}">Back</a>
+    <h4>{{ __('public.Edit') }}</h4>
+    <a class="btnB backB" href="{{route('urls.index')}}">{{ __('public.Back') }}</a>
   </div>
 
   <form class="formP" action="{{ route('urls.update',$url->id ) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <fieldset>
-      <strong>कोड:</strong>
+      <strong>{{ __('public.Code') }}:</strong>
       <input type="text" name="code" class="type_nep" value="{{ $url->code }}" placeholder="Code">
     </fieldset>
 
 <fieldset>
-  <strong>ग्राहक:</strong>
+  <strong>{{ __('public.Client') }}:</strong>
   @if(auth()->id() == 1)
   <select name="client_id" id="client_id">
     @foreach ($app_client as $clients)
@@ -31,7 +31,7 @@
 </fieldset>
   
                 <fieldset>
-                    <strong> एप नाम:</strong>
+                    <strong> {{ __('public.App') }}{{ __('public.Name') }}:</strong>
                     @if(auth()->id() == 1)
                     <select id="app" name="app_id" value="apps">
                         @foreach ($app as $apps)
@@ -54,25 +54,25 @@
                 @endif
 
                 <fieldset>
-                        <strong>एप URL :</strong>
+                        <strong>{{ __('public.App') }}{{ __('public.Url') }} :</strong>
                         <input type="text" name="app_url"  value="{{ $url->app_url }}"
                             placeholder="Code">
 </fieldset>
 
 <fieldset>
-  <strong>विवरण :</strong>
+  <strong>{{ __('public.Description') }} :</strong>
                         <textarea type="description" name="description"
                         class="type_nep">{{$url->description }}</textarea>
 </fieldset>
                           
                         <fieldset>
-                        <strong>लोगो :</strong>
+                        <strong>{{ __('public.Logo') }} :</strong>
                         <input type="file" name="image" placeholder=" Upload image">
                         <img src="/image/{{ $url->image }}" width="50px">
 </fieldset>
 
 <fieldset>
-  <button type="submit" class="btnB submitB">सुरक्षित गर्नुहोस </button>
+  <button type="submit" class="btnB submitB">{{ __('public.Edit') }} </button>
 </fieldset>
 </form>
 </div>

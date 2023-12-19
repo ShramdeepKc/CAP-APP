@@ -11,10 +11,10 @@ use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UrlDetailController;
 use App\Http\Controllers\BackgroundController;
-
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\LocalizationController;
 use Illuminate\Console\Application;
 
 // use App\Http\Controllers\ClientController;
@@ -36,7 +36,10 @@ use Illuminate\Console\Application;
 // })->middleware(['auth'])->name('dashboard');
 
 Route::resource('apps',AppController::class)->middleware(['auth']);
-
+//Route::get('/translation', [TranslationController::class, 'index']);
+//Route::get('/toggle-language', [TranslationController::class, 'toggleLanguage']);
+//localizationRoute
+Route::get("locale/{lange}",[LocalizationController::class,'setLang'])->name('setLang');
 Route::resource('urls',UrlController::class)->middleware(['auth']);
 Route::resource('applications',ApplicationController::class)->middleware(['auth']);
 
@@ -46,6 +49,13 @@ Route::resource('/', WelcomeController::class);
 Route::get('/users',[UserController::class,'index'])->name('users.index');
 Route::get('edit/{user}',[UserController::class,'edit'])->name('users.edit');
 Route::post('update/{user}',[UserController::class,'update'])->name('users.update');
+
+
+//searchroute
+Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+Route::get('/urls/search',  [UrlController::class, 'search'])->name('urls.search');
+
+
 
 // Route::delete('/users',[UserController::class,'destroy'])->name('users.index');
 	Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');

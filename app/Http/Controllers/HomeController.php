@@ -37,7 +37,7 @@ class HomeController extends Controller
         ->leftJoin('public.app_client as ac','urls.client_id','=','ac.id')
         ->leftJoin('apps as app','urls.app_id','=','app.id')
         // ->leftJoin('applications','urls.app_id','=','applications.id')
-        ->select('urls.*','ac.name_en as clientName','app.name_en as appName')
+        ->select('urls.*','ac.name_en as clientName','ac.name_np as nepaliName','app.name_en as appName')
             ->where('urls.client_id', '=', $client_id)
             ->distinct('app_id')
 

@@ -15,7 +15,11 @@ class UserController extends Controller
 {
 
     public function index(){
-        $users = User::all();
+        // $users = User::all();
+        $users = DB::table('users')
+        ->leftJoin('public.app_client as at','users.client_id','=','at.id')
+        ->select('at.name_np as clientName','users.*')
+        ->get();
         return view('users.index',compact('users'))
         ->with('i');
     }
@@ -112,5 +116,21 @@ class UserController extends Controller
         
         
     }
+
+    // public function search(Request $request)
+    // {
+    //     $searchQuery = $request->input('search'); // Get the search query from the request
+
+    //     $users = DB::table('users')
+    //     ->leftJoin('public.app_client as at', 'users.client_id', '=', 'at.id')
+    //     ->select('at.name_np as clientName', 'users.*')
+    //     ->where(function ($query) use ($searchQuery) {
+    //         $query->where('at.name_np', 'LIKE', '%' . $searchQuery . '%') // Search by clientName
+    //               ->orWhere('users.name', 'LIKE', '%' . $searchQuery . '%'); // Search by username
+    //     })
+    //     ->get();
+
+    //     return view('users.index', compact('users'))->with('i', 1);
+    // }
 
 }
