@@ -18,7 +18,7 @@
     </fieldset>
 
     <fieldset>
-      <strong>App Name:</strong>
+      <strong>App Names:</strong>
       @foreach ($app as $apps)
       <div>
         <input type="checkbox" id="app_{{ $apps->id }}" name="app_id[]" value="{{ $apps->id }}">
